@@ -1,0 +1,40 @@
+<div class='zurb-row' id="mainmenu">
+    <ul>
+        <li>
+            <%= link_to("Prospecting") %>
+            <div class="arrow"></div>
+        </li>
+        <li>
+            <%= link_to("Leads") %>
+            <div class="arrow"></div>
+        </li>
+        <li>
+            <%= link_to("Estimating") %>
+            <div class="arrow"></div>
+        </li>
+        <li>
+            <%= link_to("Contracts") %>
+            <div class="arrow"></div>
+        </li>
+        <li>
+            <%= link_to("Project Mgmt") %>
+            <div class="arrow"></div>
+        </li>
+        <li>
+            <%= link_to("Contacts", contacts_url) %>
+            <div class="arrow"></div>
+        </li>
+        <li>
+            <%= link_to("Accounting") %>
+            <div class="arrow"></div>
+        </li>
+        <li>
+            <%= link_to("Preferences") %>
+            <div class="arrow"></div>
+        </li>
+        <li>
+            <%= link_to("Company") %>
+            <div class="arrow"></div>
+        </li>
+    </ul>
+</div>
