@@ -1,2 +1,3 @@
-class Company < User
+class Company < ActiveRecord::Base
+	has_one :user, as: :profile, dependent: :destroy
 end
