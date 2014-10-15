@@ -15,6 +15,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string   "city"
       t.string   "state"
       t.integer  "zipcode"
+      t.boolean  "active"
       t.timestamps
     end
   end
