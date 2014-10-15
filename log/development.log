@@ -11080,3 +11080,2750 @@ Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-10-15 00:43:51 -0500
 
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-15 00:43:51 -0500
+
+
+Started GET "/users" for 127.0.0.1 at 2014-10-15 18:01:13 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users"
+  Rendered users/index.html.erb within layouts/application (8.8ms)
+DEPRECATION WARNING: The file /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/_navigation did not specify a template handler. The default is currently ERB, but will change to RAW in the future. (called from _app_views_layouts_application_html_erb___3970823981150417810_70160857645480 at /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/application.html.erb:29)
+  Rendered layouts/_navigation (1.8ms)
+Completed 200 OK in 130ms (Views: 111.4ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/assets/associations.css?body=1" for 127.0.0.1 at 2014-10-15 18:01:13 -0500
+
+
+Started GET "/assets/companies.css?body=1" for 127.0.0.1 at 2014-10-15 18:01:13 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-15 18:01:13 -0500
+
+
+Started GET "/assets/contacts.css?body=1" for 127.0.0.1 at 2014-10-15 18:01:13 -0500
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-10-15 18:01:13 -0500
+
+
+Started GET "/assets/people.css?body=1" for 127.0.0.1 at 2014-10-15 18:01:13 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-15 18:01:13 -0500
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-10-15 18:01:13 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-15 18:01:13 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-15 18:01:13 -0500
+
+
+Started GET "/assets/associations.js?body=1" for 127.0.0.1 at 2014-10-15 18:01:13 -0500
+
+
+Started GET "/assets/companies.js?body=1" for 127.0.0.1 at 2014-10-15 18:01:13 -0500
+
+
+Started GET "/assets/contacts.js?body=1" for 127.0.0.1 at 2014-10-15 18:01:13 -0500
+
+
+Started GET "/assets/people.js?body=1" for 127.0.0.1 at 2014-10-15 18:01:13 -0500
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-10-15 18:01:13 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-15 18:01:13 -0500
+
+
+Started GET "/companies" for 127.0.0.1 at 2014-10-15 18:01:21 -0500
+Processing by CompaniesController#index as HTML
+  [1m[36mCompany Load (1.0ms)[0m  [1mSELECT "companies".* FROM "companies"[0m
+  Rendered companies/index.html.erb within layouts/application (11.3ms)
+DEPRECATION WARNING: The file /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/_navigation did not specify a template handler. The default is currently ERB, but will change to RAW in the future. (called from _app_views_layouts_application_html_erb___3970823981150417810_70160857645480 at /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/application.html.erb:29)
+  Rendered layouts/_navigation (1.6ms)
+Completed 200 OK in 97ms (Views: 91.0ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/assets/associations.css?body=1" for 127.0.0.1 at 2014-10-15 18:01:21 -0500
+
+
+Started GET "/assets/contacts.css?body=1" for 127.0.0.1 at 2014-10-15 18:01:21 -0500
+
+
+Started GET "/assets/people.css?body=1" for 127.0.0.1 at 2014-10-15 18:01:22 -0500
+
+
+Started GET "/assets/companies.css?body=1" for 127.0.0.1 at 2014-10-15 18:01:22 -0500
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-10-15 18:01:22 -0500
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-10-15 18:01:22 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-15 18:01:22 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-15 18:01:22 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-15 18:01:22 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-15 18:01:22 -0500
+
+
+Started GET "/assets/associations.js?body=1" for 127.0.0.1 at 2014-10-15 18:01:22 -0500
+
+
+Started GET "/assets/companies.js?body=1" for 127.0.0.1 at 2014-10-15 18:01:22 -0500
+
+
+Started GET "/assets/contacts.js?body=1" for 127.0.0.1 at 2014-10-15 18:01:22 -0500
+
+
+Started GET "/assets/people.js?body=1" for 127.0.0.1 at 2014-10-15 18:01:22 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-15 18:01:22 -0500
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-10-15 18:01:22 -0500
+
+
+Started GET "/users" for 127.0.0.1 at 2014-10-15 18:01:37 -0500
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users"
+  Rendered users/index.html.erb within layouts/application (2.8ms)
+DEPRECATION WARNING: The file /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/_navigation did not specify a template handler. The default is currently ERB, but will change to RAW in the future. (called from _app_views_layouts_application_html_erb___3970823981150417810_70160857645480 at /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/application.html.erb:29)
+  Rendered layouts/_navigation (0.9ms)
+Completed 200 OK in 68ms (Views: 67.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/associations.css?body=1" for 127.0.0.1 at 2014-10-15 18:01:37 -0500
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-10-15 18:01:37 -0500
+
+
+Started GET "/assets/companies.css?body=1" for 127.0.0.1 at 2014-10-15 18:01:37 -0500
+
+
+Started GET "/assets/people.css?body=1" for 127.0.0.1 at 2014-10-15 18:01:37 -0500
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-10-15 18:01:37 -0500
+
+
+Started GET "/assets/contacts.css?body=1" for 127.0.0.1 at 2014-10-15 18:01:37 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-15 18:01:37 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-15 18:01:37 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-15 18:01:37 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-15 18:01:37 -0500
+
+
+Started GET "/assets/associations.js?body=1" for 127.0.0.1 at 2014-10-15 18:01:37 -0500
+
+
+Started GET "/assets/companies.js?body=1" for 127.0.0.1 at 2014-10-15 18:01:37 -0500
+
+
+Started GET "/assets/contacts.js?body=1" for 127.0.0.1 at 2014-10-15 18:01:37 -0500
+
+
+Started GET "/assets/people.js?body=1" for 127.0.0.1 at 2014-10-15 18:01:37 -0500
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-10-15 18:01:37 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-15 18:01:37 -0500
+
+
+Started GET "/users" for 127.0.0.1 at 2014-10-15 18:05:45 -0500
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (7.0ms)
+DEPRECATION WARNING: The file /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/_navigation did not specify a template handler. The default is currently ERB, but will change to RAW in the future. (called from _app_views_layouts_application_html_erb___3970823981150417810_70160857645480 at /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/application.html.erb:29)
+  Rendered layouts/_navigation (1.5ms)
+Completed 200 OK in 75ms (Views: 69.5ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/associations.css?body=1" for 127.0.0.1 at 2014-10-15 18:05:45 -0500
+
+
+Started GET "/assets/people.css?body=1" for 127.0.0.1 at 2014-10-15 18:05:45 -0500
+
+
+Started GET "/assets/contacts.css?body=1" for 127.0.0.1 at 2014-10-15 18:05:45 -0500
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-10-15 18:05:45 -0500
+
+
+Started GET "/assets/companies.css?body=1" for 127.0.0.1 at 2014-10-15 18:05:45 -0500
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-10-15 18:05:45 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-15 18:05:45 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-15 18:05:45 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-15 18:05:45 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-15 18:05:45 -0500
+
+
+Started GET "/assets/associations.js?body=1" for 127.0.0.1 at 2014-10-15 18:05:45 -0500
+
+
+Started GET "/assets/companies.js?body=1" for 127.0.0.1 at 2014-10-15 18:05:45 -0500
+
+
+Started GET "/assets/contacts.js?body=1" for 127.0.0.1 at 2014-10-15 18:05:45 -0500
+
+
+Started GET "/assets/people.js?body=1" for 127.0.0.1 at 2014-10-15 18:05:45 -0500
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-10-15 18:05:45 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-15 18:05:45 -0500
+
+
+Started GET "/companies" for 127.0.0.1 at 2014-10-15 18:05:53 -0500
+Processing by CompaniesController#index as HTML
+  [1m[35mCompany Load (0.3ms)[0m  SELECT "companies".* FROM "companies"
+  Rendered companies/index.html.erb within layouts/application (7.6ms)
+DEPRECATION WARNING: The file /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/_navigation did not specify a template handler. The default is currently ERB, but will change to RAW in the future. (called from _app_views_layouts_application_html_erb___3970823981150417810_70160857645480 at /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/application.html.erb:29)
+  Rendered layouts/_navigation (1.3ms)
+Completed 200 OK in 86ms (Views: 81.9ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/associations.css?body=1" for 127.0.0.1 at 2014-10-15 18:05:53 -0500
+
+
+Started GET "/assets/contacts.css?body=1" for 127.0.0.1 at 2014-10-15 18:05:53 -0500
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-10-15 18:05:53 -0500
+
+
+Started GET "/assets/companies.css?body=1" for 127.0.0.1 at 2014-10-15 18:05:53 -0500
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-10-15 18:05:53 -0500
+
+
+Started GET "/assets/people.css?body=1" for 127.0.0.1 at 2014-10-15 18:05:53 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-15 18:05:53 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-15 18:05:53 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-15 18:05:53 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-15 18:05:53 -0500
+
+
+Started GET "/assets/associations.js?body=1" for 127.0.0.1 at 2014-10-15 18:05:53 -0500
+
+
+Started GET "/assets/companies.js?body=1" for 127.0.0.1 at 2014-10-15 18:05:53 -0500
+
+
+Started GET "/assets/contacts.js?body=1" for 127.0.0.1 at 2014-10-15 18:05:53 -0500
+
+
+Started GET "/assets/people.js?body=1" for 127.0.0.1 at 2014-10-15 18:05:53 -0500
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-10-15 18:05:53 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-15 18:05:53 -0500
+
+
+Started GET "/companies/new" for 127.0.0.1 at 2014-10-15 18:05:55 -0500
+Processing by CompaniesController#new as HTML
+  Rendered companies/_form.html.erb (13.2ms)
+  Rendered companies/new.html.erb within layouts/application (15.2ms)
+DEPRECATION WARNING: The file /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/_navigation did not specify a template handler. The default is currently ERB, but will change to RAW in the future. (called from _app_views_layouts_application_html_erb___3970823981150417810_70160857645480 at /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/application.html.erb:29)
+  Rendered layouts/_navigation (1.6ms)
+Completed 200 OK in 68ms (Views: 67.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/companies" for 127.0.0.1 at 2014-10-15 18:06:03 -0500
+Processing by CompaniesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"321Y2q8hHm6Frjti+H3jU5U27j+UhK+oQeQJ231w7Pw=", "company"=>{"company_name"=>"PCS"}, "commit"=>"Create Company"}
+  [1m[36m (0.8ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "companies" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"  [["created_at", "2014-10-15 23:06:03.481086"], ["updated_at", "2014-10-15 23:06:03.481086"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("profile_id", "profile_type") VALUES ($1, $2) RETURNING "id"[0m  [["profile_id", 3], ["profile_type", "Company"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+Redirected to http://localhost:3000/users/8
+Completed 302 Found in 23ms (ActiveRecord: 3.4ms)
+
+
+Started GET "/users/8" for 127.0.0.1 at 2014-10-15 18:06:03 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 8]]
+  Rendered users/show.html.erb within layouts/application (1.0ms)
+DEPRECATION WARNING: The file /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/_navigation did not specify a template handler. The default is currently ERB, but will change to RAW in the future. (called from _app_views_layouts_application_html_erb___3970823981150417810_70160857645480 at /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/application.html.erb:29)
+  Rendered layouts/_navigation (1.1ms)
+Completed 200 OK in 67ms (Views: 62.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-10-15 18:06:03 -0500
+
+
+Started GET "/assets/contacts.css?body=1" for 127.0.0.1 at 2014-10-15 18:06:03 -0500
+
+
+Started GET "/assets/companies.css?body=1" for 127.0.0.1 at 2014-10-15 18:06:03 -0500
+
+
+Started GET "/assets/associations.css?body=1" for 127.0.0.1 at 2014-10-15 18:06:03 -0500
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-10-15 18:06:03 -0500
+
+
+Started GET "/assets/people.css?body=1" for 127.0.0.1 at 2014-10-15 18:06:03 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-15 18:06:03 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-15 18:06:03 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-15 18:06:03 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-15 18:06:03 -0500
+
+
+Started GET "/assets/associations.js?body=1" for 127.0.0.1 at 2014-10-15 18:06:03 -0500
+
+
+Started GET "/assets/companies.js?body=1" for 127.0.0.1 at 2014-10-15 18:06:03 -0500
+
+
+Started GET "/assets/contacts.js?body=1" for 127.0.0.1 at 2014-10-15 18:06:03 -0500
+
+
+Started GET "/assets/people.js?body=1" for 127.0.0.1 at 2014-10-15 18:06:03 -0500
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-10-15 18:06:03 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-15 18:06:03 -0500
+
+
+Started GET "/users" for 127.0.0.1 at 2014-10-15 18:06:05 -0500
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
+  Rendered users/index.html.erb within layouts/application (3.2ms)
+DEPRECATION WARNING: The file /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/_navigation did not specify a template handler. The default is currently ERB, but will change to RAW in the future. (called from _app_views_layouts_application_html_erb___3970823981150417810_70160857645480 at /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/application.html.erb:29)
+  Rendered layouts/_navigation (1.1ms)
+Completed 200 OK in 59ms (Views: 58.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2014-10-15 18:06:16 -0500
+Processing by CompaniesController#index as HTML
+  [1m[36mCompany Load (0.3ms)[0m  [1mSELECT "companies".* FROM "companies"[0m
+  Rendered companies/index.html.erb within layouts/application (2.0ms)
+DEPRECATION WARNING: The file /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/_navigation did not specify a template handler. The default is currently ERB, but will change to RAW in the future. (called from _app_views_layouts_application_html_erb___3970823981150417810_70160857645480 at /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/application.html.erb:29)
+  Rendered layouts/_navigation (1.5ms)
+Completed 200 OK in 60ms (Views: 59.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/associations.css?body=1" for 127.0.0.1 at 2014-10-15 18:06:16 -0500
+
+
+Started GET "/assets/companies.css?body=1" for 127.0.0.1 at 2014-10-15 18:06:16 -0500
+
+
+Started GET "/assets/contacts.css?body=1" for 127.0.0.1 at 2014-10-15 18:06:16 -0500
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-10-15 18:06:16 -0500
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-10-15 18:06:16 -0500
+
+
+Started GET "/assets/people.css?body=1" for 127.0.0.1 at 2014-10-15 18:06:16 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-15 18:06:16 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-15 18:06:16 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-15 18:06:16 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-15 18:06:16 -0500
+
+
+Started GET "/assets/associations.js?body=1" for 127.0.0.1 at 2014-10-15 18:06:16 -0500
+
+
+Started GET "/assets/companies.js?body=1" for 127.0.0.1 at 2014-10-15 18:06:16 -0500
+
+
+Started GET "/assets/contacts.js?body=1" for 127.0.0.1 at 2014-10-15 18:06:16 -0500
+
+
+Started GET "/assets/people.js?body=1" for 127.0.0.1 at 2014-10-15 18:06:16 -0500
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-10-15 18:06:16 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-15 18:06:16 -0500
+
+
+Started GET "/companies/3/edit" for 127.0.0.1 at 2014-10-15 18:06:24 -0500
+Processing by CompaniesController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mCompany Load (0.3ms)[0m  SELECT  "companies".* FROM "companies"  WHERE "companies"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered companies/_form.html.erb (1.2ms)
+  Rendered companies/edit.html.erb within layouts/application (2.5ms)
+DEPRECATION WARNING: The file /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/_navigation did not specify a template handler. The default is currently ERB, but will change to RAW in the future. (called from _app_views_layouts_application_html_erb___3970823981150417810_70160857645480 at /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/application.html.erb:29)
+  Rendered layouts/_navigation (1.9ms)
+Completed 200 OK in 52ms (Views: 50.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/companies/new" for 127.0.0.1 at 2014-10-15 18:06:43 -0500
+Processing by CompaniesController#new as HTML
+  Rendered companies/_form.html.erb (1.1ms)
+  Rendered companies/new.html.erb within layouts/application (2.0ms)
+DEPRECATION WARNING: The file /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/_navigation did not specify a template handler. The default is currently ERB, but will change to RAW in the future. (called from _app_views_layouts_application_html_erb___3970823981150417810_70160857645480 at /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/application.html.erb:29)
+  Rendered layouts/_navigation (1.0ms)
+Completed 200 OK in 61ms (Views: 60.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/companies" for 127.0.0.1 at 2014-10-15 18:06:45 -0500
+Processing by CompaniesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"321Y2q8hHm6Frjti+H3jU5U27j+UhK+oQeQJ231w7Pw=", "company"=>{"company_name"=>"234"}, "commit"=>"Create Company"}
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "companies" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"  [["created_at", "2014-10-15 23:06:45.810476"], ["updated_at", "2014-10-15 23:06:45.810476"]]
+  [1m[36m (0.9ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("profile_id", "profile_type") VALUES ($1, $2) RETURNING "id"[0m  [["profile_id", 4], ["profile_type", "Company"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+Redirected to http://localhost:3000/users/9
+Completed 302 Found in 7ms (ActiveRecord: 2.6ms)
+
+
+Started GET "/users/9" for 127.0.0.1 at 2014-10-15 18:06:45 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 9]]
+  Rendered users/show.html.erb within layouts/application (0.3ms)
+DEPRECATION WARNING: The file /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/_navigation did not specify a template handler. The default is currently ERB, but will change to RAW in the future. (called from _app_views_layouts_application_html_erb___3970823981150417810_70160857645480 at /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/application.html.erb:29)
+  Rendered layouts/_navigation (0.9ms)
+Completed 200 OK in 57ms (Views: 54.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/associations.css?body=1" for 127.0.0.1 at 2014-10-15 18:06:45 -0500
+
+
+Started GET "/assets/contacts.css?body=1" for 127.0.0.1 at 2014-10-15 18:06:45 -0500
+
+
+Started GET "/assets/companies.css?body=1" for 127.0.0.1 at 2014-10-15 18:06:45 -0500
+
+
+Started GET "/assets/people.css?body=1" for 127.0.0.1 at 2014-10-15 18:06:45 -0500
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-10-15 18:06:45 -0500
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-10-15 18:06:45 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-15 18:06:45 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-15 18:06:45 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-15 18:06:45 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-15 18:06:45 -0500
+
+
+Started GET "/assets/associations.js?body=1" for 127.0.0.1 at 2014-10-15 18:06:45 -0500
+
+
+Started GET "/assets/companies.js?body=1" for 127.0.0.1 at 2014-10-15 18:06:45 -0500
+
+
+Started GET "/assets/contacts.js?body=1" for 127.0.0.1 at 2014-10-15 18:06:45 -0500
+
+
+Started GET "/assets/people.js?body=1" for 127.0.0.1 at 2014-10-15 18:06:45 -0500
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-10-15 18:06:45 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-15 18:06:45 -0500
+
+
+Started GET "/users" for 127.0.0.1 at 2014-10-15 18:06:48 -0500
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
+  Rendered users/index.html.erb within layouts/application (2.9ms)
+DEPRECATION WARNING: The file /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/_navigation did not specify a template handler. The default is currently ERB, but will change to RAW in the future. (called from _app_views_layouts_application_html_erb___3970823981150417810_70160857645480 at /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/application.html.erb:29)
+  Rendered layouts/_navigation (0.8ms)
+Completed 200 OK in 54ms (Views: 53.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2014-10-15 18:06:57 -0500
+Processing by CompaniesController#index as HTML
+  [1m[36mCompany Load (0.3ms)[0m  [1mSELECT "companies".* FROM "companies"[0m
+  Rendered companies/index.html.erb within layouts/application (1.9ms)
+DEPRECATION WARNING: The file /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/_navigation did not specify a template handler. The default is currently ERB, but will change to RAW in the future. (called from _app_views_layouts_application_html_erb___3970823981150417810_70160857645480 at /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/application.html.erb:29)
+  Rendered layouts/_navigation (0.9ms)
+Completed 200 OK in 54ms (Views: 52.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/companies.css?body=1" for 127.0.0.1 at 2014-10-15 18:06:58 -0500
+
+
+Started GET "/assets/associations.css?body=1" for 127.0.0.1 at 2014-10-15 18:06:58 -0500
+
+
+Started GET "/assets/people.css?body=1" for 127.0.0.1 at 2014-10-15 18:06:58 -0500
+
+
+Started GET "/assets/contacts.css?body=1" for 127.0.0.1 at 2014-10-15 18:06:58 -0500
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-10-15 18:06:58 -0500
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-10-15 18:06:58 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-15 18:06:58 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-15 18:06:58 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-15 18:06:58 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-15 18:06:58 -0500
+
+
+Started GET "/assets/associations.js?body=1" for 127.0.0.1 at 2014-10-15 18:06:58 -0500
+
+
+Started GET "/assets/companies.js?body=1" for 127.0.0.1 at 2014-10-15 18:06:58 -0500
+
+
+Started GET "/assets/contacts.js?body=1" for 127.0.0.1 at 2014-10-15 18:06:58 -0500
+
+
+Started GET "/assets/people.js?body=1" for 127.0.0.1 at 2014-10-15 18:06:58 -0500
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-10-15 18:06:58 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-15 18:06:58 -0500
+
+
+Started GET "/companies" for 127.0.0.1 at 2014-10-15 18:07:32 -0500
+
+SyntaxError (/Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/controllers/companies_controller.rb:27: syntax error, unexpected '!', expecting '}'
+...Company.create(company_params)!}
+...                               ^
+/Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/controllers/companies_controller.rb:40: syntax error, unexpected keyword_end, expecting '}'
+/Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/controllers/companies_controller.rb:76: syntax error, unexpected keyword_end, expecting '}'):
+  app/controllers/companies_controller.rb:27: syntax error, unexpected '!', expecting '}'
+  app/controllers/companies_controller.rb:40: syntax error, unexpected keyword_end, expecting '}'
+  app/controllers/companies_controller.rb:76: syntax error, unexpected keyword_end, expecting '}'
+
+
+  Rendered /Users/jonathan/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.8ms)
+  Rendered /Users/jonathan/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /Users/jonathan/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/jonathan/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (16.8ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2014-10-15 18:12:01 -0500
+Processing by CompaniesController#index as HTML
+  [1m[35mCompany Load (0.5ms)[0m  SELECT "companies".* FROM "companies"
+  Rendered companies/index.html.erb within layouts/application (10.8ms)
+DEPRECATION WARNING: The file /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/_navigation did not specify a template handler. The default is currently ERB, but will change to RAW in the future. (called from _app_views_layouts_application_html_erb___3970823981150417810_70160857645480 at /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/application.html.erb:29)
+  Rendered layouts/_navigation (1.4ms)
+Completed 200 OK in 64ms (Views: 59.8ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/assets/associations.css?body=1" for 127.0.0.1 at 2014-10-15 18:12:01 -0500
+
+
+Started GET "/assets/companies.css?body=1" for 127.0.0.1 at 2014-10-15 18:12:01 -0500
+
+
+Started GET "/assets/contacts.css?body=1" for 127.0.0.1 at 2014-10-15 18:12:01 -0500
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-10-15 18:12:01 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-15 18:12:01 -0500
+
+
+Started GET "/assets/people.css?body=1" for 127.0.0.1 at 2014-10-15 18:12:01 -0500
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-10-15 18:12:01 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-15 18:12:01 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-15 18:12:01 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-15 18:12:01 -0500
+
+
+Started GET "/assets/associations.js?body=1" for 127.0.0.1 at 2014-10-15 18:12:01 -0500
+
+
+Started GET "/assets/companies.js?body=1" for 127.0.0.1 at 2014-10-15 18:12:01 -0500
+
+
+Started GET "/assets/contacts.js?body=1" for 127.0.0.1 at 2014-10-15 18:12:01 -0500
+
+
+Started GET "/assets/people.js?body=1" for 127.0.0.1 at 2014-10-15 18:12:01 -0500
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-10-15 18:12:01 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-15 18:12:01 -0500
+
+
+Started GET "/companies/new" for 127.0.0.1 at 2014-10-15 18:12:05 -0500
+Processing by CompaniesController#new as HTML
+  Rendered companies/_form.html.erb (1.3ms)
+  Rendered companies/new.html.erb within layouts/application (2.5ms)
+DEPRECATION WARNING: The file /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/_navigation did not specify a template handler. The default is currently ERB, but will change to RAW in the future. (called from _app_views_layouts_application_html_erb___3970823981150417810_70160857645480 at /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/application.html.erb:29)
+  Rendered layouts/_navigation (1.7ms)
+Completed 200 OK in 58ms (Views: 57.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/companies" for 127.0.0.1 at 2014-10-15 18:12:09 -0500
+Processing by CompaniesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"321Y2q8hHm6Frjti+H3jU5U27j+UhK+oQeQJ231w7Pw=", "company"=>{"company_name"=>"Test"}, "commit"=>"Create Company"}
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "companies" ("company_name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["company_name", "Test"], ["created_at", "2014-10-15 23:12:09.524996"], ["updated_at", "2014-10-15 23:12:09.524996"]]
+  [1m[36m (1.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("profile_id", "profile_type") VALUES ($1, $2) RETURNING "id"[0m  [["profile_id", 5], ["profile_type", "Company"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+Redirected to http://localhost:3000/users/10
+Completed 302 Found in 22ms (ActiveRecord: 5.6ms)
+
+
+Started GET "/users/10" for 127.0.0.1 at 2014-10-15 18:12:09 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 10]]
+  Rendered users/show.html.erb within layouts/application (0.4ms)
+DEPRECATION WARNING: The file /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/_navigation did not specify a template handler. The default is currently ERB, but will change to RAW in the future. (called from _app_views_layouts_application_html_erb___3970823981150417810_70160857645480 at /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/application.html.erb:29)
+  Rendered layouts/_navigation (1.2ms)
+Completed 200 OK in 58ms (Views: 55.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/associations.css?body=1" for 127.0.0.1 at 2014-10-15 18:12:09 -0500
+
+
+Started GET "/assets/contacts.css?body=1" for 127.0.0.1 at 2014-10-15 18:12:09 -0500
+
+
+Started GET "/assets/people.css?body=1" for 127.0.0.1 at 2014-10-15 18:12:09 -0500
+
+
+Started GET "/assets/companies.css?body=1" for 127.0.0.1 at 2014-10-15 18:12:09 -0500
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-10-15 18:12:09 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-15 18:12:09 -0500
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-10-15 18:12:09 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-15 18:12:09 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-15 18:12:09 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-15 18:12:09 -0500
+
+
+Started GET "/assets/associations.js?body=1" for 127.0.0.1 at 2014-10-15 18:12:09 -0500
+
+
+Started GET "/assets/companies.js?body=1" for 127.0.0.1 at 2014-10-15 18:12:09 -0500
+
+
+Started GET "/assets/contacts.js?body=1" for 127.0.0.1 at 2014-10-15 18:12:09 -0500
+
+
+Started GET "/assets/people.js?body=1" for 127.0.0.1 at 2014-10-15 18:12:09 -0500
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-10-15 18:12:09 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-15 18:12:09 -0500
+
+
+Started GET "/users" for 127.0.0.1 at 2014-10-15 18:12:11 -0500
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
+  Rendered users/index.html.erb within layouts/application (5.2ms)
+DEPRECATION WARNING: The file /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/_navigation did not specify a template handler. The default is currently ERB, but will change to RAW in the future. (called from _app_views_layouts_application_html_erb___3970823981150417810_70160857645480 at /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/application.html.erb:29)
+  Rendered layouts/_navigation (1.0ms)
+Completed 200 OK in 59ms (Views: 58.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2014-10-15 18:12:16 -0500
+Processing by CompaniesController#index as HTML
+  [1m[36mCompany Load (0.3ms)[0m  [1mSELECT "companies".* FROM "companies"[0m
+  Rendered companies/index.html.erb within layouts/application (2.2ms)
+DEPRECATION WARNING: The file /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/_navigation did not specify a template handler. The default is currently ERB, but will change to RAW in the future. (called from _app_views_layouts_application_html_erb___3970823981150417810_70160857645480 at /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/application.html.erb:29)
+  Rendered layouts/_navigation (1.6ms)
+Completed 200 OK in 74ms (Views: 73.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/contacts.css?body=1" for 127.0.0.1 at 2014-10-15 18:12:17 -0500
+
+
+Started GET "/assets/associations.css?body=1" for 127.0.0.1 at 2014-10-15 18:12:17 -0500
+
+
+Started GET "/assets/companies.css?body=1" for 127.0.0.1 at 2014-10-15 18:12:17 -0500
+
+
+Started GET "/assets/people.css?body=1" for 127.0.0.1 at 2014-10-15 18:12:17 -0500
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-10-15 18:12:17 -0500
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-10-15 18:12:17 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-15 18:12:17 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-15 18:12:17 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-15 18:12:17 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-15 18:12:17 -0500
+
+
+Started GET "/assets/associations.js?body=1" for 127.0.0.1 at 2014-10-15 18:12:17 -0500
+
+
+Started GET "/assets/companies.js?body=1" for 127.0.0.1 at 2014-10-15 18:12:17 -0500
+
+
+Started GET "/assets/contacts.js?body=1" for 127.0.0.1 at 2014-10-15 18:12:17 -0500
+
+
+Started GET "/assets/people.js?body=1" for 127.0.0.1 at 2014-10-15 18:12:17 -0500
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-10-15 18:12:17 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-15 18:12:17 -0500
+
+
+Started GET "/companies" for 127.0.0.1 at 2014-10-15 18:13:29 -0500
+Processing by CompaniesController#index as HTML
+  [1m[35mCompany Load (0.3ms)[0m  SELECT "companies".* FROM "companies"
+  Rendered companies/index.html.erb within layouts/application (10.1ms)
+DEPRECATION WARNING: The file /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/_navigation did not specify a template handler. The default is currently ERB, but will change to RAW in the future. (called from _app_views_layouts_application_html_erb___3970823981150417810_70160857645480 at /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/application.html.erb:29)
+  Rendered layouts/_navigation (1.5ms)
+Completed 200 OK in 83ms (Views: 78.8ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/assets/companies.css?body=1" for 127.0.0.1 at 2014-10-15 18:13:29 -0500
+
+
+Started GET "/assets/associations.css?body=1" for 127.0.0.1 at 2014-10-15 18:13:29 -0500
+
+
+Started GET "/assets/people.css?body=1" for 127.0.0.1 at 2014-10-15 18:13:29 -0500
+
+
+Started GET "/assets/contacts.css?body=1" for 127.0.0.1 at 2014-10-15 18:13:29 -0500
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-10-15 18:13:29 -0500
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-10-15 18:13:29 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-15 18:13:29 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-15 18:13:29 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-15 18:13:29 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-15 18:13:29 -0500
+
+
+Started GET "/assets/associations.js?body=1" for 127.0.0.1 at 2014-10-15 18:13:29 -0500
+
+
+Started GET "/assets/companies.js?body=1" for 127.0.0.1 at 2014-10-15 18:13:29 -0500
+
+
+Started GET "/assets/contacts.js?body=1" for 127.0.0.1 at 2014-10-15 18:13:29 -0500
+
+
+Started GET "/assets/people.js?body=1" for 127.0.0.1 at 2014-10-15 18:13:29 -0500
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-10-15 18:13:29 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-15 18:13:29 -0500
+
+
+Started GET "/people" for 127.0.0.1 at 2014-10-15 18:13:34 -0500
+Processing by PeopleController#index as HTML
+  [1m[36mPerson Load (1.0ms)[0m  [1mSELECT "people".* FROM "people"[0m
+  Rendered people/index.html.erb within layouts/application (9.4ms)
+DEPRECATION WARNING: The file /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/_navigation did not specify a template handler. The default is currently ERB, but will change to RAW in the future. (called from _app_views_layouts_application_html_erb___3970823981150417810_70160857645480 at /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/application.html.erb:29)
+  Rendered layouts/_navigation (1.1ms)
+Completed 200 OK in 67ms (Views: 64.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/associations.css?body=1" for 127.0.0.1 at 2014-10-15 18:13:34 -0500
+
+
+Started GET "/assets/companies.css?body=1" for 127.0.0.1 at 2014-10-15 18:13:34 -0500
+
+
+Started GET "/assets/people.css?body=1" for 127.0.0.1 at 2014-10-15 18:13:34 -0500
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-10-15 18:13:34 -0500
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-10-15 18:13:34 -0500
+
+
+Started GET "/assets/contacts.css?body=1" for 127.0.0.1 at 2014-10-15 18:13:34 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-15 18:13:34 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-15 18:13:34 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-15 18:13:34 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-15 18:13:34 -0500
+
+
+Started GET "/assets/associations.js?body=1" for 127.0.0.1 at 2014-10-15 18:13:34 -0500
+
+
+Started GET "/assets/companies.js?body=1" for 127.0.0.1 at 2014-10-15 18:13:34 -0500
+
+
+Started GET "/assets/contacts.js?body=1" for 127.0.0.1 at 2014-10-15 18:13:34 -0500
+
+
+Started GET "/assets/people.js?body=1" for 127.0.0.1 at 2014-10-15 18:13:34 -0500
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-10-15 18:13:34 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-15 18:13:34 -0500
+
+
+Started GET "/people/new" for 127.0.0.1 at 2014-10-15 18:13:35 -0500
+Processing by PeopleController#new as HTML
+  Rendered people/_form.html.erb (8.7ms)
+  Rendered people/new.html.erb within layouts/application (9.9ms)
+DEPRECATION WARNING: The file /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/_navigation did not specify a template handler. The default is currently ERB, but will change to RAW in the future. (called from _app_views_layouts_application_html_erb___3970823981150417810_70160857645480 at /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/application.html.erb:29)
+  Rendered layouts/_navigation (0.9ms)
+Completed 200 OK in 76ms (Views: 73.3ms | ActiveRecord: 1.8ms)
+
+
+Started POST "/people" for 127.0.0.1 at 2014-10-15 18:13:38 -0500
+Processing by PeopleController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"321Y2q8hHm6Frjti+H3jU5U27j+UhK+oQeQJ231w7Pw=", "commit"=>"Create Person"}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (1.6ms)[0m  [1mINSERT INTO "people" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2014-10-15 23:13:38.223544"], ["updated_at", "2014-10-15 23:13:38.223544"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("profile_id", "profile_type") VALUES ($1, $2) RETURNING "id"  [["profile_id", 1], ["profile_type", "Person"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/users/11
+Completed 302 Found in 21ms (ActiveRecord: 6.4ms)
+
+
+Started GET "/users/11" for 127.0.0.1 at 2014-10-15 18:13:38 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 11]]
+  Rendered users/show.html.erb within layouts/application (0.3ms)
+DEPRECATION WARNING: The file /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/_navigation did not specify a template handler. The default is currently ERB, but will change to RAW in the future. (called from _app_views_layouts_application_html_erb___3970823981150417810_70160857645480 at /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/application.html.erb:29)
+  Rendered layouts/_navigation (1.3ms)
+Completed 200 OK in 62ms (Views: 58.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/associations.css?body=1" for 127.0.0.1 at 2014-10-15 18:13:38 -0500
+
+
+Started GET "/assets/companies.css?body=1" for 127.0.0.1 at 2014-10-15 18:13:38 -0500
+
+
+Started GET "/assets/contacts.css?body=1" for 127.0.0.1 at 2014-10-15 18:13:38 -0500
+
+
+Started GET "/assets/people.css?body=1" for 127.0.0.1 at 2014-10-15 18:13:38 -0500
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-10-15 18:13:38 -0500
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-10-15 18:13:38 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-15 18:13:38 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-15 18:13:38 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-15 18:13:38 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-15 18:13:38 -0500
+
+
+Started GET "/assets/associations.js?body=1" for 127.0.0.1 at 2014-10-15 18:13:38 -0500
+
+
+Started GET "/assets/companies.js?body=1" for 127.0.0.1 at 2014-10-15 18:13:38 -0500
+
+
+Started GET "/assets/contacts.js?body=1" for 127.0.0.1 at 2014-10-15 18:13:38 -0500
+
+
+Started GET "/assets/people.js?body=1" for 127.0.0.1 at 2014-10-15 18:13:38 -0500
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-10-15 18:13:38 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-15 18:13:38 -0500
+
+
+Started GET "/users" for 127.0.0.1 at 2014-10-15 18:13:39 -0500
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (6.0ms)
+DEPRECATION WARNING: The file /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/_navigation did not specify a template handler. The default is currently ERB, but will change to RAW in the future. (called from _app_views_layouts_application_html_erb___3970823981150417810_70160857645480 at /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/application.html.erb:29)
+  Rendered layouts/_navigation (0.9ms)
+Completed 200 OK in 67ms (Views: 65.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2014-10-15 18:14:30 -0500
+Processing by PeopleController#index as HTML
+  [1m[35mPerson Load (0.5ms)[0m  SELECT "people".* FROM "people"
+  Rendered people/index.html.erb within layouts/application (1.8ms)
+DEPRECATION WARNING: The file /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/_navigation did not specify a template handler. The default is currently ERB, but will change to RAW in the future. (called from _app_views_layouts_application_html_erb___3970823981150417810_70160857645480 at /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/application.html.erb:29)
+  Rendered layouts/_navigation (1.0ms)
+Completed 200 OK in 55ms (Views: 54.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/associations.css?body=1" for 127.0.0.1 at 2014-10-15 18:14:30 -0500
+
+
+Started GET "/assets/companies.css?body=1" for 127.0.0.1 at 2014-10-15 18:14:30 -0500
+
+
+Started GET "/assets/people.css?body=1" for 127.0.0.1 at 2014-10-15 18:14:30 -0500
+
+
+Started GET "/assets/contacts.css?body=1" for 127.0.0.1 at 2014-10-15 18:14:30 -0500
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-10-15 18:14:30 -0500
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-10-15 18:14:30 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-15 18:14:30 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-15 18:14:30 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-15 18:14:30 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-15 18:14:30 -0500
+
+
+Started GET "/assets/associations.js?body=1" for 127.0.0.1 at 2014-10-15 18:14:30 -0500
+
+
+Started GET "/assets/companies.js?body=1" for 127.0.0.1 at 2014-10-15 18:14:30 -0500
+
+
+Started GET "/assets/contacts.js?body=1" for 127.0.0.1 at 2014-10-15 18:14:30 -0500
+
+
+Started GET "/assets/people.js?body=1" for 127.0.0.1 at 2014-10-15 18:14:30 -0500
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-10-15 18:14:30 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-15 18:14:30 -0500
+
+
+Started DELETE "/people/1" for 127.0.0.1 at 2014-10-15 18:14:35 -0500
+Processing by PeopleController#destroy as HTML
+  Parameters: {"authenticity_token"=>"321Y2q8hHm6Frjti+H3jU5U27j+UhK+oQeQJ231w7Pw=", "id"=>"1"}
+  [1m[36mPerson Load (0.4ms)[0m  [1mSELECT  "people".* FROM "people"  WHERE "people"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."profile_id" = $1 AND "users"."profile_type" = $2 LIMIT 1[0m  [["profile_id", 1], ["profile_type", "Person"]]
+  [1m[35mSQL (0.5ms)[0m  DELETE FROM "users" WHERE "users"."id" = $1  [["id", 11]]
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "people" WHERE "people"."id" = $1[0m  [["id", 1]]
+  [1m[35m (0.3ms)[0m  COMMIT
+Redirected to http://localhost:3000/people
+Completed 302 Found in 15ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2014-10-15 18:14:35 -0500
+Processing by PeopleController#index as HTML
+  [1m[36mPerson Load (0.3ms)[0m  [1mSELECT "people".* FROM "people"[0m
+  Rendered people/index.html.erb within layouts/application (1.0ms)
+DEPRECATION WARNING: The file /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/_navigation did not specify a template handler. The default is currently ERB, but will change to RAW in the future. (called from _app_views_layouts_application_html_erb___3970823981150417810_70160857645480 at /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/application.html.erb:29)
+  Rendered layouts/_navigation (1.0ms)
+Completed 200 OK in 65ms (Views: 63.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/companies.css?body=1" for 127.0.0.1 at 2014-10-15 18:14:35 -0500
+
+
+Started GET "/assets/associations.css?body=1" for 127.0.0.1 at 2014-10-15 18:14:35 -0500
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-10-15 18:14:35 -0500
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-10-15 18:14:35 -0500
+
+
+Started GET "/assets/people.css?body=1" for 127.0.0.1 at 2014-10-15 18:14:35 -0500
+
+
+Started GET "/assets/contacts.css?body=1" for 127.0.0.1 at 2014-10-15 18:14:35 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-15 18:14:35 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-15 18:14:35 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-15 18:14:35 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-15 18:14:35 -0500
+
+
+Started GET "/assets/associations.js?body=1" for 127.0.0.1 at 2014-10-15 18:14:35 -0500
+
+
+Started GET "/assets/companies.js?body=1" for 127.0.0.1 at 2014-10-15 18:14:35 -0500
+
+
+Started GET "/assets/contacts.js?body=1" for 127.0.0.1 at 2014-10-15 18:14:35 -0500
+
+
+Started GET "/assets/people.js?body=1" for 127.0.0.1 at 2014-10-15 18:14:35 -0500
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-10-15 18:14:35 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-15 18:14:35 -0500
+
+
+Started GET "/users" for 127.0.0.1 at 2014-10-15 18:14:39 -0500
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
+  Rendered users/index.html.erb within layouts/application (3.9ms)
+DEPRECATION WARNING: The file /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/_navigation did not specify a template handler. The default is currently ERB, but will change to RAW in the future. (called from _app_views_layouts_application_html_erb___3970823981150417810_70160857645480 at /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/application.html.erb:29)
+  Rendered layouts/_navigation (1.0ms)
+Completed 200 OK in 58ms (Views: 57.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/people.css?body=1" for 127.0.0.1 at 2014-10-15 18:14:39 -0500
+
+
+Started GET "/assets/contacts.css?body=1" for 127.0.0.1 at 2014-10-15 18:14:39 -0500
+
+
+Started GET "/assets/companies.css?body=1" for 127.0.0.1 at 2014-10-15 18:14:39 -0500
+
+
+Started GET "/assets/associations.css?body=1" for 127.0.0.1 at 2014-10-15 18:14:39 -0500
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-10-15 18:14:39 -0500
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-10-15 18:14:39 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-15 18:14:39 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-15 18:14:39 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-15 18:14:39 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-15 18:14:39 -0500
+
+
+Started GET "/assets/associations.js?body=1" for 127.0.0.1 at 2014-10-15 18:14:39 -0500
+
+
+Started GET "/assets/companies.js?body=1" for 127.0.0.1 at 2014-10-15 18:14:39 -0500
+
+
+Started GET "/assets/contacts.js?body=1" for 127.0.0.1 at 2014-10-15 18:14:39 -0500
+
+
+Started GET "/assets/people.js?body=1" for 127.0.0.1 at 2014-10-15 18:14:39 -0500
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-10-15 18:14:39 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-15 18:14:39 -0500
+
+
+Started GET "/companies" for 127.0.0.1 at 2014-10-15 18:14:45 -0500
+Processing by CompaniesController#index as HTML
+  [1m[36mCompany Load (0.3ms)[0m  [1mSELECT "companies".* FROM "companies"[0m
+  Rendered companies/index.html.erb within layouts/application (2.4ms)
+DEPRECATION WARNING: The file /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/_navigation did not specify a template handler. The default is currently ERB, but will change to RAW in the future. (called from _app_views_layouts_application_html_erb___3970823981150417810_70160857645480 at /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/application.html.erb:29)
+  Rendered layouts/_navigation (1.5ms)
+Completed 200 OK in 57ms (Views: 56.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/associations.css?body=1" for 127.0.0.1 at 2014-10-15 18:14:45 -0500
+
+
+Started GET "/assets/contacts.css?body=1" for 127.0.0.1 at 2014-10-15 18:14:45 -0500
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-10-15 18:14:45 -0500
+
+
+Started GET "/assets/people.css?body=1" for 127.0.0.1 at 2014-10-15 18:14:45 -0500
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-10-15 18:14:46 -0500
+
+
+Started GET "/assets/companies.css?body=1" for 127.0.0.1 at 2014-10-15 18:14:46 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-15 18:14:46 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-15 18:14:46 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-15 18:14:46 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-15 18:14:46 -0500
+
+
+Started GET "/assets/associations.js?body=1" for 127.0.0.1 at 2014-10-15 18:14:46 -0500
+
+
+Started GET "/assets/companies.js?body=1" for 127.0.0.1 at 2014-10-15 18:14:46 -0500
+
+
+Started GET "/assets/contacts.js?body=1" for 127.0.0.1 at 2014-10-15 18:14:46 -0500
+
+
+Started GET "/assets/people.js?body=1" for 127.0.0.1 at 2014-10-15 18:14:46 -0500
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-10-15 18:14:46 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-15 18:14:46 -0500
+
+
+Started DELETE "/companies/5" for 127.0.0.1 at 2014-10-15 18:15:02 -0500
+Processing by CompaniesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"321Y2q8hHm6Frjti+H3jU5U27j+UhK+oQeQJ231w7Pw=", "id"=>"5"}
+  [1m[35mCompany Load (0.3ms)[0m  SELECT  "companies".* FROM "companies"  WHERE "companies"."id" = $1 LIMIT 1  [["id", 5]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."profile_id" = $1 AND "users"."profile_type" = $2 LIMIT 1  [["profile_id", 5], ["profile_type", "Company"]]
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 10]]
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "companies" WHERE "companies"."id" = $1  [["id", 5]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/companies
+Completed 302 Found in 6ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2014-10-15 18:15:02 -0500
+Processing by CompaniesController#index as HTML
+  [1m[35mCompany Load (0.4ms)[0m  SELECT "companies".* FROM "companies"
+  Rendered companies/index.html.erb within layouts/application (2.2ms)
+DEPRECATION WARNING: The file /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/_navigation did not specify a template handler. The default is currently ERB, but will change to RAW in the future. (called from _app_views_layouts_application_html_erb___3970823981150417810_70160857645480 at /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/application.html.erb:29)
+  Rendered layouts/_navigation (1.0ms)
+Completed 200 OK in 63ms (Views: 62.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/associations.css?body=1" for 127.0.0.1 at 2014-10-15 18:15:02 -0500
+
+
+Started GET "/assets/companies.css?body=1" for 127.0.0.1 at 2014-10-15 18:15:02 -0500
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-10-15 18:15:02 -0500
+
+
+Started GET "/assets/contacts.css?body=1" for 127.0.0.1 at 2014-10-15 18:15:02 -0500
+
+
+Started GET "/assets/people.css?body=1" for 127.0.0.1 at 2014-10-15 18:15:02 -0500
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-10-15 18:15:02 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-15 18:15:02 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-15 18:15:02 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-15 18:15:02 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-15 18:15:02 -0500
+
+
+Started GET "/assets/associations.js?body=1" for 127.0.0.1 at 2014-10-15 18:15:02 -0500
+
+
+Started GET "/assets/companies.js?body=1" for 127.0.0.1 at 2014-10-15 18:15:02 -0500
+
+
+Started GET "/assets/contacts.js?body=1" for 127.0.0.1 at 2014-10-15 18:15:02 -0500
+
+
+Started GET "/assets/people.js?body=1" for 127.0.0.1 at 2014-10-15 18:15:02 -0500
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-10-15 18:15:02 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-15 18:15:02 -0500
+
+
+Started GET "/users" for 127.0.0.1 at 2014-10-15 18:15:06 -0500
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (6.5ms)
+DEPRECATION WARNING: The file /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/_navigation did not specify a template handler. The default is currently ERB, but will change to RAW in the future. (called from _app_views_layouts_application_html_erb___3970823981150417810_70160857645480 at /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/application.html.erb:29)
+  Rendered layouts/_navigation (1.0ms)
+Completed 200 OK in 64ms (Views: 62.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/associations.css?body=1" for 127.0.0.1 at 2014-10-15 18:15:06 -0500
+
+
+Started GET "/assets/contacts.css?body=1" for 127.0.0.1 at 2014-10-15 18:15:06 -0500
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-10-15 18:15:06 -0500
+
+
+Started GET "/assets/people.css?body=1" for 127.0.0.1 at 2014-10-15 18:15:06 -0500
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-10-15 18:15:06 -0500
+
+
+Started GET "/assets/companies.css?body=1" for 127.0.0.1 at 2014-10-15 18:15:06 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-15 18:15:06 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-15 18:15:06 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-15 18:15:06 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-15 18:15:06 -0500
+
+
+Started GET "/assets/associations.js?body=1" for 127.0.0.1 at 2014-10-15 18:15:06 -0500
+
+
+Started GET "/assets/companies.js?body=1" for 127.0.0.1 at 2014-10-15 18:15:06 -0500
+
+
+Started GET "/assets/contacts.js?body=1" for 127.0.0.1 at 2014-10-15 18:15:06 -0500
+
+
+Started GET "/assets/people.js?body=1" for 127.0.0.1 at 2014-10-15 18:15:06 -0500
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-10-15 18:15:06 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-15 18:15:06 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CorrectZipcodeOnPeople (20141015232209)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.7ms)[0m  [1mALTER TABLE "people" RENAME COLUMN "zipdode" TO "zipcode"[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141015232209"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CorrectZipcodeonCompanies (20141015232428)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.5ms)[0m  [1mALTER TABLE "companies" RENAME COLUMN "zipdode" TO "zipcode"[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141015232428"]]
+  [1m[36m (0.9ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/users" for 127.0.0.1 at 2014-10-15 18:30:10 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users"
+  Rendered users/index.html.erb within layouts/application (10.6ms)
+DEPRECATION WARNING: The file /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/_navigation did not specify a template handler. The default is currently ERB, but will change to RAW in the future. (called from _app_views_layouts_application_html_erb___1258774205092386886_70094123489020 at /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/application.html.erb:29)
+  Rendered layouts/_navigation (1.7ms)
+Completed 200 OK in 136ms (Views: 115.9ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/assets/associations.css?body=1" for 127.0.0.1 at 2014-10-15 18:30:10 -0500
+
+
+Started GET "/assets/companies.css?body=1" for 127.0.0.1 at 2014-10-15 18:30:10 -0500
+
+
+Started GET "/assets/people.css?body=1" for 127.0.0.1 at 2014-10-15 18:30:10 -0500
+
+
+Started GET "/assets/contacts.css?body=1" for 127.0.0.1 at 2014-10-15 18:30:10 -0500
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-10-15 18:30:10 -0500
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-10-15 18:30:10 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-15 18:30:10 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-15 18:30:10 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-15 18:30:10 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-15 18:30:10 -0500
+
+
+Started GET "/assets/associations.js?body=1" for 127.0.0.1 at 2014-10-15 18:30:10 -0500
+
+
+Started GET "/assets/companies.js?body=1" for 127.0.0.1 at 2014-10-15 18:30:10 -0500
+
+
+Started GET "/assets/contacts.js?body=1" for 127.0.0.1 at 2014-10-15 18:30:10 -0500
+
+
+Started GET "/assets/people.js?body=1" for 127.0.0.1 at 2014-10-15 18:30:10 -0500
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-10-15 18:30:10 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-15 18:30:10 -0500
+
+
+Started GET "/users/2/edit" for 127.0.0.1 at 2014-10-15 18:30:13 -0500
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  Rendered users/_form.html.erb (16.8ms)
+  Rendered users/edit.html.erb within layouts/application (18.9ms)
+DEPRECATION WARNING: The file /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/_navigation did not specify a template handler. The default is currently ERB, but will change to RAW in the future. (called from _app_views_layouts_application_html_erb___1258774205092386886_70094123489020 at /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/application.html.erb:29)
+  Rendered layouts/_navigation (2.5ms)
+Completed 200 OK in 97ms (Views: 93.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/7/edit" for 127.0.0.1 at 2014-10-15 18:30:17 -0500
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"7"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 7]]
+  Rendered users/_form.html.erb (1.2ms)
+  Rendered users/edit.html.erb within layouts/application (2.0ms)
+DEPRECATION WARNING: The file /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/_navigation did not specify a template handler. The default is currently ERB, but will change to RAW in the future. (called from _app_views_layouts_application_html_erb___1258774205092386886_70094123489020 at /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/application.html.erb:29)
+  Rendered layouts/_navigation (0.9ms)
+Completed 200 OK in 53ms (Views: 51.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2014-10-15 18:30:25 -0500
+Processing by CompaniesController#index as HTML
+  [1m[36mCompany Load (1.0ms)[0m  [1mSELECT "companies".* FROM "companies"[0m
+  Rendered companies/index.html.erb within layouts/application (16.1ms)
+DEPRECATION WARNING: The file /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/_navigation did not specify a template handler. The default is currently ERB, but will change to RAW in the future. (called from _app_views_layouts_application_html_erb___1258774205092386886_70094123489020 at /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/application.html.erb:29)
+  Rendered layouts/_navigation (0.8ms)
+Completed 200 OK in 84ms (Views: 76.7ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/assets/companies.css?body=1" for 127.0.0.1 at 2014-10-15 18:30:25 -0500
+
+
+Started GET "/assets/associations.css?body=1" for 127.0.0.1 at 2014-10-15 18:30:25 -0500
+
+
+Started GET "/assets/people.css?body=1" for 127.0.0.1 at 2014-10-15 18:30:25 -0500
+
+
+Started GET "/assets/contacts.css?body=1" for 127.0.0.1 at 2014-10-15 18:30:25 -0500
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-10-15 18:30:25 -0500
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-10-15 18:30:25 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-15 18:30:25 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-15 18:30:25 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-15 18:30:25 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-15 18:30:25 -0500
+
+
+Started GET "/assets/associations.js?body=1" for 127.0.0.1 at 2014-10-15 18:30:25 -0500
+
+
+Started GET "/assets/companies.js?body=1" for 127.0.0.1 at 2014-10-15 18:30:25 -0500
+
+
+Started GET "/assets/contacts.js?body=1" for 127.0.0.1 at 2014-10-15 18:30:25 -0500
+
+
+Started GET "/assets/people.js?body=1" for 127.0.0.1 at 2014-10-15 18:30:25 -0500
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-10-15 18:30:25 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-15 18:30:25 -0500
+
+
+Started GET "/companies/4/edit" for 127.0.0.1 at 2014-10-15 18:30:28 -0500
+Processing by CompaniesController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mCompany Load (0.3ms)[0m  SELECT  "companies".* FROM "companies"  WHERE "companies"."id" = $1 LIMIT 1  [["id", 4]]
+  Rendered companies/_form.html.erb (5.5ms)
+  Rendered companies/edit.html.erb within layouts/application (6.9ms)
+DEPRECATION WARNING: The file /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/_navigation did not specify a template handler. The default is currently ERB, but will change to RAW in the future. (called from _app_views_layouts_application_html_erb___1258774205092386886_70094123489020 at /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/application.html.erb:29)
+  Rendered layouts/_navigation (1.1ms)
+Completed 200 OK in 63ms (Views: 61.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/companies/4/edit" for 127.0.0.1 at 2014-10-15 18:32:04 -0500
+Processing by CompaniesController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mCompany Load (0.3ms)[0m  [1mSELECT  "companies".* FROM "companies"  WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  Rendered companies/_form.html.erb (4.3ms)
+  Rendered companies/edit.html.erb within layouts/application (5.4ms)
+DEPRECATION WARNING: The file /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/_navigation did not specify a template handler. The default is currently ERB, but will change to RAW in the future. (called from _app_views_layouts_application_html_erb___1258774205092386886_70094123489020 at /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/application.html.erb:29)
+  Rendered layouts/_navigation (1.8ms)
+Completed 200 OK in 65ms (Views: 63.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/associations.css?body=1" for 127.0.0.1 at 2014-10-15 18:32:04 -0500
+
+
+Started GET "/assets/companies.css?body=1" for 127.0.0.1 at 2014-10-15 18:32:04 -0500
+
+
+Started GET "/assets/contacts.css?body=1" for 127.0.0.1 at 2014-10-15 18:32:05 -0500
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-10-15 18:32:05 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-15 18:32:05 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-15 18:32:05 -0500
+
+
+Started GET "/assets/people.css?body=1" for 127.0.0.1 at 2014-10-15 18:32:05 -0500
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-10-15 18:32:05 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-15 18:32:05 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-15 18:32:05 -0500
+
+
+Started GET "/assets/associations.js?body=1" for 127.0.0.1 at 2014-10-15 18:32:05 -0500
+
+
+Started GET "/assets/companies.js?body=1" for 127.0.0.1 at 2014-10-15 18:32:05 -0500
+
+
+Started GET "/assets/contacts.js?body=1" for 127.0.0.1 at 2014-10-15 18:32:05 -0500
+
+
+Started GET "/assets/people.js?body=1" for 127.0.0.1 at 2014-10-15 18:32:05 -0500
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-10-15 18:32:05 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-15 18:32:05 -0500
+
+
+Started GET "/companies/4/edit" for 127.0.0.1 at 2014-10-15 18:32:48 -0500
+Processing by CompaniesController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mCompany Load (0.3ms)[0m  SELECT  "companies".* FROM "companies"  WHERE "companies"."id" = $1 LIMIT 1  [["id", 4]]
+  Rendered companies/_form.html.erb (4.9ms)
+  Rendered companies/edit.html.erb within layouts/application (5.7ms)
+DEPRECATION WARNING: The file /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/_navigation did not specify a template handler. The default is currently ERB, but will change to RAW in the future. (called from _app_views_layouts_application_html_erb___1258774205092386886_70094123489020 at /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/application.html.erb:29)
+  Rendered layouts/_navigation (1.1ms)
+Completed 200 OK in 72ms (Views: 71.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/associations.css?body=1" for 127.0.0.1 at 2014-10-15 18:32:48 -0500
+
+
+Started GET "/assets/companies.css?body=1" for 127.0.0.1 at 2014-10-15 18:32:48 -0500
+
+
+Started GET "/assets/people.css?body=1" for 127.0.0.1 at 2014-10-15 18:32:48 -0500
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-10-15 18:32:48 -0500
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-10-15 18:32:48 -0500
+
+
+Started GET "/assets/contacts.css?body=1" for 127.0.0.1 at 2014-10-15 18:32:48 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-15 18:32:48 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-15 18:32:48 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-15 18:32:48 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-15 18:32:48 -0500
+
+
+Started GET "/assets/associations.js?body=1" for 127.0.0.1 at 2014-10-15 18:32:48 -0500
+
+
+Started GET "/assets/companies.js?body=1" for 127.0.0.1 at 2014-10-15 18:32:48 -0500
+
+
+Started GET "/assets/contacts.js?body=1" for 127.0.0.1 at 2014-10-15 18:32:48 -0500
+
+
+Started GET "/assets/people.js?body=1" for 127.0.0.1 at 2014-10-15 18:32:48 -0500
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-10-15 18:32:48 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-15 18:32:48 -0500
+
+
+Started GET "/companies/4/edit" for 127.0.0.1 at 2014-10-15 18:33:21 -0500
+Processing by CompaniesController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mCompany Load (0.6ms)[0m  [1mSELECT  "companies".* FROM "companies"  WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  Rendered companies/_form.html.erb (6.8ms)
+  Rendered companies/edit.html.erb within layouts/application (8.0ms)
+DEPRECATION WARNING: The file /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/_navigation did not specify a template handler. The default is currently ERB, but will change to RAW in the future. (called from _app_views_layouts_application_html_erb___1258774205092386886_70094123489020 at /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/application.html.erb:29)
+  Rendered layouts/_navigation (1.1ms)
+Completed 200 OK in 79ms (Views: 77.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/associations.css?body=1" for 127.0.0.1 at 2014-10-15 18:33:21 -0500
+
+
+Started GET "/assets/people.css?body=1" for 127.0.0.1 at 2014-10-15 18:33:21 -0500
+
+
+Started GET "/assets/contacts.css?body=1" for 127.0.0.1 at 2014-10-15 18:33:21 -0500
+
+
+Started GET "/assets/companies.css?body=1" for 127.0.0.1 at 2014-10-15 18:33:21 -0500
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-10-15 18:33:21 -0500
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-10-15 18:33:21 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-15 18:33:21 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-15 18:33:21 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-15 18:33:21 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-15 18:33:21 -0500
+
+
+Started GET "/assets/associations.js?body=1" for 127.0.0.1 at 2014-10-15 18:33:21 -0500
+
+
+Started GET "/assets/companies.js?body=1" for 127.0.0.1 at 2014-10-15 18:33:21 -0500
+
+
+Started GET "/assets/contacts.js?body=1" for 127.0.0.1 at 2014-10-15 18:33:21 -0500
+
+
+Started GET "/assets/people.js?body=1" for 127.0.0.1 at 2014-10-15 18:33:21 -0500
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-10-15 18:33:21 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-15 18:33:21 -0500
+
+
+Started GET "/companies/4/edit" for 127.0.0.1 at 2014-10-15 18:34:37 -0500
+Processing by CompaniesController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mCompany Load (0.5ms)[0m  SELECT  "companies".* FROM "companies"  WHERE "companies"."id" = $1 LIMIT 1  [["id", 4]]
+  Rendered companies/_form.html.erb (6.5ms)
+  Rendered companies/edit.html.erb within layouts/application (7.6ms)
+DEPRECATION WARNING: The file /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/_navigation did not specify a template handler. The default is currently ERB, but will change to RAW in the future. (called from _app_views_layouts_application_html_erb___1258774205092386886_70094123489020 at /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/application.html.erb:29)
+  Rendered layouts/_navigation (1.0ms)
+Completed 200 OK in 65ms (Views: 62.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/associations.css?body=1" for 127.0.0.1 at 2014-10-15 18:34:37 -0500
+
+
+Started GET "/assets/companies.css?body=1" for 127.0.0.1 at 2014-10-15 18:34:37 -0500
+
+
+Started GET "/assets/contacts.css?body=1" for 127.0.0.1 at 2014-10-15 18:34:37 -0500
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-10-15 18:34:37 -0500
+
+
+Started GET "/assets/people.css?body=1" for 127.0.0.1 at 2014-10-15 18:34:37 -0500
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-10-15 18:34:37 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-15 18:34:37 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-15 18:34:37 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-15 18:34:37 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-15 18:34:37 -0500
+
+
+Started GET "/assets/associations.js?body=1" for 127.0.0.1 at 2014-10-15 18:34:37 -0500
+
+
+Started GET "/assets/companies.js?body=1" for 127.0.0.1 at 2014-10-15 18:34:37 -0500
+
+
+Started GET "/assets/contacts.js?body=1" for 127.0.0.1 at 2014-10-15 18:34:37 -0500
+
+
+Started GET "/assets/people.js?body=1" for 127.0.0.1 at 2014-10-15 18:34:37 -0500
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-10-15 18:34:37 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-15 18:34:37 -0500
+
+
+Started GET "/companies" for 127.0.0.1 at 2014-10-15 18:34:47 -0500
+Processing by CompaniesController#index as HTML
+  [1m[36mCompany Load (0.3ms)[0m  [1mSELECT "companies".* FROM "companies"[0m
+  Rendered companies/index.html.erb within layouts/application (2.0ms)
+DEPRECATION WARNING: The file /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/_navigation did not specify a template handler. The default is currently ERB, but will change to RAW in the future. (called from _app_views_layouts_application_html_erb___1258774205092386886_70094123489020 at /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/application.html.erb:29)
+  Rendered layouts/_navigation (0.9ms)
+Completed 200 OK in 54ms (Views: 53.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/associations.css?body=1" for 127.0.0.1 at 2014-10-15 18:34:47 -0500
+
+
+Started GET "/assets/companies.css?body=1" for 127.0.0.1 at 2014-10-15 18:34:47 -0500
+
+
+Started GET "/assets/contacts.css?body=1" for 127.0.0.1 at 2014-10-15 18:34:47 -0500
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-10-15 18:34:47 -0500
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-10-15 18:34:47 -0500
+
+
+Started GET "/assets/people.css?body=1" for 127.0.0.1 at 2014-10-15 18:34:47 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-15 18:34:47 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-15 18:34:47 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-15 18:34:47 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-15 18:34:47 -0500
+
+
+Started GET "/assets/associations.js?body=1" for 127.0.0.1 at 2014-10-15 18:34:47 -0500
+
+
+Started GET "/assets/companies.js?body=1" for 127.0.0.1 at 2014-10-15 18:34:47 -0500
+
+
+Started GET "/assets/contacts.js?body=1" for 127.0.0.1 at 2014-10-15 18:34:47 -0500
+
+
+Started GET "/assets/people.js?body=1" for 127.0.0.1 at 2014-10-15 18:34:47 -0500
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-10-15 18:34:47 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-15 18:34:47 -0500
+
+
+Started GET "/companies/3/edit" for 127.0.0.1 at 2014-10-15 18:34:51 -0500
+Processing by CompaniesController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mCompany Load (0.4ms)[0m  SELECT  "companies".* FROM "companies"  WHERE "companies"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered companies/_form.html.erb (5.9ms)
+  Rendered companies/edit.html.erb within layouts/application (6.7ms)
+DEPRECATION WARNING: The file /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/_navigation did not specify a template handler. The default is currently ERB, but will change to RAW in the future. (called from _app_views_layouts_application_html_erb___1258774205092386886_70094123489020 at /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/application.html.erb:29)
+  Rendered layouts/_navigation (1.1ms)
+Completed 200 OK in 77ms (Views: 75.5ms | ActiveRecord: 0.4ms)
+
+
+Started PATCH "/companies/3" for 127.0.0.1 at 2014-10-15 18:34:55 -0500
+Processing by CompaniesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"321Y2q8hHm6Frjti+H3jU5U27j+UhK+oQeQJ231w7Pw=", "company"=>{"company_name"=>"Test 1", "phone_1"=>"", "phone_tag_1"=>"", "phone_2"=>"", "phone_tag_2"=>"", "website"=>"", "address_line_1"=>"", "address_line_2"=>"", "city"=>"", "state"=>"", "zipcode"=>""}, "commit"=>"Update Company", "id"=>"3"}
+  [1m[36mCompany Load (0.3ms)[0m  [1mSELECT  "companies".* FROM "companies"  WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 3]]
+Unpermitted parameters: zipcode
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "companies" SET "address_line_1" = $1, "address_line_2" = $2, "city" = $3, "company_name" = $4, "phone_1" = $5, "phone_2" = $6, "phone_tag_1" = $7, "phone_tag_2" = $8, "state" = $9, "updated_at" = $10, "website" = $11 WHERE "companies"."id" = 3[0m  [["address_line_1", ""], ["address_line_2", ""], ["city", ""], ["company_name", "Test 1"], ["phone_1", ""], ["phone_2", ""], ["phone_tag_1", ""], ["phone_tag_2", ""], ["state", ""], ["updated_at", "2014-10-15 23:34:55.868595"], ["website", ""]]
+  [1m[35m (0.3ms)[0m  COMMIT
+Redirected to http://localhost:3000/companies/3
+Completed 302 Found in 12ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/companies/3" for 127.0.0.1 at 2014-10-15 18:34:55 -0500
+Processing by CompaniesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mCompany Load (0.2ms)[0m  [1mSELECT  "companies".* FROM "companies"  WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered companies/show.html.erb within layouts/application (0.9ms)
+DEPRECATION WARNING: The file /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/_navigation did not specify a template handler. The default is currently ERB, but will change to RAW in the future. (called from _app_views_layouts_application_html_erb___1258774205092386886_70094123489020 at /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/application.html.erb:29)
+  Rendered layouts/_navigation (1.8ms)
+Completed 200 OK in 74ms (Views: 72.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/associations.css?body=1" for 127.0.0.1 at 2014-10-15 18:34:55 -0500
+
+
+Started GET "/assets/contacts.css?body=1" for 127.0.0.1 at 2014-10-15 18:34:55 -0500
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-10-15 18:34:55 -0500
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-10-15 18:34:55 -0500
+
+
+Started GET "/assets/people.css?body=1" for 127.0.0.1 at 2014-10-15 18:34:55 -0500
+
+
+Started GET "/assets/companies.css?body=1" for 127.0.0.1 at 2014-10-15 18:34:56 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-15 18:34:56 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-15 18:34:56 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-15 18:34:56 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-15 18:34:56 -0500
+
+
+Started GET "/assets/associations.js?body=1" for 127.0.0.1 at 2014-10-15 18:34:56 -0500
+
+
+Started GET "/assets/companies.js?body=1" for 127.0.0.1 at 2014-10-15 18:34:56 -0500
+
+
+Started GET "/assets/contacts.js?body=1" for 127.0.0.1 at 2014-10-15 18:34:56 -0500
+
+
+Started GET "/assets/people.js?body=1" for 127.0.0.1 at 2014-10-15 18:34:56 -0500
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-10-15 18:34:56 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-15 18:34:56 -0500
+
+
+Started GET "/companies" for 127.0.0.1 at 2014-10-15 18:34:57 -0500
+Processing by CompaniesController#index as HTML
+  [1m[35mCompany Load (0.4ms)[0m  SELECT "companies".* FROM "companies"
+  Rendered companies/index.html.erb within layouts/application (2.9ms)
+DEPRECATION WARNING: The file /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/_navigation did not specify a template handler. The default is currently ERB, but will change to RAW in the future. (called from _app_views_layouts_application_html_erb___1258774205092386886_70094123489020 at /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/application.html.erb:29)
+  Rendered layouts/_navigation (0.9ms)
+Completed 200 OK in 72ms (Views: 70.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/companies/3/edit" for 127.0.0.1 at 2014-10-15 18:35:11 -0500
+Processing by CompaniesController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mCompany Load (0.2ms)[0m  [1mSELECT  "companies".* FROM "companies"  WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered companies/_form.html.erb (3.7ms)
+  Rendered companies/edit.html.erb within layouts/application (4.5ms)
+DEPRECATION WARNING: The file /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/_navigation did not specify a template handler. The default is currently ERB, but will change to RAW in the future. (called from _app_views_layouts_application_html_erb___1258774205092386886_70094123489020 at /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/application.html.erb:29)
+  Rendered layouts/_navigation (1.0ms)
+Completed 200 OK in 55ms (Views: 53.9ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/companies/3" for 127.0.0.1 at 2014-10-15 18:35:54 -0500
+Processing by CompaniesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"321Y2q8hHm6Frjti+H3jU5U27j+UhK+oQeQJ231w7Pw=", "company"=>{"company_name"=>"Test 1", "phone_1"=>"555", "phone_tag_1"=>"", "phone_2"=>"", "phone_tag_2"=>"", "website"=>"http:/www.test.com", "address_line_1"=>"1234 Make Belienve", "address_line_2"=>"a;dsfkajdj", "city"=>"Austin", "state"=>"TX", "zipcode"=>"77777"}, "commit"=>"Update Company", "id"=>"3"}
+  [1m[35mCompany Load (0.7ms)[0m  SELECT  "companies".* FROM "companies"  WHERE "companies"."id" = $1 LIMIT 1  [["id", 3]]
+Unpermitted parameters: zipcode
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "companies" SET "address_line_1" = $1, "address_line_2" = $2, "city" = $3, "phone_1" = $4, "state" = $5, "updated_at" = $6, "website" = $7 WHERE "companies"."id" = 3  [["address_line_1", "1234 Make Belienve"], ["address_line_2", "a;dsfkajdj"], ["city", "Austin"], ["phone_1", "555"], ["state", "TX"], ["updated_at", "2014-10-15 23:35:54.633647"], ["website", "http:/www.test.com"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/companies/3
+Completed 302 Found in 6ms (ActiveRecord: 1.9ms)
+
+
+Started GET "/companies/3" for 127.0.0.1 at 2014-10-15 18:35:54 -0500
+Processing by CompaniesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mCompany Load (0.4ms)[0m  SELECT  "companies".* FROM "companies"  WHERE "companies"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered companies/show.html.erb within layouts/application (0.3ms)
+DEPRECATION WARNING: The file /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/_navigation did not specify a template handler. The default is currently ERB, but will change to RAW in the future. (called from _app_views_layouts_application_html_erb___1258774205092386886_70094123489020 at /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/application.html.erb:29)
+  Rendered layouts/_navigation (1.1ms)
+Completed 200 OK in 62ms (Views: 59.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/associations.css?body=1" for 127.0.0.1 at 2014-10-15 18:35:54 -0500
+
+
+Started GET "/assets/contacts.css?body=1" for 127.0.0.1 at 2014-10-15 18:35:54 -0500
+
+
+Started GET "/assets/companies.css?body=1" for 127.0.0.1 at 2014-10-15 18:35:54 -0500
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-10-15 18:35:54 -0500
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-10-15 18:35:54 -0500
+
+
+Started GET "/assets/people.css?body=1" for 127.0.0.1 at 2014-10-15 18:35:54 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-15 18:35:54 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-15 18:35:54 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-15 18:35:54 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-15 18:35:54 -0500
+
+
+Started GET "/assets/associations.js?body=1" for 127.0.0.1 at 2014-10-15 18:35:54 -0500
+
+
+Started GET "/assets/companies.js?body=1" for 127.0.0.1 at 2014-10-15 18:35:54 -0500
+
+
+Started GET "/assets/contacts.js?body=1" for 127.0.0.1 at 2014-10-15 18:35:54 -0500
+
+
+Started GET "/assets/people.js?body=1" for 127.0.0.1 at 2014-10-15 18:35:54 -0500
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-10-15 18:35:54 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-15 18:35:54 -0500
+
+
+Started GET "/companies" for 127.0.0.1 at 2014-10-15 18:35:56 -0500
+Processing by CompaniesController#index as HTML
+  [1m[36mCompany Load (0.3ms)[0m  [1mSELECT "companies".* FROM "companies"[0m
+  Rendered companies/index.html.erb within layouts/application (1.9ms)
+DEPRECATION WARNING: The file /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/_navigation did not specify a template handler. The default is currently ERB, but will change to RAW in the future. (called from _app_views_layouts_application_html_erb___1258774205092386886_70094123489020 at /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/application.html.erb:29)
+  Rendered layouts/_navigation (1.0ms)
+Completed 200 OK in 51ms (Views: 50.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/companies/3/edit" for 127.0.0.1 at 2014-10-15 18:36:00 -0500
+Processing by CompaniesController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mCompany Load (0.2ms)[0m  SELECT  "companies".* FROM "companies"  WHERE "companies"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered companies/_form.html.erb (3.6ms)
+  Rendered companies/edit.html.erb within layouts/application (4.4ms)
+DEPRECATION WARNING: The file /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/_navigation did not specify a template handler. The default is currently ERB, but will change to RAW in the future. (called from _app_views_layouts_application_html_erb___1258774205092386886_70094123489020 at /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/application.html.erb:29)
+  Rendered layouts/_navigation (1.6ms)
+Completed 200 OK in 53ms (Views: 52.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/companies/3/edit" for 127.0.0.1 at 2014-10-15 18:36:42 -0500
+Processing by CompaniesController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mCompany Load (0.3ms)[0m  [1mSELECT  "companies".* FROM "companies"  WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered companies/_form.html.erb (6.9ms)
+  Rendered companies/edit.html.erb within layouts/application (8.0ms)
+DEPRECATION WARNING: The file /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/_navigation did not specify a template handler. The default is currently ERB, but will change to RAW in the future. (called from _app_views_layouts_application_html_erb___1258774205092386886_70094123489020 at /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/application.html.erb:29)
+  Rendered layouts/_navigation (1.8ms)
+Completed 200 OK in 64ms (Views: 62.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/associations.css?body=1" for 127.0.0.1 at 2014-10-15 18:36:42 -0500
+
+
+Started GET "/assets/companies.css?body=1" for 127.0.0.1 at 2014-10-15 18:36:42 -0500
+
+
+Started GET "/assets/contacts.css?body=1" for 127.0.0.1 at 2014-10-15 18:36:42 -0500
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-10-15 18:36:42 -0500
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-10-15 18:36:42 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-15 18:36:42 -0500
+
+
+Started GET "/assets/people.css?body=1" for 127.0.0.1 at 2014-10-15 18:36:42 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-15 18:36:42 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-15 18:36:42 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-15 18:36:42 -0500
+
+
+Started GET "/assets/associations.js?body=1" for 127.0.0.1 at 2014-10-15 18:36:42 -0500
+
+
+Started GET "/assets/companies.js?body=1" for 127.0.0.1 at 2014-10-15 18:36:42 -0500
+
+
+Started GET "/assets/contacts.js?body=1" for 127.0.0.1 at 2014-10-15 18:36:42 -0500
+
+
+Started GET "/assets/people.js?body=1" for 127.0.0.1 at 2014-10-15 18:36:42 -0500
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-10-15 18:36:42 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-15 18:36:42 -0500
+
+
+Started PATCH "/companies/3" for 127.0.0.1 at 2014-10-15 18:36:49 -0500
+Processing by CompaniesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"321Y2q8hHm6Frjti+H3jU5U27j+UhK+oQeQJ231w7Pw=", "company"=>{"company_name"=>"Test 1", "phone_1"=>"555", "phone_tag_1"=>"", "phone_2"=>"", "phone_tag_2"=>"", "website"=>"www.test.com", "address_line_1"=>"1234 Make Belienve", "address_line_2"=>"a;dsfkajdj", "city"=>"Austin", "state"=>"TX", "zipcode"=>""}, "commit"=>"Update Company", "id"=>"3"}
+  [1m[35mCompany Load (0.3ms)[0m  SELECT  "companies".* FROM "companies"  WHERE "companies"."id" = $1 LIMIT 1  [["id", 3]]
+Unpermitted parameters: zipcode
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "companies" SET "updated_at" = $1, "website" = $2 WHERE "companies"."id" = 3  [["updated_at", "2014-10-15 23:36:49.820923"], ["website", "www.test.com"]]
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/companies/3
+Completed 302 Found in 6ms (ActiveRecord: 1.6ms)
+
+
+Started GET "/companies/3" for 127.0.0.1 at 2014-10-15 18:36:49 -0500
+Processing by CompaniesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mCompany Load (0.4ms)[0m  SELECT  "companies".* FROM "companies"  WHERE "companies"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered companies/show.html.erb within layouts/application (0.4ms)
+DEPRECATION WARNING: The file /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/_navigation did not specify a template handler. The default is currently ERB, but will change to RAW in the future. (called from _app_views_layouts_application_html_erb___1258774205092386886_70094123489020 at /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/application.html.erb:29)
+  Rendered layouts/_navigation (1.0ms)
+Completed 200 OK in 64ms (Views: 61.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/companies.css?body=1" for 127.0.0.1 at 2014-10-15 18:36:49 -0500
+
+
+Started GET "/assets/associations.css?body=1" for 127.0.0.1 at 2014-10-15 18:36:49 -0500
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-10-15 18:36:49 -0500
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-10-15 18:36:49 -0500
+
+
+Started GET "/assets/contacts.css?body=1" for 127.0.0.1 at 2014-10-15 18:36:49 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-15 18:36:49 -0500
+
+
+Started GET "/assets/people.css?body=1" for 127.0.0.1 at 2014-10-15 18:36:49 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-15 18:36:49 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-15 18:36:49 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-15 18:36:49 -0500
+
+
+Started GET "/assets/associations.js?body=1" for 127.0.0.1 at 2014-10-15 18:36:49 -0500
+
+
+Started GET "/assets/companies.js?body=1" for 127.0.0.1 at 2014-10-15 18:36:49 -0500
+
+
+Started GET "/assets/contacts.js?body=1" for 127.0.0.1 at 2014-10-15 18:36:49 -0500
+
+
+Started GET "/assets/people.js?body=1" for 127.0.0.1 at 2014-10-15 18:36:49 -0500
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-10-15 18:36:49 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-15 18:36:49 -0500
+
+
+Started GET "/companies" for 127.0.0.1 at 2014-10-15 18:36:51 -0500
+Processing by CompaniesController#index as HTML
+  [1m[36mCompany Load (0.4ms)[0m  [1mSELECT "companies".* FROM "companies"[0m
+  Rendered companies/index.html.erb within layouts/application (2.0ms)
+DEPRECATION WARNING: The file /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/_navigation did not specify a template handler. The default is currently ERB, but will change to RAW in the future. (called from _app_views_layouts_application_html_erb___1258774205092386886_70094123489020 at /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/application.html.erb:29)
+  Rendered layouts/_navigation (1.2ms)
+Completed 200 OK in 64ms (Views: 63.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/companies/3/edit" for 127.0.0.1 at 2014-10-15 18:36:54 -0500
+Processing by CompaniesController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mCompany Load (0.2ms)[0m  SELECT  "companies".* FROM "companies"  WHERE "companies"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered companies/_form.html.erb (6.1ms)
+  Rendered companies/edit.html.erb within layouts/application (7.0ms)
+DEPRECATION WARNING: The file /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/_navigation did not specify a template handler. The default is currently ERB, but will change to RAW in the future. (called from _app_views_layouts_application_html_erb___1258774205092386886_70094123489020 at /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/application.html.erb:29)
+  Rendered layouts/_navigation (1.1ms)
+Completed 200 OK in 75ms (Views: 73.9ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/companies/3" for 127.0.0.1 at 2014-10-15 18:37:06 -0500
+Processing by CompaniesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"321Y2q8hHm6Frjti+H3jU5U27j+UhK+oQeQJ231w7Pw=", "company"=>{"company_name"=>"Test 1", "phone_1"=>"555", "phone_tag_1"=>"", "phone_2"=>"444", "phone_tag_2"=>"", "website"=>"www.test.com", "address_line_1"=>"1234 Make Belienve", "address_line_2"=>"a;dsfkajdj", "city"=>"Austin", "state"=>"TX", "zipcode"=>"55555"}, "commit"=>"Update Company", "id"=>"3"}
+  [1m[36mCompany Load (1.3ms)[0m  [1mSELECT  "companies".* FROM "companies"  WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 3]]
+Unpermitted parameters: zipcode
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mUPDATE "companies" SET "phone_2" = $1, "updated_at" = $2 WHERE "companies"."id" = 3[0m  [["phone_2", "444"], ["updated_at", "2014-10-15 23:37:06.616551"]]
+  [1m[35m (0.8ms)[0m  COMMIT
+Redirected to http://localhost:3000/companies/3
+Completed 302 Found in 8ms (ActiveRecord: 2.9ms)
+
+
+Started GET "/companies/3" for 127.0.0.1 at 2014-10-15 18:37:06 -0500
+Processing by CompaniesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mCompany Load (0.3ms)[0m  [1mSELECT  "companies".* FROM "companies"  WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered companies/show.html.erb within layouts/application (0.4ms)
+DEPRECATION WARNING: The file /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/_navigation did not specify a template handler. The default is currently ERB, but will change to RAW in the future. (called from _app_views_layouts_application_html_erb___1258774205092386886_70094123489020 at /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/application.html.erb:29)
+  Rendered layouts/_navigation (1.0ms)
+Completed 200 OK in 65ms (Views: 63.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/associations.css?body=1" for 127.0.0.1 at 2014-10-15 18:37:06 -0500
+
+
+Started GET "/assets/companies.css?body=1" for 127.0.0.1 at 2014-10-15 18:37:06 -0500
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-10-15 18:37:06 -0500
+
+
+Started GET "/assets/people.css?body=1" for 127.0.0.1 at 2014-10-15 18:37:06 -0500
+
+
+Started GET "/assets/contacts.css?body=1" for 127.0.0.1 at 2014-10-15 18:37:06 -0500
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-10-15 18:37:06 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-15 18:37:06 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-15 18:37:06 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-15 18:37:06 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-15 18:37:06 -0500
+
+
+Started GET "/assets/associations.js?body=1" for 127.0.0.1 at 2014-10-15 18:37:06 -0500
+
+
+Started GET "/assets/companies.js?body=1" for 127.0.0.1 at 2014-10-15 18:37:06 -0500
+
+
+Started GET "/assets/contacts.js?body=1" for 127.0.0.1 at 2014-10-15 18:37:06 -0500
+
+
+Started GET "/assets/people.js?body=1" for 127.0.0.1 at 2014-10-15 18:37:06 -0500
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-10-15 18:37:06 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-15 18:37:06 -0500
+
+
+Started GET "/companies" for 127.0.0.1 at 2014-10-15 18:37:08 -0500
+Processing by CompaniesController#index as HTML
+  [1m[35mCompany Load (0.3ms)[0m  SELECT "companies".* FROM "companies"
+  Rendered companies/index.html.erb within layouts/application (1.8ms)
+DEPRECATION WARNING: The file /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/_navigation did not specify a template handler. The default is currently ERB, but will change to RAW in the future. (called from _app_views_layouts_application_html_erb___1258774205092386886_70094123489020 at /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/application.html.erb:29)
+  Rendered layouts/_navigation (1.5ms)
+Completed 200 OK in 60ms (Views: 58.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/companies/3/edit" for 127.0.0.1 at 2014-10-15 18:37:10 -0500
+Processing by CompaniesController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mCompany Load (0.2ms)[0m  [1mSELECT  "companies".* FROM "companies"  WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered companies/_form.html.erb (5.0ms)
+  Rendered companies/edit.html.erb within layouts/application (6.4ms)
+DEPRECATION WARNING: The file /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/_navigation did not specify a template handler. The default is currently ERB, but will change to RAW in the future. (called from _app_views_layouts_application_html_erb___1258774205092386886_70094123489020 at /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/application.html.erb:29)
+  Rendered layouts/_navigation (1.1ms)
+Completed 200 OK in 61ms (Views: 59.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/companies/3/edit" for 127.0.0.1 at 2014-10-15 18:41:36 -0500
+Processing by CompaniesController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mCompany Load (0.3ms)[0m  SELECT  "companies".* FROM "companies"  WHERE "companies"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered companies/_form.html.erb (7.9ms)
+  Rendered companies/edit.html.erb within layouts/application (9.0ms)
+DEPRECATION WARNING: The file /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/_navigation did not specify a template handler. The default is currently ERB, but will change to RAW in the future. (called from _app_views_layouts_application_html_erb___1258774205092386886_70094123489020 at /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/application.html.erb:29)
+  Rendered layouts/_navigation (1.0ms)
+Completed 200 OK in 67ms (Views: 65.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/associations.css?body=1" for 127.0.0.1 at 2014-10-15 18:41:36 -0500
+
+
+Started GET "/assets/contacts.css?body=1" for 127.0.0.1 at 2014-10-15 18:41:36 -0500
+
+
+Started GET "/assets/companies.css?body=1" for 127.0.0.1 at 2014-10-15 18:41:36 -0500
+
+
+Started GET "/assets/people.css?body=1" for 127.0.0.1 at 2014-10-15 18:41:36 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-15 18:41:36 -0500
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-10-15 18:41:36 -0500
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-10-15 18:41:36 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-15 18:41:36 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-15 18:41:36 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-15 18:41:36 -0500
+
+
+Started GET "/assets/associations.js?body=1" for 127.0.0.1 at 2014-10-15 18:41:36 -0500
+
+
+Started GET "/assets/companies.js?body=1" for 127.0.0.1 at 2014-10-15 18:41:36 -0500
+
+
+Started GET "/assets/contacts.js?body=1" for 127.0.0.1 at 2014-10-15 18:41:36 -0500
+
+
+Started GET "/assets/people.js?body=1" for 127.0.0.1 at 2014-10-15 18:41:36 -0500
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-10-15 18:41:36 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-15 18:41:36 -0500
+
+
+Started PATCH "/companies/3" for 127.0.0.1 at 2014-10-15 18:41:41 -0500
+Processing by CompaniesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"321Y2q8hHm6Frjti+H3jU5U27j+UhK+oQeQJ231w7Pw=", "company"=>{"company_name"=>"Test 1", "phone_1"=>"555", "phone_tag_1"=>"Office", "phone_2"=>"444", "phone_tag_2"=>"", "website"=>"www.test.com", "address_line_1"=>"1234 Make Belienve", "address_line_2"=>"a;dsfkajdj", "city"=>"Austin", "state"=>"TX", "zipcode"=>""}, "commit"=>"Update Company", "id"=>"3"}
+  [1m[36mCompany Load (0.3ms)[0m  [1mSELECT  "companies".* FROM "companies"  WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 3]]
+Unpermitted parameters: zipcode
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "companies" SET "phone_tag_1" = $1, "updated_at" = $2 WHERE "companies"."id" = 3[0m  [["phone_tag_1", "Office"], ["updated_at", "2014-10-15 23:41:41.521495"]]
+  [1m[35m (0.8ms)[0m  COMMIT
+Redirected to http://localhost:3000/companies/3
+Completed 302 Found in 8ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/companies/3" for 127.0.0.1 at 2014-10-15 18:41:41 -0500
+Processing by CompaniesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mCompany Load (0.2ms)[0m  [1mSELECT  "companies".* FROM "companies"  WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered companies/show.html.erb within layouts/application (0.5ms)
+DEPRECATION WARNING: The file /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/_navigation did not specify a template handler. The default is currently ERB, but will change to RAW in the future. (called from _app_views_layouts_application_html_erb___1258774205092386886_70094123489020 at /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/application.html.erb:29)
+  Rendered layouts/_navigation (1.1ms)
+Completed 200 OK in 75ms (Views: 73.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/associations.css?body=1" for 127.0.0.1 at 2014-10-15 18:41:41 -0500
+
+
+Started GET "/assets/companies.css?body=1" for 127.0.0.1 at 2014-10-15 18:41:41 -0500
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-10-15 18:41:41 -0500
+
+
+Started GET "/assets/contacts.css?body=1" for 127.0.0.1 at 2014-10-15 18:41:41 -0500
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-10-15 18:41:41 -0500
+
+
+Started GET "/assets/people.css?body=1" for 127.0.0.1 at 2014-10-15 18:41:41 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-15 18:41:41 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-15 18:41:41 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-15 18:41:41 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-15 18:41:41 -0500
+
+
+Started GET "/assets/associations.js?body=1" for 127.0.0.1 at 2014-10-15 18:41:41 -0500
+
+
+Started GET "/assets/companies.js?body=1" for 127.0.0.1 at 2014-10-15 18:41:41 -0500
+
+
+Started GET "/assets/contacts.js?body=1" for 127.0.0.1 at 2014-10-15 18:41:41 -0500
+
+
+Started GET "/assets/people.js?body=1" for 127.0.0.1 at 2014-10-15 18:41:41 -0500
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-10-15 18:41:41 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-15 18:41:41 -0500
+
+
+Started GET "/companies" for 127.0.0.1 at 2014-10-15 18:41:43 -0500
+Processing by CompaniesController#index as HTML
+  [1m[35mCompany Load (0.3ms)[0m  SELECT "companies".* FROM "companies"
+  Rendered companies/index.html.erb within layouts/application (2.2ms)
+DEPRECATION WARNING: The file /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/_navigation did not specify a template handler. The default is currently ERB, but will change to RAW in the future. (called from _app_views_layouts_application_html_erb___1258774205092386886_70094123489020 at /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/application.html.erb:29)
+  Rendered layouts/_navigation (0.9ms)
+Completed 200 OK in 65ms (Views: 64.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/companies/3/edit" for 127.0.0.1 at 2014-10-15 18:41:45 -0500
+Processing by CompaniesController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mCompany Load (0.2ms)[0m  [1mSELECT  "companies".* FROM "companies"  WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered companies/_form.html.erb (4.3ms)
+  Rendered companies/edit.html.erb within layouts/application (5.2ms)
+DEPRECATION WARNING: The file /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/_navigation did not specify a template handler. The default is currently ERB, but will change to RAW in the future. (called from _app_views_layouts_application_html_erb___1258774205092386886_70094123489020 at /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/application.html.erb:29)
+  Rendered layouts/_navigation (1.1ms)
+Completed 200 OK in 74ms (Views: 73.0ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/companies/3" for 127.0.0.1 at 2014-10-15 18:41:49 -0500
+Processing by CompaniesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"321Y2q8hHm6Frjti+H3jU5U27j+UhK+oQeQJ231w7Pw=", "company"=>{"company_name"=>"Test 1", "phone_1"=>"555", "phone_tag_1"=>"Home", "phone_2"=>"444", "phone_tag_2"=>"", "website"=>"www.test.com", "address_line_1"=>"1234 Make Belienve", "address_line_2"=>"a;dsfkajdj", "city"=>"Austin", "state"=>"TX", "zipcode"=>""}, "commit"=>"Update Company", "id"=>"3"}
+  [1m[35mCompany Load (1.0ms)[0m  SELECT  "companies".* FROM "companies"  WHERE "companies"."id" = $1 LIMIT 1  [["id", 3]]
+Unpermitted parameters: zipcode
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  UPDATE "companies" SET "phone_tag_1" = $1, "updated_at" = $2 WHERE "companies"."id" = 3  [["phone_tag_1", "Home"], ["updated_at", "2014-10-15 23:41:49.970673"]]
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/companies/3
+Completed 302 Found in 7ms (ActiveRecord: 2.4ms)
+
+
+Started GET "/companies/3" for 127.0.0.1 at 2014-10-15 18:41:49 -0500
+Processing by CompaniesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mCompany Load (0.4ms)[0m  SELECT  "companies".* FROM "companies"  WHERE "companies"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered companies/show.html.erb within layouts/application (0.4ms)
+DEPRECATION WARNING: The file /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/_navigation did not specify a template handler. The default is currently ERB, but will change to RAW in the future. (called from _app_views_layouts_application_html_erb___1258774205092386886_70094123489020 at /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/application.html.erb:29)
+  Rendered layouts/_navigation (1.0ms)
+Completed 200 OK in 69ms (Views: 67.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/associations.css?body=1" for 127.0.0.1 at 2014-10-15 18:41:50 -0500
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-10-15 18:41:50 -0500
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-10-15 18:41:50 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-15 18:41:50 -0500
+
+
+Started GET "/assets/contacts.css?body=1" for 127.0.0.1 at 2014-10-15 18:41:50 -0500
+
+
+Started GET "/assets/people.css?body=1" for 127.0.0.1 at 2014-10-15 18:41:50 -0500
+
+
+Started GET "/assets/companies.css?body=1" for 127.0.0.1 at 2014-10-15 18:41:50 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-15 18:41:50 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-15 18:41:50 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-15 18:41:50 -0500
+
+
+Started GET "/assets/associations.js?body=1" for 127.0.0.1 at 2014-10-15 18:41:50 -0500
+
+
+Started GET "/assets/companies.js?body=1" for 127.0.0.1 at 2014-10-15 18:41:50 -0500
+
+
+Started GET "/assets/contacts.js?body=1" for 127.0.0.1 at 2014-10-15 18:41:50 -0500
+
+
+Started GET "/assets/people.js?body=1" for 127.0.0.1 at 2014-10-15 18:41:50 -0500
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-10-15 18:41:50 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-15 18:41:50 -0500
+
+
+Started GET "/companies" for 127.0.0.1 at 2014-10-15 18:41:51 -0500
+Processing by CompaniesController#index as HTML
+  [1m[36mCompany Load (0.3ms)[0m  [1mSELECT "companies".* FROM "companies"[0m
+  Rendered companies/index.html.erb within layouts/application (2.2ms)
+DEPRECATION WARNING: The file /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/_navigation did not specify a template handler. The default is currently ERB, but will change to RAW in the future. (called from _app_views_layouts_application_html_erb___1258774205092386886_70094123489020 at /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/application.html.erb:29)
+  Rendered layouts/_navigation (1.6ms)
+Completed 200 OK in 67ms (Views: 66.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/companies/3/edit" for 127.0.0.1 at 2014-10-15 18:41:54 -0500
+Processing by CompaniesController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mCompany Load (0.2ms)[0m  SELECT  "companies".* FROM "companies"  WHERE "companies"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered companies/_form.html.erb (5.4ms)
+  Rendered companies/edit.html.erb within layouts/application (6.5ms)
+DEPRECATION WARNING: The file /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/_navigation did not specify a template handler. The default is currently ERB, but will change to RAW in the future. (called from _app_views_layouts_application_html_erb___1258774205092386886_70094123489020 at /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/application.html.erb:29)
+  Rendered layouts/_navigation (1.2ms)
+Completed 200 OK in 69ms (Views: 68.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/companies/3/edit" for 127.0.0.1 at 2014-10-15 18:42:50 -0500
+Processing by CompaniesController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mCompany Load (0.2ms)[0m  [1mSELECT  "companies".* FROM "companies"  WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered companies/_form.html.erb (6.0ms)
+  Rendered companies/edit.html.erb within layouts/application (6.9ms)
+Completed 500 Internal Server Error in 10ms
+
+ActionView::Template::Error (undefined method `Phone Tag' for #<Company:0x007f801ea221f0>):
+    18:     <%= f.label :phone_1 %>
+    19:     <%= f.telephone_field :phone_1 %>
+    20:     <%= f.label :phone_tag_1 %>
+    21:     <%= f.select("Phone Tag", ["Cell", "Office", "Home"]) %>
+    22:     </br>
+    23:     <%= f.label :phone_2 %>
+    24:     <%= f.telephone_field :phone_2 %>
+  app/views/companies/_form.html.erb:21:in `block in _app_views_companies__form_html_erb__3667396350025050714_70094123212040'
+  app/views/companies/_form.html.erb:1:in `_app_views_companies__form_html_erb__3667396350025050714_70094123212040'
+  app/views/companies/edit.html.erb:3:in `_app_views_companies_edit_html_erb__424224367768115419_70094110811640'
+
+
+  Rendered /Users/jonathan/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered /Users/jonathan/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/jonathan/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (11.1ms)
+
+
+Started GET "/companies/3/edit" for 127.0.0.1 at 2014-10-15 18:43:13 -0500
+Processing by CompaniesController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mCompany Load (0.3ms)[0m  SELECT  "companies".* FROM "companies"  WHERE "companies"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered companies/_form.html.erb (4.7ms)
+  Rendered companies/edit.html.erb within layouts/application (5.5ms)
+DEPRECATION WARNING: The file /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/_navigation did not specify a template handler. The default is currently ERB, but will change to RAW in the future. (called from _app_views_layouts_application_html_erb___1258774205092386886_70094123489020 at /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/application.html.erb:29)
+  Rendered layouts/_navigation (1.0ms)
+Completed 200 OK in 77ms (Views: 75.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/associations.css?body=1" for 127.0.0.1 at 2014-10-15 18:43:13 -0500
+
+
+Started GET "/assets/companies.css?body=1" for 127.0.0.1 at 2014-10-15 18:43:13 -0500
+
+
+Started GET "/assets/people.css?body=1" for 127.0.0.1 at 2014-10-15 18:43:13 -0500
+
+
+Started GET "/assets/contacts.css?body=1" for 127.0.0.1 at 2014-10-15 18:43:13 -0500
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-10-15 18:43:13 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-15 18:43:13 -0500
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-10-15 18:43:13 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-15 18:43:13 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-15 18:43:13 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-15 18:43:13 -0500
+
+
+Started GET "/assets/associations.js?body=1" for 127.0.0.1 at 2014-10-15 18:43:13 -0500
+
+
+Started GET "/assets/companies.js?body=1" for 127.0.0.1 at 2014-10-15 18:43:13 -0500
+
+
+Started GET "/assets/contacts.js?body=1" for 127.0.0.1 at 2014-10-15 18:43:13 -0500
+
+
+Started GET "/assets/people.js?body=1" for 127.0.0.1 at 2014-10-15 18:43:13 -0500
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-10-15 18:43:13 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-15 18:43:13 -0500
+
+
+Started GET "/companies/3/edit" for 127.0.0.1 at 2014-10-15 18:43:44 -0500
+Processing by CompaniesController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mCompany Load (0.3ms)[0m  [1mSELECT  "companies".* FROM "companies"  WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered companies/_form.html.erb (4.5ms)
+  Rendered companies/edit.html.erb within layouts/application (5.3ms)
+DEPRECATION WARNING: The file /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/_navigation did not specify a template handler. The default is currently ERB, but will change to RAW in the future. (called from _app_views_layouts_application_html_erb___1258774205092386886_70094123489020 at /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/application.html.erb:29)
+  Rendered layouts/_navigation (1.9ms)
+Completed 200 OK in 69ms (Views: 67.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/associations.css?body=1" for 127.0.0.1 at 2014-10-15 18:43:44 -0500
+
+
+Started GET "/assets/contacts.css?body=1" for 127.0.0.1 at 2014-10-15 18:43:44 -0500
+
+
+Started GET "/assets/companies.css?body=1" for 127.0.0.1 at 2014-10-15 18:43:44 -0500
+
+
+Started GET "/assets/people.css?body=1" for 127.0.0.1 at 2014-10-15 18:43:44 -0500
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-10-15 18:43:44 -0500
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-10-15 18:43:44 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-15 18:43:44 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-15 18:43:44 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-15 18:43:44 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-15 18:43:44 -0500
+
+
+Started GET "/assets/associations.js?body=1" for 127.0.0.1 at 2014-10-15 18:43:44 -0500
+
+
+Started GET "/assets/companies.js?body=1" for 127.0.0.1 at 2014-10-15 18:43:44 -0500
+
+
+Started GET "/assets/contacts.js?body=1" for 127.0.0.1 at 2014-10-15 18:43:44 -0500
+
+
+Started GET "/assets/people.js?body=1" for 127.0.0.1 at 2014-10-15 18:43:44 -0500
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-10-15 18:43:44 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-15 18:43:44 -0500
+
+
+Started PATCH "/companies/3" for 127.0.0.1 at 2014-10-15 18:43:47 -0500
+Processing by CompaniesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"321Y2q8hHm6Frjti+H3jU5U27j+UhK+oQeQJ231w7Pw=", "company"=>{"company_name"=>"Test 1", "phone_1"=>"555", "phone_tag_1"=>"Home", "phone_2"=>"444", "phone_tag_2"=>"Fax", "website"=>"www.test.com", "address_line_1"=>"1234 Make Belienve", "address_line_2"=>"a;dsfkajdj", "city"=>"Austin", "state"=>"TX", "zipcode"=>""}, "commit"=>"Update Company", "id"=>"3"}
+  [1m[35mCompany Load (1.1ms)[0m  SELECT  "companies".* FROM "companies"  WHERE "companies"."id" = $1 LIMIT 1  [["id", 3]]
+Unpermitted parameters: zipcode
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  UPDATE "companies" SET "phone_tag_2" = $1, "updated_at" = $2 WHERE "companies"."id" = 3  [["phone_tag_2", "Fax"], ["updated_at", "2014-10-15 23:43:47.989777"]]
+  [1m[36m (1.1ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/companies/3
+Completed 302 Found in 9ms (ActiveRecord: 2.8ms)
+
+
+Started GET "/companies/3" for 127.0.0.1 at 2014-10-15 18:43:47 -0500
+Processing by CompaniesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mCompany Load (0.3ms)[0m  SELECT  "companies".* FROM "companies"  WHERE "companies"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered companies/show.html.erb within layouts/application (0.3ms)
+DEPRECATION WARNING: The file /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/_navigation did not specify a template handler. The default is currently ERB, but will change to RAW in the future. (called from _app_views_layouts_application_html_erb___1258774205092386886_70094123489020 at /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/application.html.erb:29)
+  Rendered layouts/_navigation (1.7ms)
+Completed 200 OK in 69ms (Views: 67.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/associations.css?body=1" for 127.0.0.1 at 2014-10-15 18:43:48 -0500
+
+
+Started GET "/assets/companies.css?body=1" for 127.0.0.1 at 2014-10-15 18:43:48 -0500
+
+
+Started GET "/assets/contacts.css?body=1" for 127.0.0.1 at 2014-10-15 18:43:48 -0500
+
+
+Started GET "/assets/people.css?body=1" for 127.0.0.1 at 2014-10-15 18:43:48 -0500
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-10-15 18:43:48 -0500
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-10-15 18:43:48 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-15 18:43:48 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-15 18:43:48 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-15 18:43:48 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-15 18:43:48 -0500
+
+
+Started GET "/assets/associations.js?body=1" for 127.0.0.1 at 2014-10-15 18:43:48 -0500
+
+
+Started GET "/assets/companies.js?body=1" for 127.0.0.1 at 2014-10-15 18:43:48 -0500
+
+
+Started GET "/assets/contacts.js?body=1" for 127.0.0.1 at 2014-10-15 18:43:48 -0500
+
+
+Started GET "/assets/people.js?body=1" for 127.0.0.1 at 2014-10-15 18:43:48 -0500
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-10-15 18:43:48 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-15 18:43:48 -0500
+
+
+Started GET "/companies" for 127.0.0.1 at 2014-10-15 18:43:49 -0500
+Processing by CompaniesController#index as HTML
+  [1m[36mCompany Load (0.3ms)[0m  [1mSELECT "companies".* FROM "companies"[0m
+  Rendered companies/index.html.erb within layouts/application (1.9ms)
+DEPRECATION WARNING: The file /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/_navigation did not specify a template handler. The default is currently ERB, but will change to RAW in the future. (called from _app_views_layouts_application_html_erb___1258774205092386886_70094123489020 at /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/application.html.erb:29)
+  Rendered layouts/_navigation (0.9ms)
+Completed 200 OK in 58ms (Views: 56.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/companies/3/edit" for 127.0.0.1 at 2014-10-15 18:43:51 -0500
+Processing by CompaniesController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mCompany Load (0.2ms)[0m  SELECT  "companies".* FROM "companies"  WHERE "companies"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered companies/_form.html.erb (4.7ms)
+  Rendered companies/edit.html.erb within layouts/application (5.6ms)
+DEPRECATION WARNING: The file /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/_navigation did not specify a template handler. The default is currently ERB, but will change to RAW in the future. (called from _app_views_layouts_application_html_erb___1258774205092386886_70094123489020 at /Users/jonathan/Box Sync/Crown Holdings/_Current Companies/Agilent Innovations/Products/Agilent Accounting/agilent-accounting/app/views/layouts/application.html.erb:29)
+  Rendered layouts/_navigation (1.2ms)
+Completed 200 OK in 63ms (Views: 61.5ms | ActiveRecord: 0.2ms)

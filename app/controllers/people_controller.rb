@@ -24,7 +24,8 @@ class PeopleController < ApplicationController
   # POST /people
   # POST /people.json
   def create
-    @person = Person.new(person_params)
+    @person = User.create! {|u| u.profile = Person.create(person_params)}
+    #@person = Person.new(person_params)
 
     respond_to do |format|
       if @person.save
