@@ -1,16 +1,14 @@
 
 <h1>All Contacts</h1>
-<%= link_to '+ New Company', new_company_path %>
-</br>
-</br>
-<%= link_to '+ New Person', new_person_path %>
-</br>
-</br>
+<%= link_to 'New Company', new_contact_path(type: "CompanyUser") %>
+<br/>
+<%= link_to 'New Person', new_contact_path(type: "PersonUser") %>
+<br/>
 <table>
   <thead>
     <tr>
-      <th>Company</th>
-      <th>Primary Contact</th>
+      <th>Name</th>
+      <th>Contact type</th>
       <th>Primary Phone</th>
       <th>Email</th>
       <th>Actions</th>
@@ -18,26 +16,15 @@
   </thead>
 
   <tbody>
-    <% @companies.each do |company| %>
+    <% @users.each do |user| %>
       <tr>
-        <td><%= company.company_name %></td>
-        <td><%=  %></td>
-        <td><%= company.phone_1 %></td>
-        <td><%=  %></td>
-        <td><%= link_to 'Show', company %></td>
-        <td><%= link_to 'Edit', edit_company_path(company) %></td>
-        <td><%= link_to 'Destroy', company, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-    <% @people.each do |person| %>
-      <tr>
-        <td><%=  %></td>
-        <td><%= person.first_name.to_s + " " + person.last_name.to_s %></td>
-        <td><%= person.phone_1 %></td>
-        <td><%= person.email %></td>
-        <td><%= link_to 'Show', person %></td>
-        <td><%= link_to 'Edit', edit_person_path(person) %></td>
-        <td><%= link_to 'Destroy', person, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= user.display_name %></td>
+        <td><%= user.type_name  %></td>
+        <td><%= user.primary_phone %></td>
+        <td><%= user.email  %></td>
+        <td><%= link_to 'Show', contact_path(user) %></td>
+        <td><%= link_to 'Edit', edit_contact_path(user) %></td>
+        <td><%= link_to 'Destroy', contact_path(user), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

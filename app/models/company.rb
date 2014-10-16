@@ -1,3 +1,3 @@
 class Company < ActiveRecord::Base
-	has_one :user, as: :profile, dependent: :destroy
+	belongs_to :company_user, foreign_key: :user_id
 end

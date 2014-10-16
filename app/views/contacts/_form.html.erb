@@ -1,19 +1,28 @@
-
-<%= form_for(@user) do |f| %>
+<%= form_for @user, url: contacts_path do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+        <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
-      <ul>
-      <% @user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+        <ul>
+            <% @user.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+        </ul>
     </div>
   <% end %>
 
   <div class="actions">
-    
-    <%= f.submit %>
+      <%= f.hidden_field :type %>
+      <% if @user.is_a? CompanyUser %>
+        <%= f.fields_for :companies, @user.companies.first || Company.new do |p| %>
+          <%= render :partial => 'company_user_form', :locals => {:p => p} %>
+        <% end %>
+      <% else %>
+        <%= f.fields_for :people, @user.people.first || Person.new do |p| %>
+          <%= render :partial => 'person_user_form', :locals => {:p => p} %>
+        <% end %>
+      <% end %>
+
+      <%= f.submit %>
   </div>
 <% end %>

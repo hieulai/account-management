@@ -4,8 +4,7 @@ before_action :set_user, only: [:show, :edit, :update, :destroy]
   # GET /users
   # GET /users.json
   def index
-    @companies = Company.all
-    @people = Person.all
+    @users = User.all
   end
 
   # GET /users/1
@@ -15,7 +14,7 @@ before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users/new
   def new
-    @user = User.new
+    @user = User.new(type: params[:type])
   end
 
   # GET /users/1/edit
@@ -70,6 +69,11 @@ before_action :set_user, only: [:show, :edit, :update, :destroy]
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params[:user].permit(:first_name, :last_name, :email, :phone_1, :phone_2, :phone_tag_1, :phone_tag_2, :website, :address_line_1, :address_line_2, :city, :state, :zipcode)
+      if params[:company_user]
+        params[:company_user].permit!
+      else
+        params[:person_user].permit!
+      end
+
     end
 end
