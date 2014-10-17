@@ -1,6 +1,16 @@
 <h1>Editing user</h1>
 
+
 <%= render 'form' %>
+<br/>
+<% if @user.is_a? CompanyUser %>
+  <%= link_to 'Add Company Contact', new_contact_path(type: "PersonUser", role: "Employee", contact_id: @user.id) %>
+  <% if @user.contacts.any? %>
+    <%= render :partial => 'users', :locals => {:users => @user.contacts} %>
+  <% end %>
+<% end %>
+<br/>
+
 
 <%= link_to 'Show', contact_path(@user) %> |
 <%= link_to 'Back', contacts_path %>

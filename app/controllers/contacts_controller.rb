@@ -15,6 +15,8 @@ before_action :set_user, only: [:show, :edit, :update, :destroy]
   # GET /users/new
   def new
     @user = User.new(type: params[:type])
+    @role = params[:role]
+    @contact_id = params[:contact_id]
   end
 
   # GET /users/1/edit
@@ -74,6 +76,5 @@ before_action :set_user, only: [:show, :edit, :update, :destroy]
       else
         params[:person_user].permit!
       end
-
     end
 end

@@ -13,6 +13,14 @@
 
   <div class="actions">
       <%= f.hidden_field :type %>
+
+      <% if @role && @contact_id %>
+        <%= f.fields_for :associations, @user.associations.first || Association.new do |p| %>
+          <%= p.hidden_field :association_type, value: @role %>
+          <%= p.hidden_field :contact_id, value: @contact_id %>
+        <% end %>
+      <% end %>
+
       <% if @user.is_a? CompanyUser %>
         <%= f.fields_for :companies, @user.companies.first || Company.new do |p| %>
           <%= render :partial => 'company_user_form', :locals => {:p => p} %>

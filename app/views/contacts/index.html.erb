@@ -4,32 +4,8 @@
 <br/>
 <%= link_to 'New Person', new_contact_path(type: "PersonUser") %>
 <br/>
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Contact type</th>
-      <th>Primary Phone</th>
-      <th>Email</th>
-      <th>Actions</th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= user.display_name %></td>
-        <td><%= user.type_name  %></td>
-        <td><%= user.primary_phone %></td>
-        <td><%= user.email  %></td>
-        <td><%= link_to 'Show', contact_path(user) %></td>
-        <td><%= link_to 'Edit', edit_contact_path(user) %></td>
-        <td><%= link_to 'Destroy', contact_path(user), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+<%= render :partial => 'users', :locals => {:users => @users} %>
 <br>
 
 
