@@ -17,9 +17,11 @@
           <td><%= user.primary_phone %></td>
           <td><%= user.email  %></td>
           <td>
-              <%= link_to 'Show', contact_path(user) %>
-              <%= link_to 'Edit', edit_contact_path(user) %>
-              <%= link_to 'Destroy', contact_path(user), method: :delete, data: { confirm: 'Are you sure?' } %>
+
+              <%= link_to 'Show', contact_path(user), :title => 'Show', :class => 'view table-action' %>
+              <%= link_to 'Edit', edit_contact_path(user), :title => 'Edit', :class => 'edit table-action' %>
+              <%= link_to 'Edit', "#", :title => 'Associations', :class => 'connections table-action' %>
+              <%= link_to 'Destroy', contact_path(user), method: :delete, data: { confirm: 'Are you sure?' }, :title => 'Delete', :class => 'delete table-action' %>
           </td>
       </tr>
     <% end %>

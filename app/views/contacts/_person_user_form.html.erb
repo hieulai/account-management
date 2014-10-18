@@ -1,55 +1,76 @@
-<p>
-    <%= p.label :first_name %>
-    <%= p.text_field :first_name %>
-</p>
+<div class="control-group">
+    <%= p.label :first_name, "First Name", :class => 'col-lg-2 control-label' %>
+    <div class="controls">
+        <%= p.text_field(:first_name) %>
+    </div>
+</div>
 
-<p>
-    <%= p.label :last_name %>
-    <%= p.text_field :last_name %>
-</p>
+<div class="control-group">
+    <%= p.label :last_name, "Last Name", :class => 'col-lg-2 control-label' %>
+    <div class="controls">
+        <%= p.text_field(:last_name) %>
+    </div>
+</div>
 
-<p>
-    <%= p.label :email %>
-    <%= p.text_field :email %>
-</p>
+<div class="control-group">
+    <%= p.label :email, "Email", :class => 'col-lg-2 control-label' %>
+    <div class="controls">
+        <%= p.text_field(:email) %>
+    </div>
+</div>
 
-<p>
-    <%= p.label :phone_1 %>
-    <%= p.text_field :phone_1 %>
-    <%= p.label :phone_tag_1 %>
-    <%= p.text_field :phone_tag_1 %>
-</p>
+<div class="control-group">
+    <%= p.label :phone_1, "Primary Phone", :class => 'col-lg-2 control-label' %>
+    <div class="controls">
+        <%= p.text_field(:phone_1) %>
+        <%= p.select(:phone_tag_1, ["Cell", "Office", "Home"]) %>
+    </div>
+</div>
+<div class="control-group">
+    <%= p.label :phone_2, "Secondary Phone", :class => 'col-lg-2 control-label' %>
+    <div class="controls">
+        <%= p.text_field(:phone_2) %>
+        <%= p.select(:phone_tag_2, ["Cell", "Office", "Home"]) %>
+    </div>
+</div>
 
-<p>
-    <%= p.label :phone_2 %>
-    <%= p.text_field :phone_2 %>
-    <%= p.label :phone_tag_2 %>
-    <%= p.text_field :phone_tag_2 %>
-</p>
+<div class="control-group">
+    <%= p.label :address_line_1, "Address Line 1", :class => 'col-lg-2 control-label' %>
+    <div class="controls">
+        <%= p.text_field(:address_line_1) %>
+    </div>
+</div>
 
-<p>
-    <%= p.label :address_line_1 %>
-    <%= p.text_field :address_line_1 %>
-    <%= p.label :address_line_2 %>
-    <%= p.text_field :address_line_2 %>
-</p>
+<div class="control-group">
+    <%= p.label :address_line_2, "Address Line 2", :class => 'col-lg-2 control-label' %>
+    <div class="controls">
+        <%= p.text_field(:address_line_2) %>
+    </div>
+</div>
 
-<p>
-    <%= p.label :city %>
-    <%= p.text_field :city %>
-</p>
+<div class="control-group">
+    <%= p.label :city, "City", :class => 'col-lg-2 control-label' %>
+    <div class="controls">
+        <%= p.text_field(:city) %>
+    </div>
+</div>
+<div class="control-group">
+    <%= p.label :state, "State", :class => 'col-lg-2 control-label' %>
+    <div class="controls">
+        <%= p.text_field(:state) %>
+    </div>
+</div>
 
-<p>
-    <%= p.label :state %>
-    <%= p.text_field :state %>
-</p>
+<div class="control-group">
+    <%= p.label :zipcode, "Zipcode", :class => 'col-lg-2 control-label' %>
+    <div class="controls">
+        <%= p.text_field(:zipcode) %>
+    </div>
+</div>
 
-<p>
-    <%= p.label :zipcode %>
-    <%= p.text_field :zipcode %>
-</p>
-
-<p>
-    <%= p.label :website %>
-    <%= p.text_field :website %>
-</p>
+<div class="control-group">
+    <%= p.label :website, "Website", :class => 'col-lg-2 control-label' %>
+    <div class="controls">
+        <%= p.text_field(:website) %>
+    </div>
+</div>

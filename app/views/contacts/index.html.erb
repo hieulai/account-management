@@ -2,9 +2,8 @@
     <%= render(:partial => "layouts/sub_navigation/people") %>
     <div class="zurb-row main-action-bar">
         <div class="large-3 medium-4 columns">
-            <%= link_to 'New Company', new_contact_path(type: "CompanyUser") %>
-            <br/>
-            <%= link_to 'New Person', new_contact_path(type: "PersonUser") %>
+            <%= link_to 'New Company', new_contact_path(type: "CompanyUser"), class: 'btn' %>
+            <%= link_to 'New Person', new_contact_path(type: "PersonUser"), class: 'btn' %>
             <br/>
         </div>
         <div class="large-6 medium-6 columns">

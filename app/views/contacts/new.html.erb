@@ -1,5 +1,21 @@
-<h1>New user</h1>
+<div>
+    <%= render(:partial => "layouts/sub_navigation/people") %>
+    <div class="zurb-row main-action-bar">
+        <div class="large-3 medium-4 columns">
+            &nbsp;
+        </div>
+        <div class="large-6 medium-6 columns">
+            <h1 class="center">
+                Add <%= @user.type_name %> User
+            </h1>
+        </div>
+        <div class="large-3 medium-2 columns">
+        </div>
+    </div>
+    <div class="zurb-row">
+        <div class="columns margin-bottom">
+            <%= render 'form' %>
+        </div>
+    </div>
+</div>
 
-<%= render 'form' %>
-
-<%= link_to 'Back', users_path %>

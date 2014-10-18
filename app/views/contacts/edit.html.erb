@@ -1,16 +1,30 @@
-<h1>Editing user</h1>
+<div>
+    <%= render(:partial => "layouts/sub_navigation/people") %>
+    <div class="zurb-row main-action-bar">
+        <div class="large-3 medium-4 columns">
+            <%= link_to("View >>", contact_path(@user), :title => 'View', :class => 'view-large action-button') %>
+            <%= link_to("Delete >>", contact_path(@user), method: :delete, data: { confirm: 'Are you sure?' }, :title => 'Delete', :class => 'delete-large action-button') %>
+        </div>
+        <div class="large-6 medium-6 columns">
+            <h1 class="center">
+                Edit User
+            </h1>
+        </div>
+        <div class="large-3 medium-2 columns">
+        </div>
+    </div>
+    <div class="zurb-row">
+        <div class="columns margin-bottom">
+            <%= render 'form' %>
 
+            <br/>
+            <% if @user.is_a? CompanyUser %>
+              <%= link_to 'Add Company Contact', new_contact_path(type: PersonUser.name, role: Constants::EMPLOYEE, contact_id: @user.id) %>
+              <% if @user.contacts.any? %>
+                <%= render :partial => 'users', :locals => {:users => @user.contacts} %>
+              <% end %>
+            <% end %>
+        </div>
+    </div>
+</div>
 
-<%= render 'form' %>
-<br/>
-<% if @user.is_a? CompanyUser %>
-  <%= link_to 'Add Company Contact', new_contact_path(type: PersonUser.name, role: Constants::EMPLOYEE, contact_id: @user.id) %>
-  <% if @user.contacts.any? %>
-    <%= render :partial => 'users', :locals => {:users => @user.contacts} %>
-  <% end %>
-<% end %>
-<br/>
-
-
-<%= link_to 'Show', contact_path(@user) %> |
-<%= link_to 'Back', contacts_path %>

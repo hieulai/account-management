@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id           :integer          not null, primary key
+#  active       :boolean
+#  profile_id   :integer
+#  profile_type :string(255)
+#  type         :string(255)
+#
+
 class User < ActiveRecord::Base
   has_many :associations
   has_many :target_associations, class_name: 'Association', :foreign_key => 'contact_id'

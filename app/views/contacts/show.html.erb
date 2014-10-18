@@ -1,4 +1,25 @@
-<p id="notice"><%= notice %></p>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<div>
+    <%= render(:partial => "layouts/sub_navigation/people") %>
+    <div class="zurb-row main-action-bar">
+        <div class="large-3 medium-4 columns">
+            <%= link_to("Edit >>", edit_contact_path(@user), :title => 'Edit', :class => 'edit-large action-button') %>
+            <%= link_to("Delete >>", contact_path(@user), method: :delete, data: { confirm: 'Are you sure?' }, :title => 'Delete', :class => 'delete-large action-button') %>
+        </div>
+        <div class="large-6 medium-6 columns">
+            <h1 class="center">
+                User Information
+            </h1>
+        </div>
+        <div class="large-3 medium-2 columns">
+        </div>
+    </div>
+    <div class="zurb-row">
+        <div class="columns margin-bottom">
+            <% if @user.is_a? CompanyUser %>
+                <%= render :partial => 'company_user_info', :locals => {:user => @user} %>
+            <% else %>
+                <%= render :partial => 'person_user_info', :locals => {:user => @user} %>
+            <% end %>
+        </div>
+    </div>
+</div>
