@@ -224,11 +224,11 @@ form {
 }
 
 #report-bug{
-  background-image: url('/assets/bug.png');
+  background-image: url(image_path('bug.png'));
 }
 
 .logout {
-  background-image: url('/assets/logout.png');
+  background-image: url(image_path('logout.png'));
 }
 
 #footer {
@@ -240,7 +240,7 @@ form {
 }
 
 #mainmenu {
-  background: url('/assets/menu-bg.png') repeat left top;
+  background: url(image_path('menu-bg.png')) repeat left top;
   background-size: 0.41em 2.3em;
   width: 100%;
 }
@@ -272,7 +272,7 @@ form {
 }
 
 #mainmenu ul li a:hover {
-  background: url('/assets/menu-active.png') repeat-x left top;
+  background: url(image_path('menu-active.png')) repeat-x left top;
   cursor: pointer;
 }
 
@@ -332,52 +332,52 @@ form {
 }
 
 .add {
-  background-image: url('/assets/plus-mark.png');
+  background-image: url(image_path('plus-mark.png'));
   background-size: 2.7em 2.7em;
 }
 
 .help {
-  background-image: url('/assets/question-mark.png');
+  background-image: url(image_path('question-mark.png'));
   background-size: 2.7em 2.7em;
 }
 
 .import {
-  background-image: url('/assets/import.png');
+  background-image: url(image_path('import.png'));
   background-size: 2.7em 2.7em;
 }
 
 .edit-large {
-  background-image: url('/assets/edit-large.png');
+  background-image: url(image_path('edit-large.png'));
   background-size: 2.7em 2.7em;
 }
 
 .delete-large {
-  background-image: url('/assets/delete-large.png');
+  background-image: url(image_path('delete-large.png'));
   background-size: 2.7em 2.7em;
 }
 
 .view-large {
-  background-image: url('/assets/view-large.png');
+  background-image: url(image_path('view-large.png'));
   background-size: 2.7em 2.7em;
 }
 
 .transfer {
-  background-image: url('/assets/transfer.png');
+  background-image: url(image_path('transfer.png'));
   background-size: 2.7em 2.7em;
 }
 
 .reconcile {
-  background-image: url('/assets/reconcile.png');
+  background-image: url(image_path('reconcile.png'));
   background-size: 2.7em 2.7em;
 }
 
 .profit-loss {
-  background-image: url('/assets/profit-loss.png');
+  background-image: url(image_path('profit-loss.png'));
   background-size: 2.7em 2.7em;
 }
 
 .balance {
-  background-image: url('/assets/balance.png');
+  background-image: url(image_path('balance.png'));
   background-size: 2.7em 2.7em;
 }
 
@@ -401,47 +401,47 @@ form {
 }
 
 .view {
-  background-image: url('/assetsmagnifying-glass-view.png');
+  background-image: url(image_path('magnifying-glass-view.png'));
 }
 
 .edit {
-  background-image: url('/assets/pencil-edit.png');
+  background-image: url(image_path('pencil-edit.png'));
 }
 
 .convert {
-  background-image: url('/assets/convert-icon.png');
+  background-image: url(image_path('convert-icon.png'));
 }
 
 .delete {
-  background-image: url('/assets/delete.png');
+  background-image: url(image_path('delete.png'));
 }
 
 .measure {
-  background-image: url('/assets/measurement.png');
+  background-image: url(image_path('measurement.png'));
 }
 
 .task-list {
-  background-image: url('/assets/task-list.png');
+  background-image: url(image_path('task-list.png'));
 }
 
 .bid {
-  background-image: url('/assets/bid.png');
+  background-image: url(image_path('bid.png'));
 }
 
 .budget {
-  background-image: url('/assets/budget.png');
+  background-image: url(image_path('budget.png'));
 }
 
 .change-order {
-  background-image: url('/assets/change-order.png');
+  background-image: url(image_path('change-order.png'));
 }
 
 .specs {
-  background-image: url('/assets/specs.png');
+  background-image: url(image_path('specs.png'));
 }
 
 .export {
-  background-image: url('/assets/export.png');
+  background-image: url(image_path('export.png'));
 }
 
 .table-action {
