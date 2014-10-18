@@ -18,4 +18,6 @@ class CompanyUser < User
   def primary_phone
     "#{companies.first.try(:phone_1)} #{companies.first.try(:phone_1_tag)}"
   end
+
+
 end

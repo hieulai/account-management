@@ -5,11 +5,217 @@
  * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
  * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
  *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
  *
- *= require_tree .
  *= require_self
+ *= require bootstrap_and_overrides
+ *= require responsive-tables
+ *= require_tree ./base
  */
+
+ul#tasksContainer{
+    list-style: none;
+    display: inline-block;
+}
+
+ul#tasksContainer li label{
+    padding: 5px;
+}
+
+ul#tasksContainer li label:hover{
+    cursor: pointer;
+    background: gainsboro;
+}
+
+.pagination{
+    float: right;
+}
+
+.login-box {
+    border: 1px solid #000000;
+    margin: 30px auto;padding: 25px 67px;
+    width: 250px;
+}
+
+.inline-block{
+    display: inline-block;
+}
+
+.clickable{
+    cursor: pointer;
+}
+
+.change_order{
+    background-color: lightgoldenrodyellow;
+}
+
+.purchased{
+    background-color: #FFE4E1;
+}
+
+.unclickable{
+    background-color: #d3d3d3;
+}
+
+.unclickable.change_order{
+    background-color: #E5F1F4 !important;
+}
+
+a.uneditable, a.uneditable:hover{
+    color: #808080;
+}
+
+.autocomplete-sublabel{
+    font-style: italic;
+    font-size: 10px;
+}
+
+.more-actions{
+    float:right;
+}
+
+.dataTable thead{
+    cursor: pointer;
+}
+
+.loader{
+    background: url('/assets/ajax-loader.gif') no-repeat;
+    width: 32px;
+    height: 32px;
+}
+
+.sorting {
+    background: url('/assets/sort_both.gif') no-repeat center right;
+}
+
+.sorting_asc {
+    background: url('/assets/sort_asc.gif') no-repeat center right;
+}
+
+.sorting_desc {
+    background: url('/assets/sort_desc.gif') no-repeat center right;
+}
+
+.dataTables_wrapper label input{
+    margin: auto 10px 0 auto;
+}
+
+.dataTables_filter{
+    float: right;
+    margin-top: 15px;
+}
+
+.button-group, .dataTables_wrapper label{
+    display: inline-block;
+}
+
+.button-group{
+    line-height: 40px;
+    margin: 10px 0;
+}
+
+table.report {
+    border: none;
+    width: auto;
+}
+
+table.report td {
+    padding: 0 20px 9px 0;
+}
+
+th.medium{
+    min-width: 150px;
+}
+
+tr.selected {
+    background: #E5F1F4;
+}
+
+td.amount {
+    text-align: right;
+}
+
+td.name {
+    padding-right: 30px;
+}
+
+td.calculate {
+    border-top: solid 1px #000000;
+}
+
+.indent{
+    width: 20px;
+    display: inline-block;
+}
+
+.select2-results li.select2-result-unselectable.select2-disabled > .select2-result-label {
+    font-weight: bold;
+}
+
+.expanded.expander {
+    padding-left: 20px;
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-image: url(/assets/minus.png);
+}
+
+.collapsed.expander {
+    padding-left: 20px;
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-image: url(/assets/plus.png);
+}
+
+.clearboth{
+    clear: both;
+}
+
+.nowrap {
+    white-space: nowrap;
+}
+
+#dragbar{
+    background-color: #808080;
+    width: 5px;
+    cursor: col-resize;
+
+}
+
+#dragbar-button{
+    width: 5px;
+    height: 15px;
+    position: relative;
+    top: 50%;
+    left: 0px;
+    background-color: black;
+}
+
+#sidebar{
+    padding-right: 5px;
+}
+
+#details{
+    float: right;
+    width: 74%;
+    padding-right: 0px;
+}
+
+.full-height{
+    float: left;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.search_people input[type="text"] {
+    margin-top: 5px;
+    display: block;
+}
+
+.controls .form-inline span{
+    display: inline-block;
+    margin: 5px;
+}
+

@@ -1,0 +1,616 @@
+// Place all the styles related to the templates controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.zurb-row, .column, .columns, ::before, ::after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.zurb-row::before, .zurb-row::after {
+  content: " ";
+  display: table;
+}
+
+.zurb-row::after {
+  clear: both;
+}
+
+.zurb-row {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+  margin-bottom: 0;
+  //max-width : 75 em;
+}
+
+.column, .columns {
+  position: relative;
+  padding-left: 0.9375em;
+  padding-right: 0.9375em;
+  width: 100%;
+  float: left;
+}
+
+@media only screen {
+
+  .column, .columns {
+    position: relative;
+    padding-left: 0.3em;
+    padding-right: 0.3em;
+    float: left;
+  }
+
+  .small-12 {
+    position: relative;
+    width: 100%;
+  }
+
+  .small-centered {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    float: none !important;
+  }
+
+}
+
+@media only screen and (min-width: 40.063em) {
+  .medium-1 {
+    position: relative;
+    width: 8.33333%;
+  }
+
+  .medium-2 {
+    position: relative;
+    width: 16.66667%;
+  }
+
+  .medium-3 {
+    position: relative;
+    width: 25%;
+  }
+
+  .medium-4 {
+    position: relative;
+    width: 33.33333%;
+  }
+
+  .medium-6 {
+    position: relative;
+    width: 50%;
+  }
+
+  .medium-8 {
+    position: relative;
+    width: 66.66667%;
+  }
+
+  .medium-9 {
+    position: relative;
+    width: 75%;
+  }
+
+  .medium-10 {
+    position: relative;
+    width: 83.33333%;
+  }
+
+  .medium-centered {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    float: none !important;
+  }
+}
+
+@media only screen and (min-width: 64.063em) {
+
+  .column, .columns {
+    position: relative;
+    padding-left: 0.9375em;
+    padding-right: 0.9375em;
+    float: left;
+  }
+
+  .large-1 {
+    position: relative;
+    width: 8.33333%;
+  }
+
+  .large-2 {
+    position: relative;
+    width: 16.66667%;
+  }
+
+  .large-3 {
+    position: relative;
+    width: 25%;
+  }
+
+  .large-4 {
+    position: relative;
+    width: 33.33333%;
+  }
+
+  .large-6 {
+    position: relative;
+    width: 50%;
+  }
+
+  .large-8 {
+    position: relative;
+    width: 66.66667%;
+  }
+
+  .large-9 {
+    position: relative;
+    width: 75%;
+  }
+
+  .large-10 {
+    position: relative;
+    width: 83.33333%;
+  }
+
+  .large-centered {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    float: none !important;
+  }
+
+}
+
+form {
+  margin: 0 0 0.8em;
+}
+
+#header {
+  padding-top: 0.6em;
+  padding-bottom: 0.2em;
+}
+
+#header h1 {
+  font-size: 3em;
+  line-height: 0.8em;
+  margin: 0;
+  text-align: left;
+  font-weight: normal;
+  color: #414143;
+}
+
+#content h1 {
+  text-align: center;
+  margin: 0;
+  font-size: 2em;
+  font-weight: normal;
+  line-height: 0.9em;
+  padding-top: 0.25em;
+  color: #414143;
+}
+
+#content {
+  text-align: left;
+}
+
+#username {
+  text-align: right;
+  line-height: 1.15em;
+  color: #414143;
+}
+
+#username a {
+  color: #414143;
+  text-decoration: none;
+}
+
+.header-actions a {
+
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-size: 1em 1em;
+  display: -moz-inline-box;
+  -moz-box-orient: vertical;
+  display: inline-block;
+  vertical-align: middle;
+  height: 1em;
+  text-align: left;
+  text-indent: -9000em;
+  width: 1em;
+  margin-left: 0.3em ;
+}
+
+#report-bug{
+  background-image: url('/assets/bug.png');
+}
+
+.logout {
+  background-image: url('/assets/logout.png');
+}
+
+#footer {
+  padding: 10px;
+  margin: 10px 20px;
+  font-size: 0.8em;
+  text-align: center;
+  border-top: 1px solid #C9E0ED;
+}
+
+#mainmenu {
+  background: url('/assets/menu-bg.png') repeat left top;
+  background-size: 0.41em 2.3em;
+  width: 100%;
+}
+
+#mainmenu ul {
+  margin: 0 !important;
+  text-align: center;
+  padding: 0;
+}
+
+#mainmenu li {
+  margin: 0 0 1px -6px;
+  line-height: 1.16em;
+}
+
+#mainmenu ul li {
+  display: inline-block;
+  text-align: center;
+  position: relative;
+}
+
+#mainmenu ul li a {
+  color: white;
+  background-color: transparent;
+  font-size: 1em;
+  text-decoration: none;
+  display: block;
+  padding: 0.6em;
+}
+
+#mainmenu ul li a:hover {
+  background: url('/assets/menu-active.png') repeat-x left top;
+  cursor: pointer;
+}
+
+#mainmenu ul li.active {
+  background: #808080;
+}
+
+#mainmenu ul li.active .arrow {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  margin-left: -9px;
+  border-bottom-color: gray;
+  border-width: 0 9px 9px;
+  display: none;
+  bottom: -1px;
+  left: 50%;
+
+}
+
+#submenu {
+  clear: both;
+  background: #808080;
+  width: 100%;
+}
+
+#submenu ul {
+  text-align: center;
+  margin: 0 auto;
+}
+
+#submenu ul li {
+  display: inline-block;
+  text-align: center;
+  position: relative;
+  line-height: 1.3em;
+  margin-left: -6px;
+}
+
+#submenu ul li a {
+  color: #ccc;
+  font-size: 0.9em;
+  text-decoration: none;
+  padding: 0.46em;
+  border: none;
+  display: block;
+}
+
+#submenu ul li a:hover, #submenu ul li.active a, #submenu ul li a.active {
+  color: white;
+}
+
+.main-action-bar {
+  padding: 0.9em 0 0.7em 0;
+}
+
+.add {
+  background-image: url('/assets/plus-mark.png');
+  background-size: 2.7em 2.7em;
+}
+
+.help {
+  background-image: url('/assets/question-mark.png');
+  background-size: 2.7em 2.7em;
+}
+
+.import {
+  background-image: url('/assets/import.png');
+  background-size: 2.7em 2.7em;
+}
+
+.edit-large {
+  background-image: url('/assets/edit-large.png');
+  background-size: 2.7em 2.7em;
+}
+
+.delete-large {
+  background-image: url('/assets/delete-large.png');
+  background-size: 2.7em 2.7em;
+}
+
+.view-large {
+  background-image: url('/assets/view-large.png');
+  background-size: 2.7em 2.7em;
+}
+
+.transfer {
+  background-image: url('/assets/transfer.png');
+  background-size: 2.7em 2.7em;
+}
+
+.reconcile {
+  background-image: url('/assets/reconcile.png');
+  background-size: 2.7em 2.7em;
+}
+
+.profit-loss {
+  background-image: url('/assets/profit-loss.png');
+  background-size: 2.7em 2.7em;
+}
+
+.balance {
+  background-image: url('/assets/balance.png');
+  background-size: 2.7em 2.7em;
+}
+
+.action-button {
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  display: -moz-inline-box;
+  -moz-box-orient: vertical;
+  display: inline-block;
+  vertical-align: middle;
+  height: 2.72em;
+  text-align: left;
+  text-indent: -9000em;
+  width: 2.72em;
+  margin-right: 0.6em;
+  cursor: pointer;
+}
+
+.table-action-bar {
+  width: 8.5em;
+}
+
+.view {
+  background-image: url('/assetsmagnifying-glass-view.png');
+}
+
+.edit {
+  background-image: url('/assets/pencil-edit.png');
+}
+
+.convert {
+  background-image: url('/assets/convert-icon.png');
+}
+
+.delete {
+  background-image: url('/assets/delete.png');
+}
+
+.measure {
+  background-image: url('/assets/measurement.png');
+}
+
+.task-list {
+  background-image: url('/assets/task-list.png');
+}
+
+.bid {
+  background-image: url('/assets/bid.png');
+}
+
+.budget {
+  background-image: url('/assets/budget.png');
+}
+
+.change-order {
+  background-image: url('/assets/change-order.png');
+}
+
+.specs {
+  background-image: url('/assets/specs.png');
+}
+
+.export {
+  background-image: url('/assets/export.png');
+}
+
+.table-action {
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-size: 1em 1.1em;
+  display: -moz-inline-box;
+  -moz-box-orient: vertical;
+  display: inline-block;
+  vertical-align: middle;
+  height: 1.1em;
+  text-align: left;
+  text-indent: -9000em;
+  width: 1.1em;
+  margin-right: 0.4em;
+}
+
+.trigger {
+  color: #0000EE;
+  text-decoration: underline;
+
+}
+
+.trigger.visited {
+
+  color: #551A8B;
+  text-decoration: underline;
+}
+
+.instructions {
+  margin-top: 0.5em;
+}
+
+.f-left {
+  float: left;
+}
+
+.f-right {
+  float: right;
+}
+
+.center {
+  text-align: center;
+}
+
+.right {
+  text-align: right;
+}
+
+.left {
+  text-align: left;
+}
+
+table.grid-view {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table.grid-view th, table.grid-view td {
+  font-size: 0.8em;
+  font-weight: normal;
+}
+
+table.grid-view th {
+  color: white;
+  background-color: #004899;
+  text-align: center;
+  border: 1px solid #004899;
+  padding: 0em 0.3em;
+  height: 2.5em;
+}
+
+table.grid-view td {
+  padding: 0.35em 0.3em;
+  border: 1px #909090 solid;
+}
+
+table.grid-view th a:hover {
+  color: #FFF;
+}
+
+table.grid-view th a {
+  color: #EEE;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+table.grid-view .subtotal, table.grid-view .total {
+  border-top: solid 2px black;
+  font-weight: bold;
+}
+
+table.grid-view .total td:first-child{
+  font-size: 24.5px;
+  font-weight: bold;
+}
+
+table.grid-view .total td{
+  font-size: 100%;
+}
+
+.grid-view table.items th {
+  background: url("bg.gif") repeat-x scroll left top white;
+}
+
+.grid-view table.items th a.asc {
+  background: url(up.gif) right center no-repeat;
+  padding-right: 10px;
+}
+
+.grid-view table.items th a.desc {
+  background: url(down.gif) right center no-repeat;
+  padding-right: 10px;
+}
+
+.grid-view table.items tr.even {
+  background: #F8F8F8;
+}
+
+.grid-view tr:hover {
+  background: #E5F1F4;
+}
+
+.grid-view table.items tr.selected {
+  background: #BCE774;
+}
+
+table.gridview tbody tr:hover {
+  background: #ECFBD4;
+}
+
+.grid-view .link-column img {
+  border: 0;
+}
+
+.grid-view .button-column {
+  text-align: center;
+  width: 60px;
+}
+
+.grid-view .button-column img {
+  border: 0;
+}
+
+.grid-view .checkbox-column {
+  width: 15px;
+}
+
+.grid-view .summary {
+  margin: 0 0 5px 0;
+  text-align: right;
+}
+
+.grid-view .pager {
+  margin: 5px 0 0 0;
+  text-align: right;
+}
+
+.grid-view .empty {
+  font-style: italic;
+}
+
+.grid-view .filters input,
+.grid-view .filters select {
+  width: 100%;
+  border: 1px solid #ccc;
+}
+
+.margin-bottom {
+  margin-bottom: 2.4em;
+}
+

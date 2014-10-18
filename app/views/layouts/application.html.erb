@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Construction Central</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+    <title>Construction Central</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%= stylesheet_link_tag "application", :media => "all" %>
+    <%= stylesheet_link_tag "private", :media => "all" %>
+    <%= javascript_include_tag :application %>
+    <%= csrf_meta_tags %>
 </head>
 <body>
 <div class='zurb-row' id="page">
@@ -20,18 +22,17 @@
                 <%= (session[:username]) if session[:username] %>
                 </br>
                 <div class="header-actions">
-                    <! report a bug >
-                	<! Log user out>
+                    <%= link_to("Logout", "#", :class => "logout", :title => "Logout") %>
                 </div>
             </div>
         </div>
     </div>
-   		<%= render :partial => 'layouts/navigation' %>
+    <%= render :partial => 'layouts/navigation' %>
     <div class='zurb-row' id='content'>
         <%= yield %>
     </div>
 </div>
 <%= yield :javascript %>
-
 </body>
 </html>
+
