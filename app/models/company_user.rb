@@ -7,6 +7,8 @@
 #  profile_id   :integer
 #  profile_type :string(255)
 #  type         :string(255)
+#  created_at   :datetime
+#  updated_at   :datetime
 #
 
 class CompanyUser < User
@@ -36,6 +38,5 @@ class CompanyUser < User
   def primary_phone
     "#{main_profile.try(:phone_1)} #{main_profile.try(:phone_1_tag)}"
   end
-
 
 end

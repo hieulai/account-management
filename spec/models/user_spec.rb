@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id           :integer          not null, primary key
+#  active       :boolean
+#  profile_id   :integer
+#  profile_type :string(255)
+#  type         :string(255)
+#  created_at   :datetime
+#  updated_at   :datetime
+#
+
 require 'rails_helper'
 
 describe User do

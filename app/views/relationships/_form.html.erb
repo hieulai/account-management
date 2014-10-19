@@ -1,0 +1,40 @@
+<%= form_for @relationship, url: @relationship.new_record? ? contact_relationships_path(@user) : contact_relationship_path(@user, @relationship), :html => {:class => 'form-horizontal'} do |f| %>
+  <% if @relationship.errors.any? %>
+    <div id="error_explanation">
+        <h2><%= pluralize(@relationship.errors.count, "error") %> prohibited this relationship from being saved:</h2>
+
+        <ul>
+            <% @relationship.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+        </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+      <div class="control-group">
+          <%= f.label :contact_id, "Contact", :class => 'col-lg-2 control-label' %>
+          <div class="controls">
+              <%= f.select(:contact_id, User.all.reject { |u| u == @user }.collect { |u| [u.display_name, u.id] }, {:include_blank => true}) %>
+          </div>
+      </div>
+      <div class="control-group">
+          <%= f.label :association_type, "Is", :class => 'col-lg-2 control-label' %>
+          <div class="controls">
+              <%= f.select(:association_type, relationship_types(@user)) %>
+              &nbsp; of
+          </div>
+
+      </div>
+      <div class="control-group">
+          <div class="control-group">
+              <%= f.label :user_id, "User", :class => 'col-lg-2 control-label' %>
+              <div class="controls">
+                  <%= @user.display_name %>
+              </div>
+          </div>
+      </div>
+      <%= f.submit "Save", :class => 'btn' %>
+      <%= link_to "Cancel", contact_relationships_path(@user), :class => 'btn' %>
+  </div>
+<% end %>

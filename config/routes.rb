@@ -3,5 +3,7 @@ Rails.application.routes.draw do
 
   resources :users
 
-  resources :contacts
+  resources :contacts do
+    resources :relationships
+  end
 end

@@ -2,12 +2,12 @@ require 'rails_helper'
 
 RSpec.describe "associations/index", :type => :view do
   before(:each) do
-    assign(:associations, [
-      Association.create!(
+    assign(:relationships, [
+      Relationship.create!(
         :user_id => 1,
         :contact_id => 2
       ),
-      Association.create!(
+      Relationship.create!(
         :user_id => 1,
         :contact_id => 2
       )

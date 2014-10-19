@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "associations/new", :type => :view do
   before(:each) do
-    assign(:association, Association.new(
+    assign(:association, Relationship.new(
       :user_id => 1,
       :contact_id => 1
     ))

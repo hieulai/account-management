@@ -19,8 +19,8 @@
 
             <br/>
             <% if @user.is_a? CompanyUser %>
-              <%= link_to 'Add Company Contact', new_contact_path(type: PersonUser.name, role: Constants::EMPLOYEE, contact_id: @user.id) %>
-              <% if @user.contacts.any? %>
+              <%= link_to 'Add Company Contact', new_contact_path(type: PersonUser.name, role: Constants::EMPLOYEE, contact_id: @user.id), class: 'btn' %>
+              <% if @user.employees.any? %>
                 <%= render :partial => 'users', :locals => {:users => @user.contacts} %>
               <% end %>
             <% end %>

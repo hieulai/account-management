@@ -11,21 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141018162254) do
+ActiveRecord::Schema.define(version: 20141019155139) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "associations", force: true do |t|
-    t.integer  "user_id"
-    t.integer  "contact_id"
-    t.string   "association_type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "associations", ["contact_id"], name: "index_associations_on_contact_id", using: :btree
-  add_index "associations", ["user_id"], name: "index_associations_on_user_id", using: :btree
 
   create_table "companies", force: true do |t|
     t.datetime "created_at"
@@ -62,6 +51,18 @@ ActiveRecord::Schema.define(version: 20141018162254) do
     t.string   "website"
     t.integer  "user_id"
   end
+
+  create_table "relationships", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "contact_id"
+    t.string   "association_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "reflex"
+  end
+
+  add_index "relationships", ["contact_id"], name: "index_relationships_on_contact_id", using: :btree
+  add_index "relationships", ["user_id"], name: "index_relationships_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.boolean  "active"

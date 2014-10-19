@@ -1,5 +1,5 @@
 class ContactsController < ApplicationController
-before_action :set_user, only: [:show, :edit, :update, :destroy]
+before_action :set_user, only: [:show, :edit, :update, :destroy, :relationships]
 
   # GET /users
   # GET /users.json

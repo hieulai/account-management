@@ -15,7 +15,7 @@
       <%= f.hidden_field :type %>
 
       <% if @role && @contact_id %>
-        <%= f.fields_for :associations, @user.associations.first || Association.new do |p| %>
+        <%= f.fields_for :relationships, @user.relationships.first || Relationship.new do |p| %>
           <%= p.hidden_field :association_type, value: @role %>
           <%= p.hidden_field :contact_id, value: @contact_id %>
         <% end %>
@@ -32,5 +32,6 @@
       <% end %>
 
       <%= f.submit "Save", :class => 'btn' %>
+      <%= link_to "Cancel", contacts_path, :class => 'btn' %>
   </div>
 <% end %>
