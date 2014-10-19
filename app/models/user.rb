@@ -14,10 +14,10 @@
 class User < ActiveRecord::Base
   has_many :relationships, :dependent => :destroy
   has_many :target_relationships, class_name: 'Relationship', :foreign_key => 'contact_id', :dependent => :destroy
-  has_many :vendor_relationships, -> { :vendors }, class_name: 'Relationship', :foreign_key => 'contact_id'
-  has_many :client_relationships, -> { :clients }, class_name: 'Relationship', :foreign_key => 'contact_id'
+  has_many :vendor_relationships, -> { vendors }, class_name: 'Relationship', :foreign_key => 'contact_id'
+  has_many :client_relationships, -> { clients }, class_name: 'Relationship', :foreign_key => 'contact_id'
   has_many :employee_relationships, -> { employees }, class_name: 'Relationship', :foreign_key => 'contact_id'
-  has_many :employer_relationships, -> { :employers }, class_name: 'Relationship', :foreign_key => 'contact_id'
+  has_many :employer_relationships, -> { employers }, class_name: 'Relationship', :foreign_key => 'contact_id'
 
   has_many :source_contacts, :class_name => "User", :source => :contact, :through => :relationships
   has_many :contacts, :class_name => "User", :source => :user, :through => :target_relationships
