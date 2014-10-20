@@ -9,18 +9,23 @@
 </p>
 
 <p>
+    <b><%= user.phone_tag_1 + ":" %></b>
+    <%= number_to_phone(user.phone_1, :area_code => true) %>
+</p>
+
+<p>
+    <b><%= user.phone_tag_2 + ":" %></b>
+    <%= number_to_phone(user.phone_2, :area_code => true) %>
+</p>
+
+<p>
     <b><%= "Email:" %></b>
     <%= user.email %>
 </p>
 
 <p>
-    <b><%= "Primary phone:" %></b>
-    <%= number_to_phone(user.phone_1, :area_code => true) %> <%= user.phone_tag_1 %>
-</p>
-
-<p>
-    <b><%= "Secondary Phone:" %></b>
-    <%= number_to_phone(user.phone_2, :area_code => true) %> <%= user.phone_tag_2 %>
+    <b><%= "Website:" %></b>
+    <%= user.website %>
 </p>
 
 <p>
@@ -48,10 +53,7 @@
     <%= user.zipcode %>
 </p>
 
-<p>
-    <b><%= "Website:" %></b>
-    <%= user.website %>
-</p>
+
 
 <p>
     <b><%= "Created At:" %></b>

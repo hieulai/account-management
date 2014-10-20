@@ -13,6 +13,21 @@
 </div>
 
 <div class="control-group">
+    <%= p.label :phone_1, "Primary Phone", :class => 'col-lg-2 control-label' %>
+    <div class="controls">
+        <%= p.text_field(:phone_1) %>
+        <%= p.select(:phone_tag_1, ["Main Phone", "Cell Phone", "Office Phone", "Home Phone", "Fax", "Pager"]) %>
+    </div>
+</div>
+<div class="control-group">
+    <%= p.label :phone_2, "Secondary Phone", :class => 'col-lg-2 control-label' %>
+    <div class="controls">
+        <%= p.text_field(:phone_2) %>
+        <%= p.select(:phone_tag_2, ["Secondary Phone", "Cell Phone ", "Office Phone", "Home Phone", "Fax", "Pager"]) %>
+    </div>
+</div>
+
+<div class="control-group">
     <%= p.label :email, "Email", :class => 'col-lg-2 control-label' %>
     <div class="controls">
         <%= p.text_field(:email) %>
@@ -20,17 +35,9 @@
 </div>
 
 <div class="control-group">
-    <%= p.label :phone_1, "Primary Phone", :class => 'col-lg-2 control-label' %>
+    <%= p.label :website, "Website", :class => 'col-lg-2 control-label' %>
     <div class="controls">
-        <%= p.text_field(:phone_1) %>
-        <%= p.select(:phone_tag_1, ["Cell", "Office", "Home"]) %>
-    </div>
-</div>
-<div class="control-group">
-    <%= p.label :phone_2, "Secondary Phone", :class => 'col-lg-2 control-label' %>
-    <div class="controls">
-        <%= p.text_field(:phone_2) %>
-        <%= p.select(:phone_tag_2, ["Cell", "Office", "Home"]) %>
+        <%= p.text_field(:website) %>
     </div>
 </div>
 
@@ -68,9 +75,3 @@
     </div>
 </div>
 
-<div class="control-group">
-    <%= p.label :website, "Website", :class => 'col-lg-2 control-label' %>
-    <div class="controls">
-        <%= p.text_field(:website) %>
-    </div>
-</div>
