@@ -15,7 +15,7 @@
 
 <p>
     <b><%= "Website:" %></b>
-    <%= user.website %>
+    <%= link_to user.website, "http://" + user.website %>
 </p>
 
 <p>
@@ -41,13 +41,6 @@
 <p>
     <b><%= "Zipcode:" %></b>
     <%= user.zipcode %>
-</p>
-
-
-
-<p>
-    <b><%= "Created At:" %></b>
-    <%= user.created_at %>
 </p>
 
 <p>

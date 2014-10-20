@@ -1,11 +1,9 @@
 <table class="grid-view margin-bottom responsive" summary="Contacts List">
     <thead>
     <tr>
-        <th>Type</th>
         <th>Name</th>
         <th>Primary Phone</th>
         <th>Email</th>
-        <th>Associated Projects</th>
         <th>Actions</th>
     </tr>
     </thead>
@@ -13,11 +11,9 @@
     <tbody>
     <% users.each do |user| %>
       <tr>
-          <td><%= user.type_name  %></td>
           <td><%= user.display_name %></td>
           <td><%= user.primary_phone %></td>
           <td><%= user.email  %></td>
-          <td></td>
           <td>
 
               <%= link_to 'Show', contact_path(user), :title => 'Show', :class => 'view table-action' %>

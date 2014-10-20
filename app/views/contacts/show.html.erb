@@ -6,9 +6,16 @@
             <%= link_to("Delete >>", contact_path(@user), method: :delete, data: { confirm: 'Are you sure?' }, :title => 'Delete', :class => 'delete-large action-button') %>
         </div>
         <div class="large-6 medium-6 columns">
-            <h1 class="center">
-                User Information
-            </h1>
+            
+            <% if @user.is_a? CompanyUser %>
+                <h1 class="center">
+                    Company Information
+                </h1> 
+            <% else %>
+                 <h1 class="center">
+                    Person Information
+                </h1> 
+            <% end %>
         </div>
         <div class="large-3 medium-2 columns">
         </div>
@@ -22,4 +29,19 @@
             <% end %>
         </div>
     </div>
+    <% if @user.is_a? CompanyUser %>
+        <h1 class="center">
+                Company Contacts
+            </h1>
+        <div class="zurb-row">
+            <div class="columns margin-bottom">
+            
+              <%= link_to 'Add Company Contact', new_contact_path(type: PersonUser.name, role: Constants::EMPLOYEE, contact_id: @user.id), class: 'btn' %>
+              <% if @user.employees.any? %>
+                <%= render :partial => 'company_contacts', :locals => {:users => @user.contacts} %>
+              <% end %>
+            
+            </div>
+        </div>
+    <% end %>
 </div>
