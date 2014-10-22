@@ -13,7 +13,7 @@
 
 class PersonUser < User
   has_many :people, :foreign_key => :user_id, :dependent => :destroy
-  accepts_nested_attributes_for :people
+  accepts_nested_attributes_for :people, :reject_if => :all_blank, :allow_destroy => true
 
   delegate :first_name, :last_name, :phone_1, :phone_2, :phone_tag_1, :phone_tag_2, :address_line_1, :address_line_2,
            :city, :state, :zipcode, :website, to: :main_profile, allow_nil: true
@@ -28,10 +28,6 @@ class PersonUser < User
 
   def display_name
     "#{main_profile.try(:first_name)} #{main_profile.try(:last_name)}"
-  end
-
-  def email
-    main_profile.try(:email)
   end
 
   def primary_phone

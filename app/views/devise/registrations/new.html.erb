@@ -1,0 +1,113 @@
+<div class="zurb-row main-action-bar">
+    <div class="large-3 medium-4 columns">
+        &nbsp;
+    </div>
+    <div class="large-6 medium-6 columns">
+        <h2>New Company Registration</h2>
+    </div>
+    <div class="large-3 medium-2 columns">
+    </div>
+</div>
+<div class="zurb-row">
+    <div class="columns">
+        <%= form_for(resource.becomes(CompanyUser), :as => resource_name, :url => registration_path(resource_name), :html => {:multipart => true, class: 'form-horizontal'}) do |f| %>
+          <% if resource.errors.any? %>
+            <div id="error_explanation">
+                <h2><%= pluralize(resource.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+                <ul>
+                    <% resource.errors.full_messages.each do |message| %>
+                      <li><%= message %></li>
+                    <% end %>
+                </ul>
+            </div>
+          <% end %>
+
+          <div class="control-group">
+              <%= f.label :email, "Email", :class => 'col-lg-2 control-label' %>
+              <div class="controls">
+                  <%= f.text_field(:email) %>
+              </div>
+          </div>
+
+          <div class="control-group">
+              <%= f.label :password, 'Password', class: 'col-lg-2 control-label' %>
+              <div class='controls'>
+                  <%= f.password_field :password %>
+              </div>
+          </div>
+
+          <%= f.fields_for :companies, Company.new do |p| %>
+            <div class="control-group">
+                <%= p.label :company_name, "Company Name", :class => 'col-lg-2 control-label' %>
+                <div class="controls">
+                    <%= p.text_field(:company_name) %>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <%= p.label :phone_1, "Primary Phone", :class => 'col-lg-2 control-label' %>
+                <div class="controls">
+                    <%= p.text_field(:phone_1) %>
+                    <%= p.select(:phone_tag_1, ["Cell", "Office", "Home"]) %>
+                </div>
+            </div>
+            <div class="control-group">
+                <%= p.label :phone_2, "Secondary Phone", :class => 'col-lg-2 control-label' %>
+                <div class="controls">
+                    <%= p.text_field(:phone_2) %>
+                    <%= p.select(:phone_tag_2, ["Cell", "Office", "Home"]) %>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <%= p.label :address_line_1, "Address Line 1", :class => 'col-lg-2 control-label' %>
+                <div class="controls">
+                    <%= p.text_field(:address_line_1) %>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <%= p.label :address_line_2, "Address Line 2", :class => 'col-lg-2 control-label' %>
+                <div class="controls">
+                    <%= p.text_field(:address_line_2) %>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <%= p.label :city, "City", :class => 'col-lg-2 control-label' %>
+                <div class="controls">
+                    <%= p.text_field(:city) %>
+                </div>
+            </div>
+            <div class="control-group">
+                <%= p.label :state, "State", :class => 'col-lg-2 control-label' %>
+                <div class="controls">
+                    <%= p.text_field(:state) %>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <%= p.label :zipcode, "Zipcode", :class => 'col-lg-2 control-label' %>
+                <div class="controls">
+                    <%= p.text_field(:zipcode) %>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <%= p.label :website, "Website", :class => 'col-lg-2 control-label' %>
+                <div class="controls">
+                    <%= p.text_field(:website) %>
+                </div>
+            </div>
+          <% end %>
+
+          <div class="control-group">
+              <div class="controls">
+                  <%= f.submit "Create", class: 'btn' %>
+              </div>
+          </div>
+        <% end %>
+    </div>
+</div>
+

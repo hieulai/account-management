@@ -78,7 +78,7 @@ gem 'turbolinks'
 #gem 'progress_bar'
 
 # Authentication
-#gem 'devise'
+gem 'devise'
 
 #Monitoring
 #gem 'newrelic_rpm'

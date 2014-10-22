@@ -20,23 +20,22 @@ class User < ActiveRecord::Base
   has_many :employer_relationships, -> { employers }, class_name: 'Relationship', :foreign_key => 'contact_id'
 
   has_many :source_contacts, :class_name => "User", :source => :contact, :through => :relationships
-  has_many :contacts, :class_name => "User", :source => :user, :through => :target_relationships
+  has_many :contacts, -> { uniq }, :class_name => "User", :source => :user, :through => :target_relationships
   has_many :vendors, :class_name => "User", :source => :user, :through => :vendor_relationships
   has_many :clients, :class_name => "User", :source => :user, :through => :client_relationships
   has_many :employees, :class_name => "User", :source => :user, :through => :employee_relationships
   has_many :employers, :class_name => "User", :source => :user, :through => :employer_relationships
 
-  accepts_nested_attributes_for :relationships
+  accepts_nested_attributes_for :relationships, :reject_if => :all_blank, :allow_destroy => true
+
+  validates :email, presence: true, uniqueness: true
+  devise :database_authenticatable, :registerable, :recoverable
 
   def type_name
     "User"
   end
 
   def display_name
-    ""
-  end
-
-  def email
     ""
   end
 

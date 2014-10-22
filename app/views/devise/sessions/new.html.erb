@@ -1,0 +1,23 @@
+<div class="login-box">
+    <%= form_for resource, :as => resource_name, :url => session_path(resource_name) do |f| %>
+
+      <div class="control-group">
+          <%= f.label :email, "Email", :class => 'col-lg-2 control-label' %>
+          <div class="controls">
+              <%= f.text_field :email, :required => false, :autofocus => true, :input_html => {:size => 30} %>
+          </div>
+      </div>
+
+      <div class="control-group">
+          <%= f.label :email, "Password", :class => 'col-lg-2 control-label' %>
+          <div class="controls">
+              <%= f.text_field :password, :required => false, :input_html => {:size => 30} %>
+          </div>
+      </div>
+
+      <div>
+          <%= f.submit "Login", class: 'btn' %>
+      </div>
+    <% end %>
+    <%= link_to "Forgot your password?", new_password_path(resource_name) %><br/>
+</div>

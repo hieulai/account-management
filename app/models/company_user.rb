@@ -14,7 +14,7 @@
 class CompanyUser < User
   has_many :companies, :foreign_key => :user_id, :dependent => :destroy
 
-  accepts_nested_attributes_for :companies
+  accepts_nested_attributes_for :companies, :reject_if => :all_blank, :allow_destroy => true
 
   delegate :company_name, :phone_1, :phone_2, :phone_tag_1, :phone_tag_2, :address_line_1, :address_line_2,
            :city, :state, :zipcode, :website, to: :main_profile, allow_nil: true
@@ -29,10 +29,6 @@ class CompanyUser < User
 
   def display_name
     main_profile.try(:company_name)
-  end
-
-  def email
-    main_profile.try(:email)
   end
 
   def primary_phone

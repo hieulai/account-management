@@ -21,4 +21,6 @@
 
 class Company < ActiveRecord::Base
 	belongs_to :company_user, foreign_key: :user_id
+
+  validates :company_name, presence: true
 end

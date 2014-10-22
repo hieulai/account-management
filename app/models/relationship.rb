@@ -15,10 +15,12 @@ class Relationship < ActiveRecord::Base
   belongs_to :user, :foreign_key => 'user_id'
   belongs_to :contact, :class_name => 'User', :foreign_key => 'contact_id'
 
-  scope :vendors, -> { where(association_type: Constants::VENDOR) }
-  scope :clients, -> { where(association_type: Constants::CLIENT) }
-  scope :employees, -> { where(association_type: Constants::EMPLOYEE) }
-  scope :employers, -> { where(association_type: Constants::EMPLOYER) }
+  scope :owned_by, lambda { |user| where(contact_id: user.id) }
+  scope :types, lambda { |type| where(association_type: type) }
+  scope :vendors, -> { types Constants::VENDOR }
+  scope :clients, -> { types Constants::CLIENT }
+  scope :employees, -> { types Constants::EMPLOYEE }
+  scope :employers, -> { types Constants::EMPLOYER }
 
   after_save :destroy_reflection
   after_save :update_reflection, :unless => Proc.new { |r| r.reflex? }
@@ -33,22 +35,30 @@ class Relationship < ActiveRecord::Base
           Constants::VENDOR
         when Constants::EMPLOYER
           Constants::EMPLOYEE
-        else
+        when Constants::EMPLOYEE
           Constants::EMPLOYER
+        else
+          Constants::UNDEFINED
       end
     end
   end
 
-  def reflection_associations(type)
+  [Constants::VENDOR, Constants::CLIENT, Constants::EMPLOYEE, Constants::UNDEFINED].each do |name|
+    define_method("is_a_#{name.underscore}?") do
+      association_type == name
+    end
+  end
+
+  def reflection(type)
     attr = {user_id: contact_id, contact_id: user_id}
     Relationship.where attr.merge(association_type: Relationship.reflex_association_type(type))
   end
 
   def update_reflection
-    reflection_associations(association_type).first_or_create(reflex: true)
+    reflection(association_type).first_or_create(reflex: true)
   end
 
   def destroy_reflection
-    reflection_associations(association_type_was).destroy_all
+    reflection(association_type_was).destroy_all
   end
 end

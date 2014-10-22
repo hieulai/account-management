@@ -23,4 +23,6 @@
 
 class Person < ActiveRecord::Base
   belongs_to :person_user, foreign_key: :user_id
+
+  validates :first_name, :last_name, presence: true
 end

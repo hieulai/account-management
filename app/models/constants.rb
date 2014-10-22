@@ -3,4 +3,5 @@ class Constants
   EMPLOYER = "Employer"
   VENDOR = "Vendor"
   CLIENT = "Client"
+  UNDEFINED = "Undefined"
 end

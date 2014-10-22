@@ -1,0 +1,2 @@
+class MicsController < ApplicationController
+end
