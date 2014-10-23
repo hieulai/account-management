@@ -1,0 +1,19 @@
+<div>
+    <%= render(:partial => "layouts/sub_navigation/people") %>
+    <div class="zurb-row main-action-bar">
+        <div class="large-3 medium-4 columns">
+            &nbsp;
+        </div>
+        <div class="large-6 medium-6 columns">
+            <h1>All Employees</h1>
+        </div>
+        <div class="large-3 medium-2 columns">
+        </div>
+    </div>
+    <div class="zurb-row">
+        <div class="columns">
+            <%= render :partial => 'users', :locals => {:users => @users} %>
+        </div>
+    </div>
+</div>
+

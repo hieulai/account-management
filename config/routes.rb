@@ -8,5 +8,10 @@ Rails.application.routes.draw do
 
   resources :contacts do
     resources :relationships
+    collection do
+      get :clients
+      get :vendors
+      get :employees
+    end
   end
 end

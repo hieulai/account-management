@@ -7,6 +7,18 @@ class ContactsController < ApplicationController
     @users = current_user.contacts
   end
 
+  def vendors
+    @users = current_user.vendors
+  end
+
+  def clients
+    @users = current_user.clients
+  end
+
+  def employees
+    @users = current_user.employees
+  end
+
   # GET /users/1
   # GET /users/1.json
   def show
