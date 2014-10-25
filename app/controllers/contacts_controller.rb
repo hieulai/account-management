@@ -27,7 +27,6 @@ class ContactsController < ApplicationController
   # GET /users/new
   def new
     @user = User.new(type: params[:type])
-    @user.relationships.build(:association_type => Constants::UNDEFINED)
   end
 
   # GET /users/1/edit

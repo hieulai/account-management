@@ -33,9 +33,10 @@ ul#tasksContainer li label:hover{
 }
 
 .login-box {
-    border: 1px solid #000000;
-    margin: 30px auto;padding: 25px 67px;
-    width: 250px;
+    border: 1px solid #e5e5e5;
+    margin: 30px auto;
+    padding: 25px;
+    width: 400px;
 }
 
 .inline-block{
