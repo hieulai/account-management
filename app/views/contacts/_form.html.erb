@@ -18,15 +18,28 @@
     </div>
   <% end %>
 
-
-  <div class="control-group">
-      <%= f.label :type, 'Relationships', class: 'col-lg-2 control-label' %>
-      <div class="controls">
-          <%= f.fields_for :relationships, relationships_for(@user)  do |p| %>
-            <%= render :partial => 'relationship_input', locals: {p: p, u: @user} %>
-          <% end %>
-      </div>
-  </div>
+  <% if @role %>
+    <div class="control-group">
+        <%= f.label :company_name, 'Company', class: 'col-lg-2 control-label' %>
+        <div class="controls">
+            <%= @contact.display_name %>
+        </div>
+    </div>
+    <%= f.fields_for :relationships, Relationship.new do |p| %>
+      <%= p.hidden_field :id %>
+      <%= p.hidden_field :association_type, value: @role %>
+      <%= p.hidden_field :contact_id, value: @contact.id %>
+    <% end %>
+  <% else %>
+    <div class="control-group">
+        <%= f.label :type, 'Relationships', class: 'col-lg-2 control-label' %>
+        <div class="controls">
+            <%= f.fields_for :relationships, relationships_for(@user) do |p| %>
+              <%= render :partial => 'relationship_input', locals: {p: p, u: @user} %>
+            <% end %>
+        </div>
+    </div>
+  <% end %>
 
   <div class="actions">
       <%= f.hidden_field :type %>

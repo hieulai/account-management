@@ -27,6 +27,8 @@ class ContactsController < ApplicationController
   # GET /users/new
   def new
     @user = User.new(type: params[:type])
+    @role = params[:role]
+    @contact = current_user.contacts.find params[:contact_id]
   end
 
   # GET /users/1/edit

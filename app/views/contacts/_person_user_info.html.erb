@@ -1,4 +1,14 @@
 <p>
+    <b><%= "Company" %></b>
+    <%= user.employers.map {|u| u.display_name}.join(",") %>
+</p>
+
+<p>
+    <b><%= "First Name:" %></b>
+    <%= user.first_name %>
+</p>
+
+<p>
     <b><%= "First Name:" %></b>
     <%= user.first_name %>
 </p>
