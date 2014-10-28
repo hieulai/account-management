@@ -22,7 +22,6 @@
 
 class Person < ActiveRecord::Base
   belongs_to :user
-  belongs_to :owner, class: "CompanyUser", foreign_key: :owner_id
 
   scope :from_real_user, -> { joins(:user).where('users.encrypted_password != ?', "") }
   scope :of_user, lambda { |user_id| where(user_id: user_id) }

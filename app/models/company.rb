@@ -21,7 +21,6 @@
 
 class Company < ActiveRecord::Base
   belongs_to :user
-  belongs_to :owner, class: "CompanyUser", foreign_key: :owner_id
   scope :of_user, lambda { |user_id| where(user_id: user_id) }
 
   scope :has_company_name, lambda { |company_name| where('company_name = ?', company_name) }

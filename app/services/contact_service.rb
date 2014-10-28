@@ -2,9 +2,6 @@ class ContactService
 
   class << self
 
-    # Remove contact = remove profile
-    # Reuse or create another profile
-
     def create(new_user, owner)
       check_for_relationships(new_user)
       check_for_duplication(new_user, owner)
