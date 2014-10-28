@@ -7,7 +7,6 @@
 #  updated_at     :datetime
 #  first_name     :string(255)
 #  last_name      :string(255)
-#  email          :string(255)
 #  phone_1        :string(255)
 #  phone_2        :string(255)
 #  phone_tag_1    :string(255)

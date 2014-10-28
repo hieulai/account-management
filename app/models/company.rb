@@ -20,7 +20,21 @@
 #
 
 class Company < ActiveRecord::Base
-	belongs_to :company_user, foreign_key: :user_id
+  belongs_to :user
+  belongs_to :owner, class: "CompanyUser", foreign_key: :owner_id
+  scope :of_user, lambda { |user_id| where(user_id: user_id) }
+
+  scope :has_company_name, lambda { |company_name| where('company_name = ?', company_name) }
+  scope :has_phone, lambda { |phone| where('phone_1 = ? OR phone_2 = ? ', phone, phone) }
+  scope :has_website, lambda { |website| where('website = ?', website) }
 
   validates :company_name, presence: true
+
+  def display_name
+    company_name
+  end
+
+  def primary_phone
+    "#{phone_1} #{phone_tag_1}" if phone_1.present?
+  end
 end

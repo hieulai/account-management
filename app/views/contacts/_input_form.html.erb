@@ -1,0 +1,49 @@
+<%= form_for @user, :as => :user, url: @user.new_record? ? contacts_path : contact_path, :html => {:class => 'form-horizontal', data: {name: 'input_form'}} do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+        <h2><%= pluralize(@user.errors.count, "error") %> prohibited this contact from being saved:</h2>
+        <ul>
+            <% @user.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+        </ul>
+    </div>
+  <% end %>
+
+  <% if is_a_company_contact? @user %>
+    <div class="control-group">
+        <%= label_tag :type_name, "Company", class: 'col-lg-2 control-label' %>
+        <div class="controls">
+            <%= User.find(@user.relationships.first.contact_id).display_name %>
+        </div>
+    </div>
+    <%= f.fields_for :relationships, @user.relationships do |p| %>
+      <%= p.hidden_field :id %>
+      <%= p.hidden_field :association_type, value: p.object.association_type %>
+      <%= p.hidden_field :contact_id, value: p.object.contact_id %>
+    <% end %>
+  <% else %>
+    <div class="control-group">
+        <%= f.label :type, 'Relationships', class: 'col-lg-2 control-label' %>
+        <div class="controls">
+            <%= f.fields_for :relationships, relationships_for(@user) do |p| %>
+              <%= render :partial => 'relationship_input', locals: {p: p, u: @user} %>
+            <% end %>
+        </div>
+    </div>
+  <% end %>
+
+
+  <%= f.hidden_field :type %>
+  <%= f.hidden_field :skip_existing_checking %>
+
+  <%= f.fields_for :"#{@profile.class.name.underscore.pluralize}", @profile do |p| %>
+    <%= render :partial => "contacts/#{@profile.class.name.underscore}/#{@user.class.name.underscore}_form", :locals => {:p => p, :f => f} %>
+  <% end %>
+  <div class="control-group">
+      <div class="controls">
+          <%= f.submit "Save", :class => 'btn' %>
+          <%= link_to "Cancel", contacts_path, :class => 'btn' %>
+      </div>
+  </div>
+<% end %>

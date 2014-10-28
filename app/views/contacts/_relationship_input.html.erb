@@ -1,6 +1,6 @@
-<% r_object = u.relationships.owned_by(current_user).types(p.object.association_type).first %>
+<% r_object = get_relationship(u, p.object.association_type) %>
 <div>
-    <%= check_box_tag :"association_type_#{p.object.association_type}", nil, r_object.present?, {data: {class: 'association_type'}} %>
+    <%= check_box_tag :"association_type_#{p.object.association_type}", nil, r_object.present?, {data: {name: 'association_type'}} %>
     <%= label_tag :"association_type_#{p.object.association_type}", p.object.association_type %>
     <%= p.hidden_field :id, value: r_object.try(:id) %>
     <%= p.hidden_field :association_type, value: p.object.association_type %>

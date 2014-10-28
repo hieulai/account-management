@@ -4,14 +4,20 @@ Rails.application.routes.draw do
 
   get 'under_construction' => 'mics#under_construction'
 
-  resources :users
+  resources :users do
+    member do
+      patch :add_existing_contact
+    end
+  end
 
   resources :contacts do
-    resources :relationships
     collection do
       get :clients
       get :vendors
       get :employees
     end
   end
+
+
+
 end

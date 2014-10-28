@@ -12,8 +12,9 @@
 #
 
 class Relationship < ActiveRecord::Base
-  belongs_to :user, :foreign_key => 'user_id'
-  belongs_to :contact, :class_name => 'User', :foreign_key => 'contact_id'
+
+  belongs_to :user, :foreign_key => :user_id
+  belongs_to :contact, :class_name => 'User', :foreign_key => :contact_id
 
   scope :owned_by, lambda { |user| where(contact_id: user.id) }
   scope :types, lambda { |type| where(association_type: type) }

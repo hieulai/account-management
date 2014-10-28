@@ -1,0 +1,65 @@
+<% if is_a_company_contact? profile.user %>
+  <p>
+      <b><%= "Company:" %></b>
+      <%= profile.user.company_contacts.first.display_name %>
+  </p>
+<% end %>
+
+<p>
+    <b><%= "First Name:" %></b>
+    <%= profile.first_name %>
+</p>
+
+<p>
+    <b><%= "Last Name:" %></b>
+    <%= profile.last_name %>
+</p>
+
+<p>
+    <b><%= profile.phone_tag_1 + ":" %></b>
+    <%= number_to_phone(profile.phone_1, :area_code => true) %>
+</p>
+
+<p>
+    <b><%= profile.phone_tag_2 + ":" %></b>
+    <%= number_to_phone(profile.phone_2, :area_code => true) %>
+</p>
+
+<p>
+    <b><%= "Email:" %></b>
+    <%= profile.user.email %>
+</p>
+
+<p>
+    <b><%= "Website:" %></b>
+    <%= link_to profile.website, "http://" + profile.website %>
+</p>
+
+<p>
+    <b><%= "Address Line 1:" %></b>
+    <%= profile.address_line_1 %>
+</p>
+
+<p>
+    <b><%= "Address Line 2:" %></b>
+    <%= profile.address_line_2 %>
+</p>
+
+<p>
+    <b><%= "City:" %></b>
+    <%= profile.city %>
+</p>
+
+<p>
+    <b><%= "State:" %></b>
+    <%= profile.state %>
+</p>
+
+<p>
+    <b><%= "Zipcode:" %></b>
+    <%= profile.zipcode %>
+</p>
+<p>
+    <b><%= "Last Updated:" %></b>
+    <%= time_tag profile.updated_at %>
+</p>

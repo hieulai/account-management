@@ -2,13 +2,17 @@
 #
 # Table name: users
 #
-#  id           :integer          not null, primary key
-#  active       :boolean
-#  profile_id   :integer
-#  profile_type :string(255)
-#  type         :string(255)
-#  created_at   :datetime
-#  updated_at   :datetime
+#  id                     :integer          not null, primary key
+#  active                 :boolean
+#  profile_id             :integer
+#  profile_type           :string(255)
+#  type                   :string(255)
+#  created_at             :datetime
+#  updated_at             :datetime
+#  email                  :string(255)
+#  encrypted_password     :string(255)      default(""), not null
+#  reset_password_token   :string(255)
+#  reset_password_sent_at :datetime
 #
 
 class User < ActiveRecord::Base
@@ -21,14 +25,21 @@ class User < ActiveRecord::Base
 
   has_many :source_contacts, :class_name => "User", :source => :contact, :through => :relationships
   has_many :contacts, -> { uniq }, :class_name => "User", :source => :user, :through => :target_relationships
+  has_many :company_contacts, -> { companies.uniq }, :class_name => "CompanyUser", :source => :user, :through => :target_relationships
+  has_many :person_contacts, -> { people.uniq }, :class_name => "PersonUser", :source => :user, :through => :target_relationships
   has_many :vendors, :class_name => "User", :source => :user, :through => :vendor_relationships
   has_many :clients, :class_name => "User", :source => :user, :through => :client_relationships
   has_many :employees, :class_name => "User", :source => :user, :through => :employee_relationships
   has_many :employers, :class_name => "User", :source => :user, :through => :employer_relationships
 
-  accepts_nested_attributes_for :relationships, :reject_if => :all_blank, :allow_destroy => true
+  scope :companies, -> { where type: "CompanyUser" }
+  scope :people, -> { where type: "PersonUser" }
+  scope :has_email, lambda { |email| where('email = ?', email) }
+  scope :reals, -> { where('encrypted_password !=?', "") }
 
-  validates :email, presence: true, uniqueness: true
+  accepts_nested_attributes_for :relationships, :reject_if => :all_blank, :allow_destroy => true
+  attr_accessor :skip_existing_checking
+
   devise :database_authenticatable, :registerable, :recoverable
 
   def type_name
@@ -41,5 +52,9 @@ class User < ActiveRecord::Base
 
   def primary_phone
     ""
+  end
+
+  def is_real?
+    encrypted_password != ""
   end
 end

@@ -6,54 +6,5 @@
   </script>
 <% end %>
 
-<%= form_for @user, :as => :user, url: @user.new_record? ? contacts_path : contact_path, :html => {:class => 'form-horizontal'} do |f| %>
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-        <h2><%= pluralize(@user.errors.count, "error") %> prohibited this contact from being saved:</h2>
-        <ul>
-            <% @user.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
-            <% end %>
-        </ul>
-    </div>
-  <% end %>
+<%= render 'input_form' %>
 
-  <% if @role %>
-    <div class="control-group">
-        <%= f.label :company_name, 'Company', class: 'col-lg-2 control-label' %>
-        <div class="controls">
-            <%= @contact.display_name %>
-        </div>
-    </div>
-    <%= f.fields_for :relationships, Relationship.new do |p| %>
-      <%= p.hidden_field :id %>
-      <%= p.hidden_field :association_type, value: @role %>
-      <%= p.hidden_field :contact_id, value: @contact.id %>
-    <% end %>
-  <% else %>
-    <div class="control-group">
-        <%= f.label :type, 'Relationships', class: 'col-lg-2 control-label' %>
-        <div class="controls">
-            <%= f.fields_for :relationships, relationships_for(@user) do |p| %>
-              <%= render :partial => 'relationship_input', locals: {p: p, u: @user} %>
-            <% end %>
-        </div>
-    </div>
-  <% end %>
-
-  <div class="actions">
-      <%= f.hidden_field :type %>
-      <% if @user.is_a? CompanyUser %>
-        <%= f.fields_for :companies, @user.companies.first || Company.new do |p| %>
-          <%= render :partial => 'company_user_form', :locals => {:p => p, :f => f} %>
-        <% end %>
-      <% else %>
-        <%= f.fields_for :people, @user.people.first || Person.new do |p| %>
-          <%= render :partial => 'person_user_form', :locals => {:p => p, :f => f} %>
-        <% end %>
-      <% end %>
-
-      <%= f.submit "Save", :class => 'btn' %>
-      <%= link_to "Cancel", contacts_path, :class => 'btn' %>
-  </div>
-<% end %>

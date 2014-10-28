@@ -1,0 +1,50 @@
+<% content_for :javascript do %>
+  <script type='text/javascript'>
+    $(function () {
+      Contact.init();
+    });
+  </script>
+<% end %>
+
+<div>
+    <%= render(:partial => "layouts/sub_navigation/people") %>
+    <div class="zurb-row main-action-bar">
+        <div class="large-3 medium-4 columns">
+            &nbsp;
+        </div>
+        <div class="large-6 medium-6 columns">
+            <h1 class="center">
+                Link Company User
+            </h1>
+        </div>
+        <div class="large-3 medium-2 columns">
+        </div>
+    </div>
+    <div class="zurb-row">
+        <div class="columns margin-bottom">
+            <div style="display: none ">
+                <%= render 'input_form' %>
+            </div>
+            <% contact = existing_for @user %>
+
+            Is this the company you want to add?
+
+            <%= render :partial => "contacts/#{contact.type_name.underscore}/#{contact.class.name.underscore}_info", :locals => {:profile => contact.profile} %>
+
+            <%= form_for current_user, :as => :user, url: add_existing_contact_user_path(current_user), :html => {:class => 'form-horizontal', :style => 'display: none', data: {name: 'suggestion_form'}} do |f| %>
+              <%= f.fields_for :relationships, @user.relationships do |p| %>
+                <div>
+                    <%= p.hidden_field :association_type, value: p.object.association_type %>
+                    <%= p.hidden_field :contact_id, value: contact.id %>
+                </div>
+              <% end %>
+            <% end %>
+
+
+            <%= link_to "Add", "javascript:void(0)", class: 'btn', data: {name: 'submit', target: 'suggestion_form'} %>
+            <%= link_to "No, I want to create a different company", "javascript:void(0)", class: 'btn', data: {name: 'submit', target: 'input_form'} %>
+
+        </div>
+    </div>
+</div>
+
