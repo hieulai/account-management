@@ -19,7 +19,9 @@ class PersonUser < User
   has_many :people, :foreign_key => :user_id, :dependent => :destroy
   accepts_nested_attributes_for :people, :reject_if => :all_blank, :allow_destroy => true
 
-  scope :has_name, lambda { |first_name, last_name| joins(:companies).where('people.first_name = ? AND people.last_name = ?', first_name, last_name) }
+  scope :has_name, lambda { |first_name, last_name| joins(:people).where('people.first_name = ? AND people.last_name = ?', first_name, last_name) }
+  scope :has_phone, lambda { |phone| joins(:people).where('people.phone_1 = ? OR people.phone_2 = ? ', phone, phone) }
+  scope :has_website, lambda { |website| joins(:people).where('people.website = ?', website) }
 
   def type_name
     "Person"

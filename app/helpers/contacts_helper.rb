@@ -20,7 +20,7 @@ module ContactsHelper
         user.relationships.owned_by(current_user).types(association_type).first
   end
 
-  def existing_for(user)
-    ContactService.search_for_existing user, current_user
+  def existings_for(user)
+    ContactService.search_for_existings user, current_user
   end
 end

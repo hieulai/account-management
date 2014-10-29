@@ -16,13 +16,8 @@
     <div class="zurb-row">
         <div class="columns margin-bottom">
             <%= render 'form' %>
-            <br/>
-            <% if @user.is_a? CompanyUser %>
-              <%= link_to 'Add Company Contact', new_contact_path(type: PersonUser.name, association_type: Constants::EMPLOYEE, contact_id: @user.id), class: 'btn' %>
-              <% if @user.employees.any? %>
-                <%= render :partial => 'contacts/company/company_contacts', :locals => {:users => @user.employees} %>
-              <% end %>
-            <% end %>
+
+            <%= render :partial => 'contacts/company/company_contacts', :locals => {:user => @user} %>
         </div>
     </div>
 </div>

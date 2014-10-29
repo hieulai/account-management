@@ -22,6 +22,7 @@ class Relationship < ActiveRecord::Base
   scope :clients, -> { types Constants::CLIENT }
   scope :employees, -> { types Constants::EMPLOYEE }
   scope :employers, -> { types Constants::EMPLOYER }
+  scope :contacts, -> { types Constants::CONTACT }
 
   after_save :destroy_reflection
   after_save :update_reflection, :unless => Proc.new { |r| r.reflex? }
@@ -38,13 +39,15 @@ class Relationship < ActiveRecord::Base
           Constants::EMPLOYEE
         when Constants::EMPLOYEE
           Constants::EMPLOYER
+        when Constants::OWNER
+          Constants::CONTACT
         else
-          Constants::UNDEFINED
+          Constants::OWNER
       end
     end
   end
 
-  [Constants::VENDOR, Constants::CLIENT, Constants::EMPLOYEE, Constants::UNDEFINED].each do |name|
+  [Constants::VENDOR, Constants::CLIENT, Constants::EMPLOYEE, Constants::OWNER, Constants::CONTACT ].each do |name|
     define_method("is_a_#{name.underscore}?") do
       association_type == name
     end

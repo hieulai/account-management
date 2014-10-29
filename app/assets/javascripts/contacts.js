@@ -10,6 +10,11 @@ var Contact = (function ($) {
             var $form = $('form[data-name="' + $(this).data("target") + '"]');
             $form.submit();
         });
+
+        $(document).on('click', 'input[name="contact_selector"]', function () {
+            $('input[data-name="relationship_contact"]').val($(this).val());
+        });
+
     };
 
     return {

@@ -30,7 +30,6 @@ class ContactsController < ApplicationController
     @profile = @user.send(:"#{@user.type_name.underscore.pluralize}").build
     if params[:association_type] && params[:contact_id]
       @user.relationships.build(association_type: params[:association_type], contact_id: params[:contact_id])
-      @user.relationships.build(association_type: Constants::UNDEFINED, contact_id: current_user.id)
     end
   end
 

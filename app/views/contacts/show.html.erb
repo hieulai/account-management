@@ -1,4 +1,22 @@
 <div>
     <%= render(:partial => "layouts/sub_navigation/people") %>
-    <%= render "show_#{@user.is_real? ? 'public' : 'private'}" %>
+    <div class="zurb-row main-action-bar">
+        <div class="large-3 medium-4 columns">
+            <%= link_to("Edit >>", edit_contact_path(@user), :title => 'Edit', :class => 'edit-large action-button') %>
+            <%= link_to("Delete >>", contact_path(@user), method: :delete, data: {confirm: 'Are you sure?'}, :title => 'Delete', :class => 'delete-large action-button') %>
+        </div>
+        <div class="large-6 medium-6 columns">
+            <h1 class="center">
+                <%= @user.type_name %> Information
+            </h1>
+        </div>
+        <div class="large-3 medium-2 columns">
+        </div>
+    </div>
+    <div class="zurb-row">
+        <div class="columns margin-bottom">
+            <%= render :partial => "contacts/#{@profile.class.name.underscore}/#{@user.class.name.underscore}_info", :locals => {:profile => @profile} %>
+        </div>
+    </div>
+    <%= render :partial => 'contacts/company/company_contacts', :locals => {:user => @user} %>
 </div>

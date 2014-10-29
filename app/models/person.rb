@@ -26,7 +26,7 @@ class Person < ActiveRecord::Base
   scope :from_real_user, -> { joins(:user).where('users.encrypted_password != ?', "") }
   scope :of_user, lambda { |user_id| where(user_id: user_id) }
 
-  validates :first_name, presence: true
+  validates :first_name, presence: true, :uniqueness => {:scope => [:last_name, :phone_1, :phone_2, :website]}
 
   def display_name
     "#{first_name} #{last_name}"

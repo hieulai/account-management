@@ -33,12 +33,13 @@
     </div>
   <% end %>
 
+  <% if @user.is_created_by? current_user %>
+    <%= f.hidden_field :type %>
+    <%= f.hidden_field :skip_existing_checking %>
 
-  <%= f.hidden_field :type %>
-  <%= f.hidden_field :skip_existing_checking %>
-
-  <%= f.fields_for :"#{@profile.class.name.underscore.pluralize}", @profile do |p| %>
-    <%= render :partial => "contacts/#{@profile.class.name.underscore}/#{@user.class.name.underscore}_form", :locals => {:p => p, :f => f} %>
+    <%= f.fields_for :"#{@profile.class.name.underscore.pluralize}", @profile do |p| %>
+      <%= render :partial => "contacts/#{@profile.class.name.underscore}/#{@user.class.name.underscore}_form", :locals => {:p => p, :f => f} %>
+    <% end %>
   <% end %>
   <div class="control-group">
       <div class="controls">

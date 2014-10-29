@@ -27,7 +27,7 @@ class Company < ActiveRecord::Base
   scope :has_phone, lambda { |phone| where('phone_1 = ? OR phone_2 = ? ', phone, phone) }
   scope :has_website, lambda { |website| where('website = ?', website) }
 
-  validates :company_name, presence: true
+  validates :company_name, presence: true, :uniqueness => {:scope => [:phone_1, :phone_2, :website]}
 
   def display_name
     company_name

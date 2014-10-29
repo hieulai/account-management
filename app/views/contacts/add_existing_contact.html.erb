@@ -14,7 +14,7 @@
         </div>
         <div class="large-6 medium-6 columns">
             <h1 class="center">
-                Link Company User
+                Link <%= @user.type_name %> User
             </h1>
         </div>
         <div class="large-3 medium-2 columns">
@@ -25,24 +25,51 @@
             <div style="display: none ">
                 <%= render 'input_form' %>
             </div>
-            <% contact = existing_for @user %>
+            <% contacts = existings_for @user %>
 
-            Is this the company you want to add?
+            Is this the <%= @user.type_name %> you want to add?
 
-            <%= render :partial => "contacts/#{contact.type_name.underscore}/#{contact.class.name.underscore}_info", :locals => {:profile => contact.profile} %>
+            <table class="grid-view margin-bottom responsive" summary="Contacts List">
+                <thead>
+                <tr>
+                    <th></th>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Primary Phone</th>
+                    <th>Email</th>
+                    <th>Associated Projects</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <% contacts.each_with_index do |c, index| %>
+                  <tr>
+                      <td><%= radio_button_tag(:contact_selector, c.id, index == 0) %></td>
+                      <td><%= c.type_name %></td>
+                      <td><%= c.display_name %></td>
+                      <td><%= c.primary_phone %></td>
+                      <td><%= c.email %></td>
+                      <td></td>
+                      <td>
+                          <%= link_to 'Show', contact_path(c), target: '_blank', :title => 'Show', :class => 'view table-action' %>
+                      </td>
+                  </tr>
+                <% end %>
+                </tbody>
+            </table>
 
             <%= form_for current_user, :as => :user, url: add_existing_contact_user_path(current_user), :html => {:class => 'form-horizontal', :style => 'display: none', data: {name: 'suggestion_form'}} do |f| %>
               <%= f.fields_for :relationships, @user.relationships do |p| %>
                 <div>
                     <%= p.hidden_field :association_type, value: p.object.association_type %>
-                    <%= p.hidden_field :contact_id, value: contact.id %>
+                    <%= p.hidden_field :contact_id, value: contacts.first.id, data: {name: 'relationship_contact'} %>
                 </div>
               <% end %>
             <% end %>
 
 
             <%= link_to "Add", "javascript:void(0)", class: 'btn', data: {name: 'submit', target: 'suggestion_form'} %>
-            <%= link_to "No, I want to create a different company", "javascript:void(0)", class: 'btn', data: {name: 'submit', target: 'input_form'} %>
+            <%= link_to "No, I want to create a different #{@user.type_name}", "javascript:void(0)", class: 'btn', data: {name: 'submit', target: 'input_form'} %>
 
         </div>
     </div>

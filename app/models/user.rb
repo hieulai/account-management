@@ -17,6 +17,8 @@
 
 class User < ActiveRecord::Base
   has_many :relationships, :dependent => :destroy
+  has_many :contact_relationships, -> { contacts }, class_name: 'Relationship', :dependent => :destroy
+
   has_many :target_relationships, class_name: 'Relationship', :foreign_key => 'contact_id', :dependent => :destroy
   has_many :vendor_relationships, -> { vendors }, class_name: 'Relationship', :foreign_key => 'contact_id'
   has_many :client_relationships, -> { clients }, class_name: 'Relationship', :foreign_key => 'contact_id'
@@ -24,6 +26,7 @@ class User < ActiveRecord::Base
   has_many :employer_relationships, -> { employers }, class_name: 'Relationship', :foreign_key => 'contact_id'
 
   has_many :source_contacts, :class_name => "User", :source => :contact, :through => :relationships
+  has_many :owners, class_name: 'User', :source => :contact, :through => :contact_relationships
   has_many :contacts, -> { uniq }, :class_name => "User", :source => :user, :through => :target_relationships
   has_many :company_contacts, -> { companies.uniq }, :class_name => "CompanyUser", :source => :user, :through => :target_relationships
   has_many :person_contacts, -> { people.uniq }, :class_name => "PersonUser", :source => :user, :through => :target_relationships
@@ -39,6 +42,8 @@ class User < ActiveRecord::Base
 
   accepts_nested_attributes_for :relationships, :reject_if => :all_blank, :allow_destroy => true
   attr_accessor :skip_existing_checking
+
+  validates :email, :uniqueness => :true
 
   devise :database_authenticatable, :registerable, :recoverable
 
@@ -56,5 +61,9 @@ class User < ActiveRecord::Base
 
   def is_real?
     encrypted_password != ""
+  end
+
+  def is_created_by?(user)
+    new_record? || owners.include?(user)
   end
 end
