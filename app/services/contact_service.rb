@@ -89,19 +89,11 @@ class ContactService
 
     private
     def after_save(user, owner)
-      assign_ownership(user, owner)
       # create_default_relationships(user, owner)
     end
 
     def create_default_relationships(user, owner)
       user.relationships.create(:association_type => Constants::UNDEFINED, :contact_id => owner.id) if user.relationships.empty?
-    end
-
-    def assign_ownership(user, owner)
-      array = user.is_a?(CompanyUser) ? user.companies : user.people
-      array.each do |a|
-        a.update_column(:owner_id, owner.id)
-      end
     end
   end
 end
