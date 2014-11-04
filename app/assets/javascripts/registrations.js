@@ -8,12 +8,13 @@ var Registrations = (function ($) {
             $form.submit();
         });
 
-        $(document).on('click', 'input[name="contact_selector"]', function () {
-            $('input[data-name="contact-holder"]').val($(this).val());
-            $("#user_people_attributes_0_id").val($(this).data("person"));
+        $(document).on('click', 'a[data-name="override_submit"]', function () {
+            var $form = $('form');
+            var $selectedUser = $('input[name="contact_selector"]:checked');
+            $('input[data-name="contact-holder"]').val($selectedUser.val());
+            $("#user_people_attributes_0_id").val($selectedUser.data("person"));
+            $form.submit();
         });
-
-        $('input[name="contact_selector"]').first().click();
     };
 
     return {
