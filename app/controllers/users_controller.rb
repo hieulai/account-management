@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :add_existing_contact, :destroy]
+  before_action :authenticate_user!
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users
   # GET /users.json
@@ -42,7 +43,7 @@ class UsersController < ApplicationController
 
   def add_existing_contact
     respond_to do |format|
-      @user.update(user_params)
+      @user = UserService.update(root_user, user_params)
       if @user.errors.empty?
         format.html { redirect_to contacts_url, notice: 'User was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
@@ -56,14 +57,5 @@ class UsersController < ApplicationController
   private
     def set_user
       @user = current_user
-    end
-
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def user_params
-      params[:user].permit(:email, :password, :type,
-                           :relationships_attributes => [:contact_id, :association_type, :id, :"_destroy"],
-                           :companies_attributes => [:id, :company_name, :phone_1, :phone_2,
-                                                     :phone_tag_1, :phone_tag_2, :address_line_1,
-                                                     :address_line_2, :city, :state, :zipcode, :website])
     end
 end

@@ -15,6 +15,23 @@ var Contact = (function ($) {
             $('input[data-name="relationship_contact"]').val($(this).val());
         });
 
+        $(document).on('click', 'input[name="user[job_type]"]', function () {
+            var $containers = $('div[data-class="job_type"]');
+            $containers.each(function (index) {
+                $(this).find('input[data-name="association_type"]').attr("checked", false);
+                $(this).find('input[name$="[_destroy]"]').val("true");
+            });
+            $containers.hide();
+
+            var $selector = $('div[data-name="' + $(this).val() + '"]');
+            if ($selector.data("name") == "company_contact"){
+                $selector.each(function (index) {
+                    $(this).find('input[name$="[_destroy]"]').val("false");
+                });
+            }
+            $selector.show();
+        });
+
     };
 
     return {

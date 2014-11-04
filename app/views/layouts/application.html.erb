@@ -29,6 +29,7 @@
     </div>
     <%= render :partial => 'layouts/navigation' %>
     <div class='zurb-row' id='content'>
+        <%= yield :sub_navigation %>
         <%= yield %>
     </div>
 </div>

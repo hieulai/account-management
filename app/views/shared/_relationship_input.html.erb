@@ -4,6 +4,7 @@
     <%= label_tag :"association_type_#{p.object.association_type}", p.object.association_type %>
     <%= p.hidden_field :id, value: r_object.try(:id) %>
     <%= p.hidden_field :association_type, value: p.object.association_type %>
-    <%= p.hidden_field :contact_id, value: current_user.id %>
+    <%= p.hidden_field :role, value: r_object.try(:role) %>
+    <%= p.hidden_field :contact_id, value: root_user.id %>
     <%= p.hidden_field :"_destroy", value: r_object.nil? %>
 </div>

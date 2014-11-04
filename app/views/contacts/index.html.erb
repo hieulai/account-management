@@ -1,5 +1,7 @@
+<% content_for :sub_navigation do %>
+  <%= render(:partial => "layouts/sub_navigation/people") %>
+<% end %>
 <div>
-    <%= render(:partial => "layouts/sub_navigation/people") %>
     <div class="zurb-row main-action-bar">
         <div class="large-3 medium-4 columns">
             <%= link_to 'New Company', new_contact_path(type: "CompanyUser"), class: 'btn' %>

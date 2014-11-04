@@ -6,3 +6,8 @@
     padding: 10px;
     border: 1px solid #C9E0ED;
 }
+
+table.grid-view th, table.grid-view td {
+    font-size: 1em;
+    font-weight: normal;
+}

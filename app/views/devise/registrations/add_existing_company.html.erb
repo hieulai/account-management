@@ -1,15 +1,10 @@
 <% content_for :javascript do %>
   <script type='text/javascript'>
     $(function () {
-      Contact.init();
+      Registrations.init();
     });
   </script>
 <% end %>
-
-<% content_for :sub_navigation do %>
-  <%= render(:partial => "layouts/sub_navigation/people") %>
-<% end %>
-
 <div>
     <div class="zurb-row main-action-bar">
         <div class="large-3 medium-4 columns">
@@ -17,7 +12,7 @@
         </div>
         <div class="large-6 medium-6 columns">
             <h1 class="center">
-                Link <%= @user.type_name %> User
+                Link Company User
             </h1>
         </div>
         <div class="large-3 medium-2 columns">
@@ -26,11 +21,11 @@
     <div class="zurb-row">
         <div class="columns margin-bottom">
             <div style="display: none ">
-                <%= render :partial => 'contacts/input_form' %>
+                <%= render :partial => 'company_form' %>
             </div>
             <% contacts = existings_for @user %>
 
-            Is this the <%= @user.type_name %> you want to add?
+            Is this the Company you want to add?
 
             <table class="grid-view margin-bottom responsive" summary="Contacts List">
                 <thead>
@@ -66,17 +61,15 @@
                 <div>
                     <%= p.hidden_field :association_type, value: Relationship.reflex_association_type(p.object.association_type) %>
                     <%= p.hidden_field :role, value: p.object.role %>
-                    <%= p.hidden_field :contact_id, value: contacts.first.id, data: {name: 'relationship_contact'} %>
+                    <%= p.hidden_field :contact_id, data: {name: 'contact-holder'} %>
                 </div>
               <% end %>
             <% end %>
 
             <%= link_to "Yes", "javascript:void(0)", class: 'btn', data: {name: 'submit', target: 'suggestion_form'} %>
-            <%= link_to "No, I want to create a different #{@user.type_name}", "javascript:void(0)", class: 'btn', data: {name: 'submit', target: 'input_form'} %>
+            <%= link_to "No, I want to create a different Company", "javascript:void(0)", class: 'btn', data: {name: 'submit', target: 'input_form'} %>
 
         </div>
     </div>
 </div>
-
-
 

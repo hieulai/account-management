@@ -1,0 +1,35 @@
+<%= form_for @user, :as => :user, url: registrations_create_company_path, :html => {:class => 'form-horizontal'}, data: {name: 'input_form'} do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+        <h2><%= pluralize(@user.errors.count, "error") %> prohibited this company from being saved:</h2>
+        <ul>
+            <% @user.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+        </ul>
+    </div>
+  <% end %>
+
+  <%= f.hidden_field :type %>
+  <%= f.hidden_field :skip_existing_checking %>
+
+  <div class="control-group" style="display: none">
+      <div class="controls">
+          <%= f.fields_for :relationships, Relationship.new do |p| %>
+            <%= p.hidden_field :association_type, value: Constants::EMPLOYER %>
+            <%= p.hidden_field :role, value: Constants::OWNER %>
+            <%= p.hidden_field :contact_id, value: root_user.id %>
+          <% end %>
+      </div>
+  </div>
+
+  <%= f.fields_for :companies, @profile do |p| %>
+    <%= render :partial => "shared/company/company_user_form", :locals => {:p => p, :f => f} %>
+  <% end %>
+
+  <div class="control-group">
+      <div class="controls">
+          <%= f.submit "Save", :class => 'btn' %>
+      </div>
+  </div>
+<% end %>

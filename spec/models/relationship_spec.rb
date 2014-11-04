@@ -9,6 +9,7 @@
 #  created_at       :datetime
 #  updated_at       :datetime
 #  reflex           :boolean
+#  role             :string(255)
 #
 
 require 'rails_helper'

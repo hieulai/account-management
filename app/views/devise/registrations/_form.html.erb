@@ -1,0 +1,53 @@
+<%= form_for(resource, :as => resource_name, :url => user_registration_path, :html => {:multipart => true, class: 'form-horizontal'}) do |f| %>
+  <% if resource.errors.any? %>
+    <div id="error_explanation">
+        <h2><%= pluralize(resource.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+        <ul>
+            <% resource.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+        </ul>
+    </div>
+  <% end %>
+
+  <h4>Login Credentails</h4>
+  <div class="control-group">
+      <%= f.label :email, "Email", :class => 'col-lg-2 control-label' %>
+      <div class="controls">
+          <%= f.text_field(:email) %>
+      </div>
+  </div>
+
+  <div class="control-group">
+      <%= f.label :password, 'Password', class: 'col-lg-2 control-label' %>
+      <div class='controls'>
+          <%= f.password_field :password %>
+      </div>
+  </div>
+
+  <%= f.hidden_field :skip_existing_checking %>
+  <%= hidden_field_tag :user_id, nil, data: {name: 'contact-holder'} %>
+
+  <h4>User infomation</h4>
+  <div class="control-group">
+      <%= label_tag :type_name, "Job", class: 'col-lg-2 control-label' %>
+      <div class="controls">
+          <%= f.radio_button(:job_type, Constants::SELF_EMPLOYED, checked: resource.job_type == Constants::SELF_EMPLOYED ) %>
+          <%= f.label(:job_type_self_employed, "Is self-employed") %>
+          <br/>
+          <%= f.radio_button(:job_type, Constants::COMPANY_CONTACT, checked: resource.job_type == Constants::COMPANY_CONTACT) %>
+          <%= f.label(:job_type_company_contact, "Work for Company") %>
+      </div>
+  </div>
+
+  <%= f.fields_for :people, resource.people.first do |p| %>
+    <%= render :partial => "shared/person/person_user_form", :locals => {:p => p} %>
+  <% end %>
+
+  <div class="control-group">
+      <div class="controls">
+          <%= f.submit "Create", class: 'btn' %>
+      </div>
+  </div>
+<% end %>

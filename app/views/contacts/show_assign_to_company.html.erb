@@ -1,0 +1,58 @@
+<% content_for :sub_navigation do %>
+  <%= render(:partial => "layouts/sub_navigation/people") %>
+<% end %>
+<div>
+    <div class="zurb-row main-action-bar">
+        <div class="large-3 medium-4 columns">
+            <%= link_to("View >>", contact_path(@user), :title => 'View', :class => 'view-large action-button') %>
+        </div>
+        <div class="large-6 medium-6 columns">
+            <h1 class="center">
+                Assign to a Company
+            </h1>
+        </div>
+        <div class="large-3 medium-2 columns">
+        </div>
+    </div>
+    <div class="zurb-row">
+        <div class="columns margin-bottom">
+            <%= form_for @user, :as => :user, url: assign_to_company_contact_path(@user), :html => {:class => 'form-horizontal'} do |f| %>
+              <% if @user.errors.any? %>
+                <div id="error_explanation">
+                    <h2><%= pluralize(@user.errors.count, "error") %> prohibited this contact from being saved:</h2>
+                    <ul>
+                        <% @user.errors.full_messages.each do |message| %>
+                          <li><%= message %></li>
+                        <% end %>
+                    </ul>
+                </div>
+              <% end %>
+
+              <div class="control-group">
+                  <%= label_tag :company_name, "Company", class: 'col-lg-2 control-label' %>
+                  <div class="controls">
+                      <%= f.fields_for :relationships, @user.source_employee_relationships.first || Relationship.new do |p| %>
+                        <%= p.hidden_field :id %>
+                        <%= p.hidden_field :association_type, value: Constants::EMPLOYEE %>
+                        <%= p.select :contact_id, root_user.company_contacts.collect { |s| [s.display_name, s.id] } %>
+                      <% end %>
+                  </div>
+              </div>
+
+              <div class="control-group" style="display: none">
+                  <%= f.fields_for :relationships, relationships_for(@user) do |p| %>
+                    <%= p.hidden_field :id, value: get_relationship(@user, p.object.association_type).try(:id) %>
+                    <%= p.hidden_field :"_destroy", value: true %>
+                  <% end %>
+              </div>
+
+              <div class="control-group">
+                  <div class="controls">
+                      <%= f.submit "Save", :class => 'btn' %>
+                      <%= link_to "Cancel", contacts_path, :class => 'btn' %>
+                  </div>
+              </div>
+            <% end %>
+        </div>
+    </div>
+</div>

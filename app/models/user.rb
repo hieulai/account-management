@@ -17,16 +17,18 @@
 
 class User < ActiveRecord::Base
   has_many :relationships, :dependent => :destroy
-  has_many :contact_relationships, -> { contacts }, class_name: 'Relationship', :dependent => :destroy
+  has_many :belong_relationships, -> { type_belong }, class_name: 'Relationship', :dependent => :destroy
+  has_many :source_employee_relationships, -> { employees }, class_name: 'Relationship', :dependent => :destroy
 
   has_many :target_relationships, class_name: 'Relationship', :foreign_key => 'contact_id', :dependent => :destroy
   has_many :vendor_relationships, -> { vendors }, class_name: 'Relationship', :foreign_key => 'contact_id'
   has_many :client_relationships, -> { clients }, class_name: 'Relationship', :foreign_key => 'contact_id'
   has_many :employee_relationships, -> { employees }, class_name: 'Relationship', :foreign_key => 'contact_id'
   has_many :employer_relationships, -> { employers }, class_name: 'Relationship', :foreign_key => 'contact_id'
+  has_many :owners_relationships, -> { owners }, class_name: 'Relationship', :foreign_key => 'contact_id'
 
   has_many :source_contacts, :class_name => "User", :source => :contact, :through => :relationships
-  has_many :owners, class_name: 'User', :source => :contact, :through => :contact_relationships
+  has_many :creators, class_name: 'User', :source => :contact, :through => :belong_relationships
   has_many :contacts, -> { uniq }, :class_name => "User", :source => :user, :through => :target_relationships
   has_many :company_contacts, -> { companies.uniq }, :class_name => "CompanyUser", :source => :user, :through => :target_relationships
   has_many :person_contacts, -> { people.uniq }, :class_name => "PersonUser", :source => :user, :through => :target_relationships
@@ -34,16 +36,15 @@ class User < ActiveRecord::Base
   has_many :clients, :class_name => "User", :source => :user, :through => :client_relationships
   has_many :employees, :class_name => "User", :source => :user, :through => :employee_relationships
   has_many :employers, :class_name => "User", :source => :user, :through => :employer_relationships
+  has_many :owners, :class_name => "User", :source => :user, :through => :owners_relationships
 
   scope :companies, -> { where type: "CompanyUser" }
   scope :people, -> { where type: "PersonUser" }
   scope :has_email, lambda { |email| where('email = ?', email) }
-  scope :reals, -> { where('encrypted_password !=?', "") }
+  scope :ignores, lambda { |ids| where('users.id NOT IN (?)', ids) }
 
   accepts_nested_attributes_for :relationships, :reject_if => :all_blank, :allow_destroy => true
-  attr_accessor :skip_existing_checking
-
-  validates :email, :uniqueness => :true
+  attr_accessor :skip_existing_checking, :status
 
   devise :database_authenticatable, :registerable, :recoverable
 
@@ -64,6 +65,6 @@ class User < ActiveRecord::Base
   end
 
   def is_created_by?(user)
-    new_record? || owners.include?(user)
+    new_record? || creators.include?(user)
   end
 end

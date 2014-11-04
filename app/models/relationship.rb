@@ -16,13 +16,16 @@ class Relationship < ActiveRecord::Base
   belongs_to :user, :foreign_key => :user_id
   belongs_to :contact, :class_name => 'User', :foreign_key => :contact_id
 
-  scope :owned_by, lambda { |user| where(contact_id: user.id) }
+  scope :contact_by, lambda { |user| where(contact_id: user.id) }
+
   scope :types, lambda { |type| where(association_type: type) }
   scope :vendors, -> { types Constants::VENDOR }
   scope :clients, -> { types Constants::CLIENT }
   scope :employees, -> { types Constants::EMPLOYEE }
   scope :employers, -> { types Constants::EMPLOYER }
-  scope :contacts, -> { types Constants::CONTACT }
+  scope :type_having, -> { types Constants::HAS }
+  scope :type_belong, -> { types Constants::BELONG }
+  scope :owners, -> { types(Constants::EMPLOYER).where(role: Constants::OWNER) }
 
   after_save :destroy_reflection
   after_save :update_reflection, :unless => Proc.new { |r| r.reflex? }
@@ -39,30 +42,34 @@ class Relationship < ActiveRecord::Base
           Constants::EMPLOYEE
         when Constants::EMPLOYEE
           Constants::EMPLOYER
-        when Constants::OWNER
-          Constants::CONTACT
+        when Constants::HAS
+          Constants::BELONG
         else
-          Constants::OWNER
+          Constants::HAS
       end
     end
   end
 
-  [Constants::VENDOR, Constants::CLIENT, Constants::EMPLOYEE, Constants::OWNER, Constants::CONTACT ].each do |name|
+  [Constants::VENDOR, Constants::CLIENT, Constants::EMPLOYEE, Constants::HAS, Constants::BELONG].each do |name|
     define_method("is_a_#{name.underscore}?") do
       association_type == name
     end
   end
 
-  def reflection(type)
-    attr = {user_id: contact_id, contact_id: user_id}
-    Relationship.where attr.merge(association_type: Relationship.reflex_association_type(type))
+  def reflection
+    Relationship.where reflection_attributes
   end
 
   def update_reflection
-    reflection(association_type).first_or_create(reflex: true)
+    Relationship.create(reflection_attributes.merge(reflex: true))
   end
 
   def destroy_reflection
-    reflection(association_type_was).destroy_all
+    Relationship.where(reflection_attributes.merge(user_id: contact_id_was)).destroy_all
+  end
+
+  private
+  def reflection_attributes
+    {user_id: contact_id, contact_id: user_id, role: role, association_type: Relationship.reflex_association_type(association_type)}
   end
 end

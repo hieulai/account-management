@@ -1,5 +1,7 @@
+<% content_for :sub_navigation do %>
+  <%= render(:partial => "layouts/sub_navigation/people") %>
+<% end %>
 <div>
-    <%= render(:partial => "layouts/sub_navigation/people") %>
     <div class="zurb-row main-action-bar">
         <div class="large-3 medium-4 columns">
             <%= link_to("View >>", contact_path(@user), :title => 'View', :class => 'view-large action-button') %>
@@ -16,7 +18,6 @@
     <div class="zurb-row">
         <div class="columns margin-bottom">
             <%= render 'form' %>
-
             <%= render :partial => 'contacts/company/company_contacts', :locals => {:user => @user} %>
         </div>
     </div>

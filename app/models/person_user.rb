@@ -23,6 +23,10 @@ class PersonUser < User
   scope :has_phone, lambda { |phone| joins(:people).where('people.phone_1 = ? OR people.phone_2 = ? ', phone, phone) }
   scope :has_website, lambda { |website| joins(:people).where('people.website = ?', website) }
 
+  attr_accessor :job_type
+
+  validates :email, presence: true, uniqueness: :true, :unless => Proc.new { |u| u.status == Constants::CONTACT }
+
   def type_name
     "Person"
   end

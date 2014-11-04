@@ -9,37 +9,61 @@
         </ul>
     </div>
   <% end %>
-
-  <% if is_a_company_contact? @user %>
+  <% is_company_contact = is_a_company_contact? @user
+     company_contact_display = is_company_contact ? "" : "none"
+     self_employed_display = is_company_contact ? "none" : ""
+  %>
+  <% if @user.is_a? PersonUser %>
     <div class="control-group">
-        <%= label_tag :type_name, "Company", class: 'col-lg-2 control-label' %>
+        <%= label_tag :type_name, "Job", class: 'col-lg-2 control-label' %>
         <div class="controls">
-            <%= User.find(@user.relationships.first.contact_id).display_name %>
+            <%= f.radio_button(:job_type, Constants::SELF_EMPLOYED, checked: !is_company_contact) %>
+            <%= f.label(:job_type_self_employed, "Is self-employed") %>
+            <br/>
+            <%= f.radio_button(:job_type, Constants::COMPANY_CONTACT, checked: is_company_contact) %>
+            <%= f.label(:job_type_company_contact, "Work for Company") %>
         </div>
     </div>
-    <%= f.fields_for :relationships, @user.relationships do |p| %>
-      <%= p.hidden_field :id %>
-      <%= p.hidden_field :association_type, value: p.object.association_type %>
-      <%= p.hidden_field :contact_id, value: p.object.contact_id %>
-    <% end %>
-  <% else %>
-    <div class="control-group">
-        <%= f.label :type, 'Relationships', class: 'col-lg-2 control-label' %>
+
+    <div class="control-group" data-name="company_contact" data-class="job_type" style="display: <%= company_contact_display %>">
+        <%= label_tag :company_name, "Company", class: 'col-lg-2 control-label' %>
         <div class="controls">
-            <%= f.fields_for :relationships, relationships_for(@user) do |p| %>
-              <%= render :partial => 'relationship_input', locals: {p: p, u: @user} %>
+            <%= f.fields_for :relationships, is_company_contact ? @user.source_employee_relationships.first : Relationship.new do |p| %>
+              <%= p.hidden_field :id %>
+              <%= p.hidden_field :association_type, value: Constants::EMPLOYEE %>
+              <%= p.select :contact_id, root_user.company_contacts.collect { |s| [s.display_name, s.id] } %>
+              <%= p.hidden_field :"_destroy", value: !is_company_contact %>
             <% end %>
         </div>
     </div>
   <% end %>
 
-  <% if @user.is_created_by? current_user %>
+  <div class="control-group" data-name="self_employed" data-class="job_type" style="display: <%= self_employed_display %>">
+      <%= f.label :type, 'Relationships', class: 'col-lg-2 control-label' %>
+      <div class="controls">
+          <%= f.fields_for :relationships, relationships_for(@user) do |p| %>
+            <%= render :partial => 'shared/relationship_input', locals: {p: p, u: @user} %>
+          <% end %>
+      </div>
+  </div>
+
+  <% if @user.is_created_by? root_user %>
     <%= f.hidden_field :type %>
     <%= f.hidden_field :skip_existing_checking %>
 
     <%= f.fields_for :"#{@profile.class.name.underscore.pluralize}", @profile do |p| %>
-      <%= render :partial => "contacts/#{@profile.class.name.underscore}/#{@user.class.name.underscore}_form", :locals => {:p => p, :f => f} %>
+      <%= render :partial => "shared/#{@profile.class.name.underscore}/#{@user.class.name.underscore}_form", :locals => {:p => p} %>
     <% end %>
+
+    <% if @user.is_a? PersonUser %>
+      <div class="control-group">
+          <%= f.label :email, "Email", :class => 'col-lg-2 control-label' %>
+          <div class="controls">
+              <%= f.text_field(:email) %>
+          </div>
+      </div>
+    <% end %>
+
   <% end %>
   <div class="control-group">
       <div class="controls">

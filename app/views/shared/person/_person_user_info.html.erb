@@ -1,7 +1,7 @@
-<% if is_a_company_contact? profile.user %>
+<% if profile.user.employers.any? %>
   <p>
       <b><%= "Company:" %></b>
-      <%= profile.user.company_contacts.first.display_name %>
+      <%= profile.user.employers.first.display_name %>
   </p>
 <% end %>
 

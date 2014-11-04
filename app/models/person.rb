@@ -23,10 +23,9 @@
 class Person < ActiveRecord::Base
   belongs_to :user
 
-  scope :from_real_user, -> { joins(:user).where('users.encrypted_password != ?', "") }
-  scope :of_user, lambda { |user_id| where(user_id: user_id) }
-
+  attr_accessor :status
   validates :first_name, presence: true, :uniqueness => {:scope => [:last_name, :phone_1, :phone_2, :website]}
+  validates :last_name, presence: true, :unless => Proc.new { |p| p.status == Constants::CONTACT }
 
   def display_name
     "#{first_name} #{last_name}"

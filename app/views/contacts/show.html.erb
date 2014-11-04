@@ -1,5 +1,7 @@
+<% content_for :sub_navigation do %>
+  <%= render(:partial => "layouts/sub_navigation/people") %>
+<% end %>
 <div>
-    <%= render(:partial => "layouts/sub_navigation/people") %>
     <div class="zurb-row main-action-bar">
         <div class="large-3 medium-4 columns">
             <%= link_to("Edit >>", edit_contact_path(@user), :title => 'Edit', :class => 'edit-large action-button') %>
@@ -15,7 +17,10 @@
     </div>
     <div class="zurb-row">
         <div class="columns margin-bottom">
-            <%= render :partial => "contacts/#{@profile.class.name.underscore}/#{@user.class.name.underscore}_info", :locals => {:profile => @profile} %>
+            <% if @user.is_a? PersonUser %>
+              <%= link_to "Assign to a Company", show_assign_to_company_contact_path(@user), class: 'btn' %>
+            <% end %>
+            <%= render :partial => "shared/#{@profile.class.name.underscore}/#{@user.class.name.underscore}_info", :locals => {:profile => @profile} %>
         </div>
     </div>
     <%= render :partial => 'contacts/company/company_contacts', :locals => {:user => @user} %>
