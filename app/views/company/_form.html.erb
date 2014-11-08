@@ -1,0 +1,14 @@
+<%= form_for @user, :as => :user, url: company_path, :html => {:class => 'form-horizontal'} do |f| %>
+  <%= render partial: 'shared/errors', locals: {object: @user} %>
+
+  <%= f.fields_for :companies, @user.profile do |p| %>
+    <%= render :partial => "shared/company/company_user_form", :locals => {:p => p} %>
+  <% end %>
+
+  <div class="control-group">
+      <div class="controls">
+          <%= f.submit "Save", :class => 'btn' %>
+          <%= link_to "Cancel", current_company_index_path, :class => 'btn' %>
+      </div>
+  </div>
+<% end %>

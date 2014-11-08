@@ -19,6 +19,7 @@ class User < ActiveRecord::Base
   has_many :relationships, :dependent => :destroy
   has_many :belong_relationships, -> { type_belong }, class_name: 'Relationship', :dependent => :destroy
   has_many :source_employee_relationships, -> { employees }, class_name: 'Relationship', :dependent => :destroy
+  has_many :founders_relationships, -> { owners }, class_name: 'Relationship', :dependent => :destroy
 
   has_many :target_relationships, class_name: 'Relationship', :foreign_key => 'contact_id', :dependent => :destroy
   has_many :vendor_relationships, -> { vendors }, class_name: 'Relationship', :foreign_key => 'contact_id'
@@ -29,6 +30,7 @@ class User < ActiveRecord::Base
 
   has_many :source_contacts, :class_name => "User", :source => :contact, :through => :relationships
   has_many :creators, class_name: 'User', :source => :contact, :through => :belong_relationships
+  has_many :founders, class_name: 'User', :source => :contact, :through => :founders_relationships
   has_many :contacts, -> { uniq }, :class_name => "User", :source => :user, :through => :target_relationships
   has_many :company_contacts, -> { companies.uniq }, :class_name => "CompanyUser", :source => :user, :through => :target_relationships
   has_many :person_contacts, -> { people.uniq }, :class_name => "PersonUser", :source => :user, :through => :target_relationships
@@ -60,11 +62,19 @@ class User < ActiveRecord::Base
     ""
   end
 
+  def mailist_list
+
+  end
+
   def is_real?
-    encrypted_password != ""
+    (is_a?(PersonUser) && encrypted_password != "")|| (founders.select { |c| c.is_real? }.any?)
   end
 
   def is_created_by?(user)
     new_record? || creators.include?(user)
+  end
+
+  def contact_by?(user)
+    relationships.contact_by(user).any?
   end
 end

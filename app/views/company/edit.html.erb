@@ -1,14 +1,14 @@
 <% content_for :sub_navigation do %>
-  <%= render(:partial => "layouts/sub_navigation/preferences") %>
+  <%= render(:partial => "layouts/sub_navigation/company") %>
 <% end %>
 <div>
     <div class="zurb-row main-action-bar">
         <div class="large-3 medium-4 columns">
-            <%= link_to("View >>", current_users_path, :title => 'View', :class => 'view-large action-button') %>
+            <%= link_to("View >>", current_company_index_path, :title => 'View', :class => 'view-large action-button') %>
         </div>
         <div class="large-6 medium-6 columns">
             <h1 class="center">
-                Edit User
+                Edit Company
             </h1>
         </div>
         <div class="large-3 medium-2 columns">

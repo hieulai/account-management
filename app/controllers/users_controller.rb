@@ -1,29 +1,19 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:current, :edit, :update, :destroy]
 
-  # GET /users
-  # GET /users.json
-  def index
-    @users = User.all
+  def current
   end
 
-  # GET /users/1
-  # GET /users/1.json
-  def show
-  end
 
-  # GET /users/1/edit
   def edit
   end
 
-  # PATCH/PUT /users/1
-  # PATCH/PUT /users/1.json
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
-        format.json { render :show, status: :ok, location: @user }
+        format.html { redirect_to current_users_path, notice: 'User was successfully updated.' }
+        format.json { render :current, status: :ok, location: @user }
       else
         format.html { render :edit }
         format.json { render json: @user.errors, status: :unprocessable_entity }
@@ -31,8 +21,6 @@ class UsersController < ApplicationController
     end
   end
 
-  # DELETE /users/1
-  # DELETE /users/1.json
   def destroy
     @user.destroy
     respond_to do |format|
@@ -46,7 +34,7 @@ class UsersController < ApplicationController
       @user = UserService.update(root_user, user_params)
       if @user.errors.empty?
         format.html { redirect_to contacts_url, notice: 'User was successfully updated.' }
-        format.json { render :show, status: :ok, location: @user }
+        format.json { render :current, status: :ok, location: @user }
       else
         format.html { render 'contacts/add_existing_contact' }
         format.json { render json: @user.errors, status: :unprocessable_entity }
@@ -55,7 +43,7 @@ class UsersController < ApplicationController
   end
 
   private
-    def set_user
-      @user = current_user
-    end
+  def set_user
+    @user = current_user
+  end
 end

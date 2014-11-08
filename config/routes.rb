@@ -8,9 +8,18 @@ Rails.application.routes.draw do
 
   get 'under_construction' => 'mics#under_construction'
 
-  resources :users do
+  resources :users, :only => [:edit, :update, :destroy] do
+    collection do
+      get :current
+    end
     member do
       patch :add_existing_contact
+    end
+  end
+
+  resources :company, :only => [:edit, :update] do
+    collection do
+      get :current
     end
   end
 

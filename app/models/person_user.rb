@@ -25,7 +25,8 @@ class PersonUser < User
 
   attr_accessor :job_type
 
-  validates :email, presence: true, uniqueness: :true, :unless => Proc.new { |u| u.status == Constants::CONTACT }
+  validates :email, presence: true, :unless => Proc.new { |u| u.status == Constants::CONTACT }
+  validates :email, uniqueness: :true, :allow_blank => true
 
   def type_name
     "Person"
@@ -41,5 +42,9 @@ class PersonUser < User
 
   def primary_phone
     profile.primary_phone
+  end
+
+  def mailist_list
+    [email].compact.reject(&:empty?)
   end
 end

@@ -39,4 +39,8 @@ class CompanyUser < User
   def primary_phone
     profile.primary_phone
   end
+
+  def mailing_list
+    employees.map { |u| u.email }.compact.reject(&:empty?)
+  end
 end

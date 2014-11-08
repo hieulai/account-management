@@ -13,3 +13,27 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+var Application = (function ($) {
+    var init = function(){
+        setupTrClickable();
+    };
+
+    var setupTrClickable = function () {
+        $(document).on('click', 'tr[data-name="clickable"]', function (e) {
+            var $link = $(this).find('a[data-name="clickable-link"]');
+            if (typeof $link.attr("target") != "undefined")
+                window.open($link.attr("href"), $link.attr("target"));
+            else
+                window.location = $link.attr("href");
+        })
+    };
+
+    return {
+        init: init
+    }
+
+})(jQuery);
+
+$(document).ready(function () {
+    Application.init();
+});

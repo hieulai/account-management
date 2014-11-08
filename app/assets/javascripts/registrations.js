@@ -8,7 +8,7 @@ var Registrations = (function ($) {
             $form.submit();
         });
 
-        $(document).on('click', 'a[data-name="override_submit"]', function () {
+        $(document).on('click', 'a[data-name="existing_submit"]', function () {
             var $form = $('form');
             var $selectedUser = $('input[name="contact_selector"]:checked');
             $('input[data-name="contact-holder"]').val($selectedUser.val());

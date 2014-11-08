@@ -4,7 +4,7 @@
   </h1>
   <div class="zurb-row">
       <div class="columns margin-bottom">
-          <% if user.is_created_by?(root_user) %>
+          <% if is_editable?(@user) %>
             <%= link_to 'Add Company Contact', new_contact_path(type: PersonUser.name, association_type: Constants::EMPLOYEE, contact_id: user.id), class: 'btn' %>
           <% end %>
           <% if user.employees.any? %>

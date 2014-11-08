@@ -1,21 +1,14 @@
+<%= form_for @user, :as => :user, url: user_path, :html => {:class => 'form-horizontal'} do |f| %>
+  <%= render partial: 'shared/errors', locals: {object: @user} %>
 
-<%= form_for(@user) do |f| %>
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
-
-      <ul>
-      <% @user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
+  <%= f.fields_for :people, @user.profile do |p| %>
+    <%= render :partial => "shared/person/person_user_form", :locals => {:p => p} %>
   <% end %>
 
-  <div class="actions">
-    <%= f.label :active %>
-    <%= f.check_box :active %>
-    </br>
-    <%= f.submit %>
+  <div class="control-group">
+      <div class="controls">
+          <%= f.submit "Save", :class => 'btn' %>
+          <%= link_to "Cancel", current_users_path, :class => 'btn' %>
+      </div>
   </div>
 <% end %>

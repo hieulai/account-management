@@ -35,27 +35,26 @@
                     <th>Primary Phone</th>
                     <th>Email</th>
                     <th>Associated Projects</th>
-                    <th></th>
                 </tr>
                 </thead>
                 <tbody>
                 <% contacts.each_with_index do |c, index| %>
-                  <tr>
-                      <td><%= radio_button_tag(:contact_selector, c.id, index == 0, data: {person: c.people.first.id}) %></td>
+                  <tr class="clickable" data-name="clickable">
+                      <td>
+                          <%= radio_button_tag(:contact_selector, c.id, index == 0, data: {person: c.people.first.id}) %>
+                          <%= link_to 'Show', contact_path(c), target: '_blank', data: {name: 'clickable-link'}, style: "display: none" %>
+                      </td>
                       <td><%= c.type_name %></td>
                       <td><%= c.display_name %></td>
                       <td><%= c.primary_phone %></td>
                       <td><%= c.email %></td>
                       <td></td>
-                      <td>
-                          <%= link_to 'Show', contact_path(c), target: '_blank', :title => 'Show', :class => 'view table-action' %>
-                      </td>
                   </tr>
                 <% end %>
                 </tbody>
             </table>
 
-            <%= link_to "Yes", "javascript:void(0)", class: 'btn', data: {name: 'override_submit'} %>
+            <%= link_to "Yes", "javascript:void(0)", class: 'btn', data: {name: 'existing_submit'} %>
             <%= link_to "No, I want to register myself with the same name, but I am not any of these people.", "javascript:void(0)", class: 'btn', data: {name: 'submit'} %>
         </div>
     </div>

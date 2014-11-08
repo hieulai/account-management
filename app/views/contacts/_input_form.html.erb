@@ -13,22 +13,22 @@
      company_contact_display = is_company_contact ? "" : "none"
      self_employed_display = is_company_contact ? "none" : ""
   %>
-  <% if @user.is_a? PersonUser %>
+  <% if @user.is_a?(PersonUser) && is_editable?(@user) %>
     <div class="control-group">
-        <%= label_tag :type_name, "Job", class: 'col-lg-2 control-label' %>
+        <%= label_tag :type_name, "Employment Status", class: 'col-lg-2 control-label' %>
         <div class="controls">
             <%= f.radio_button(:job_type, Constants::SELF_EMPLOYED, checked: !is_company_contact) %>
-            <%= f.label(:job_type_self_employed, "Is self-employed") %>
+            <%= f.label(:job_type_self_employed, "Self-Employed") %>
             <br/>
             <%= f.radio_button(:job_type, Constants::COMPANY_CONTACT, checked: is_company_contact) %>
-            <%= f.label(:job_type_company_contact, "Work for Company") %>
+            <%= f.label(:job_type_company_contact, "Employed by Company") %>
         </div>
     </div>
 
     <div class="control-group" data-name="company_contact" data-class="job_type" style="display: <%= company_contact_display %>">
         <%= label_tag :company_name, "Company", class: 'col-lg-2 control-label' %>
         <div class="controls">
-            <%= f.fields_for :relationships, is_company_contact ? @user.source_employee_relationships.first : Relationship.new do |p| %>
+            <%= f.fields_for :relationships, @user.source_employee_relationships.first_or_initialize do |p| %>
               <%= p.hidden_field :id %>
               <%= p.hidden_field :association_type, value: Constants::EMPLOYEE %>
               <%= p.select :contact_id, root_user.company_contacts.collect { |s| [s.display_name, s.id] } %>
@@ -47,7 +47,7 @@
       </div>
   </div>
 
-  <% if @user.is_created_by? root_user %>
+  <% if is_editable?(@user) %>
     <%= f.hidden_field :type %>
     <%= f.hidden_field :skip_existing_checking %>
 

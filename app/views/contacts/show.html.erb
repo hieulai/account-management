@@ -17,7 +17,7 @@
     </div>
     <div class="zurb-row">
         <div class="columns margin-bottom">
-            <% if @user.is_a? PersonUser %>
+            <% if @user.is_a?(PersonUser) && is_editable?(@user) %>
               <%= link_to "Assign to a Company", show_assign_to_company_contact_path(@user), class: 'btn' %>
             <% end %>
             <%= render :partial => "shared/#{@profile.class.name.underscore}/#{@user.class.name.underscore}_info", :locals => {:profile => @profile} %>
