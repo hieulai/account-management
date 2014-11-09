@@ -18,9 +18,11 @@
 #  zipcode        :string(255)
 #  website        :string(255)
 #  user_id        :integer
+#  deleted_at     :time
 #
 
 class Person < ActiveRecord::Base
+  acts_as_paranoid
   belongs_to :user
 
   attr_accessor :status

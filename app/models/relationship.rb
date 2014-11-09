@@ -9,10 +9,12 @@
 #  created_at       :datetime
 #  updated_at       :datetime
 #  reflex           :boolean
+#  role             :string(255)
+#  deleted_at       :time
 #
 
 class Relationship < ActiveRecord::Base
-
+  acts_as_paranoid
   belongs_to :user, :foreign_key => :user_id
   belongs_to :contact, :class_name => 'User', :foreign_key => :contact_id
 
@@ -27,8 +29,10 @@ class Relationship < ActiveRecord::Base
   scope :type_belong, -> { types Constants::BELONG }
   scope :owners, -> { types(Constants::EMPLOYER).where(role: Constants::OWNER) }
 
-  after_save :destroy_reflection
-  after_save :update_reflection, :unless => Proc.new { |r| r.reflex? }
+  validates :contact, :association_type, presence: true
+  validates :association_type, :inclusion => {:in => Constants::ASSOCIATION_TYPES}
+
+  after_create :create_reflection, :unless => Proc.new { |r| r.reflex? }
   after_destroy :destroy_reflection
 
   class << self
@@ -57,10 +61,10 @@ class Relationship < ActiveRecord::Base
   end
 
   def reflection
-    Relationship.where reflection_attributes
+    Relationship.where(reflection_attributes).first
   end
 
-  def update_reflection
+  def create_reflection
     Relationship.create(reflection_attributes.merge(reflex: true))
   end
 

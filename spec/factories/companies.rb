@@ -20,19 +20,22 @@
 #  deleted_at     :time
 #
 
-class Company < ActiveRecord::Base
-  acts_as_paranoid
-  belongs_to :user
+# Read about factories at https://github.com/thoughtbot/factory_girl
 
-  attr_accessor :status
+FactoryGirl.define do
+  factory :company do
+    company_name { generate(:string) }
+    phone_1 { generate(:number) }
+    phone_tag_1 { Constants::PRIMARY_PHONE_TAGS.sample }
+    phone_2 { generate(:number) }
+    phone_tag_2 { Constants::SECONDARY_PHONE_TAGS.sample }
 
-  validates :company_name, presence: true, :uniqueness => {:scope => [:phone_1, :phone_2, :website]}
+    address_line_1 { generate(:string) }
+    address_line_2 { generate(:string) }
 
-  def display_name
-    company_name
-  end
-
-  def primary_phone
-    "#{phone_1} #{phone_tag_1}" if phone_1.present?
+    city { generate(:string) }
+    state { generate(:string) }
+    zipcode { generate(:number) }
+    website { generate(:website) }
   end
 end

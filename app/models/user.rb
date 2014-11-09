@@ -13,9 +13,12 @@
 #  encrypted_password     :string(255)      default(""), not null
 #  reset_password_token   :string(255)
 #  reset_password_sent_at :datetime
+#  deleted_at             :time
 #
 
 class User < ActiveRecord::Base
+  acts_as_paranoid
+
   has_many :relationships, :dependent => :destroy
   has_many :belong_relationships, -> { type_belong }, class_name: 'Relationship', :dependent => :destroy
   has_many :source_employee_relationships, -> { employees }, class_name: 'Relationship', :dependent => :destroy
@@ -54,6 +57,9 @@ class User < ActiveRecord::Base
     "User"
   end
 
+  def profile
+  end
+
   def display_name
     ""
   end
@@ -62,7 +68,7 @@ class User < ActiveRecord::Base
     ""
   end
 
-  def mailist_list
+  def mailing_list
 
   end
 

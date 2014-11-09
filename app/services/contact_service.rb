@@ -5,7 +5,7 @@ class ContactService
     def create(new_contact, owner)
       before_save(new_contact, owner)
       check_valid(new_contact, owner)
-      check_for_relationships(new_contact)
+      check_for_relationships(new_contact, owner)
       check_for_duplication(new_contact, owner)
 
       if new_contact.errors.empty? && new_contact.skip_existing_checking.blank?
@@ -23,7 +23,7 @@ class ContactService
 
       before_save(contact, owner)
       check_valid(contact, owner)
-      check_for_relationships(contact)
+      check_for_relationships(contact, owner)
       check_for_duplication(contact, owner)
 
       if contact.errors.empty? && contact.skip_existing_checking.blank?
@@ -40,14 +40,17 @@ class ContactService
       contact.destroy unless contact.is_real?
       contact.relationships.contact_by(owner).destroy_all
       owner.relationships.contact_by(contact).destroy_all
+      contact
     end
 
     def check_valid(contact, owner)
       contact.valid? if contact.email.present? && owner.contacts.has_email(contact.email)
     end
 
-    def check_for_relationships(contact)
-      if contact.relationships.reject(&:marked_for_destruction?).reject { |r| r.association_type == Constants::BELONG }.empty?
+    def check_for_relationships(contact, owner)
+      if contact.relationships.
+          reject(&:marked_for_destruction?).
+          reject { |r| r.association_type == Constants::BELONG || r.contact_id != owner.id }.empty?
         contact.errors[:base] << "At least 1 relationship type is required for all contacts."
       end
     end
