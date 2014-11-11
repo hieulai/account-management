@@ -1,9 +1,9 @@
 module ContactsHelper
   def relationships_for(contact)
+    relationships = []
     array = [Constants::VENDOR, Constants::CLIENT]
     array << Constants::EMPLOYEE if contact.is_a?(PersonUser) && root_user.is_a?(CompanyUser)
     array << Constants::EMPLOYER if contact.is_a?(CompanyUser) && !root_user.is_a?(CompanyUser)
-    relationships = []
     array.each do |a|
       relationships << Relationship.new(association_type: a)
     end
@@ -11,9 +11,7 @@ module ContactsHelper
   end
 
   def is_a_company_contact?(contact)
-    contact.is_a?(PersonUser) && !contact.is_real? &&
-        (contact.new_record? && contact.relationships.select { |r| r.association_type == Constants::EMPLOYEE && r.contact_id != root_user.id }.any? ||
-            contact.relationships.where('association_type = ? and contact_id != ?', Constants::EMPLOYEE, root_user.id).any?)
+    ContactService.company_contact?(contact, root_user)
   end
 
   def is_editable?(contact)

@@ -35,4 +35,8 @@ class Company < ActiveRecord::Base
   def primary_phone
     "#{phone_1} #{phone_tag_1}" if phone_1.present?
   end
+
+  def primary_address
+    address_line_1.present? ? address_line_1 : address_line_2
+  end
 end

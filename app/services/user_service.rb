@@ -2,7 +2,9 @@ class UserService
   class << self
     def create(user)
       before_save user
-      if  user.skip_existing_checking.blank?
+      check_valid user
+
+      if user.errors.empty? && user.skip_existing_checking.blank?
         check_for_existing(user)
       end
 
@@ -15,7 +17,8 @@ class UserService
     def update(user, user_params)
       user.attributes = user_params
       before_save user
-      if  user.skip_existing_checking.blank?
+      check_valid user
+      if user.errors.empty? && user.skip_existing_checking.blank?
         check_for_existing(user)
       end
 
@@ -23,6 +26,11 @@ class UserService
         after_save(user)
       end
       user
+    end
+
+
+    def check_valid(user)
+      user.valid?
     end
 
     def check_for_existing(user)

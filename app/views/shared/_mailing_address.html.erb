@@ -1,0 +1,7 @@
+<% if user.is_a? PersonUser %>
+  <%= user.email %>
+<% else %>
+  <%= user.primary_address %>
+  <br/>
+  <%= user.city %> <%= ", #{user.state}" if user.state.present? %> <%= ", #{user.zipcode}" if user.zipcode.present? %>
+<% end %>

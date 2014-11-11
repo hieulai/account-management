@@ -11,7 +11,6 @@ RSpec.shared_examples "a user" do
       it { should respond_to(:type_name) }
       it { should respond_to(:display_name) }
       it { should respond_to(:primary_phone) }
-      it { should respond_to(:mailing_list) }
 
       describe "#is_real?" do
         context "as a Person User has password" do

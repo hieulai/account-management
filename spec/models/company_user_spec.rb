@@ -9,7 +9,7 @@ RSpec.describe CompanyUser, :type => :model do
   end
 
   describe "Scopes" do
-    context "has_company_name" do
+    describe "has_company_name" do
       before do
         @subject = FactoryGirl.create :company_user
         @subject.companies << FactoryGirl.build(:company, company_name: "ACME")
@@ -17,7 +17,7 @@ RSpec.describe CompanyUser, :type => :model do
       it { expect(CompanyUser.has_company_name("ACME")).to include(@subject) }
     end
 
-    context "has_phone" do
+    describe "has_phone" do
       before do
         @subject = FactoryGirl.create :company_user
         @subject.companies << FactoryGirl.build(:company, phone_1: "01")
@@ -25,7 +25,7 @@ RSpec.describe CompanyUser, :type => :model do
       it { expect(CompanyUser.has_phone("01")).to include(@subject) }
     end
 
-    context "has_website" do
+    describe "has_website" do
       before do
         @subject = FactoryGirl.create :company_user
         @subject.companies << FactoryGirl.build(:company, website: "http://google.com")

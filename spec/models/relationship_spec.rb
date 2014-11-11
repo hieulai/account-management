@@ -36,40 +36,40 @@ RSpec.describe Relationship, :type => :model do
 
   describe "Scopes" do
     let(:user) { FactoryGirl.create :user }
-    context "contact_by" do
+    describe "contact_by" do
       subject { FactoryGirl.create :relationship, contact_id: user.id }
       it { expect(Relationship.contact_by(user)).to include(subject) }
     end
 
-    context "vendors" do
+    describe "vendors" do
       subject { FactoryGirl.create :relationship, association_type: Constants::VENDOR }
       it { expect(Relationship.vendors).to include(subject) }
     end
 
-    context "clients" do
+    describe "clients" do
       subject { FactoryGirl.create :relationship, association_type: Constants::CLIENT }
       it { expect(Relationship.clients).to include(subject) }
     end
 
-    context "employees" do
+    describe "employees" do
       subject { FactoryGirl.create :relationship, association_type: Constants::EMPLOYEE }
       it { expect(Relationship.employees).to include(subject) }
     end
-    context "employers" do
+    describe "employers" do
       subject { FactoryGirl.create :relationship, association_type: Constants::EMPLOYER }
       it { expect(Relationship.employers).to include(subject) }
     end
 
-    context "type_having" do
+    describe "type_having" do
       subject { FactoryGirl.create :relationship, association_type: Constants::HAS }
       it { expect(Relationship.type_having).to include(subject) }
     end
-    context "type_belong" do
+    describe "type_belong" do
       subject { FactoryGirl.create :relationship, association_type: Constants::BELONG }
       it { expect(Relationship.type_belong).to include(subject) }
     end
 
-    context "owners" do
+    describe "owners" do
       subject { FactoryGirl.create :relationship, association_type: Constants::EMPLOYER, role: Constants::OWNER }
       it { expect(Relationship.owners).to include(subject) }
     end

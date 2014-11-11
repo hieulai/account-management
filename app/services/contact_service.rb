@@ -44,13 +44,11 @@ class ContactService
     end
 
     def check_valid(contact, owner)
-      contact.valid? if contact.email.present? && owner.contacts.has_email(contact.email)
+      contact.valid?
     end
 
     def check_for_relationships(contact, owner)
-      if contact.relationships.
-          reject(&:marked_for_destruction?).
-          reject { |r| r.association_type == Constants::BELONG || r.contact_id != owner.id }.empty?
+      if !company_contact?(contact, owner) && contact.relationships.reject(&:marked_for_destruction?).reject { |r| r.association_type == Constants::BELONG || r.contact_id != owner.id }.empty?
         contact.errors[:base] << "At least 1 relationship type is required for all contacts."
       end
     end
@@ -68,6 +66,10 @@ class ContactService
         duplication = same_name_contacts
       end
       contact.errors[:base] << "This #{contact.type_name} is already one of your contacts." if duplication.any?
+    end
+
+    def company_contact?(contact, owner)
+      contact.is_a?(PersonUser) && !contact.is_real? && contact.relationships.select { |r| r.association_type == Constants::EMPLOYEE && r.contact_id != owner.id }.any?
     end
 
     private

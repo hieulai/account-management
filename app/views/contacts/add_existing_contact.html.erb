@@ -39,7 +39,7 @@
                     <th>Type</th>
                     <th>Name</th>
                     <th>Primary Phone</th>
-                    <th>Email</th>
+                    <th>Mailing address</th>
                     <th>Associated Projects</th>
                 </tr>
                 </thead>
@@ -54,11 +54,7 @@
                       <td><%= c.display_name %></td>
                       <td><%= c.primary_phone %></td>
                       <td>
-                          <ul>
-                              <% c.mailing_list.each do |email| %>
-                                <li><%= email %></li>
-                              <% end %>
-                          </ul>
+                          <%= render :partial => 'shared/mailing_address', locals: {user: c} %>
                       </td>
                       <td></td>
                   </tr>

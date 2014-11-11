@@ -36,16 +36,4 @@ class PersonUser < User
   def profile
     people.first
   end
-
-  def display_name
-    profile.display_name
-  end
-
-  def primary_phone
-    profile.primary_phone
-  end
-
-  def mailing_list
-    [email].compact.reject(&:empty?)
-  end
 end

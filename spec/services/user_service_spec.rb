@@ -12,6 +12,17 @@ RSpec.describe UserService do
         end
       end
 
+      context "if same email with existing user" do
+        before do
+          @user = FactoryGirl.build :real_person_user
+          @user.email =  existing.email
+          @user = UserService.create(@user)
+        end
+        it "should not be created" do
+          expect(@user.errors).not_to be_empty
+        end
+      end
+
       context "if user with same info exists" do
         before do
           @user = FactoryGirl.build :real_person_user
@@ -39,6 +50,17 @@ RSpec.describe UserService do
         end
         it "should update first name" do
           expect(@user.profile.first_name).to eq("John")
+        end
+      end
+
+      context "if same email with existing user" do
+        before do
+          @user = FactoryGirl.create :real_person_user
+          user_params = {email: existing.email}
+          @user = UserService.update(@user, user_params)
+        end
+        it "should not be saved" do
+          expect(@user.errors).not_to be_empty
         end
       end
 

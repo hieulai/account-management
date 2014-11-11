@@ -32,16 +32,4 @@ class CompanyUser < User
   def profile
      companies.first
   end
-
-  def display_name
-    profile.display_name
-  end
-
-  def primary_phone
-    profile.primary_phone
-  end
-
-  def mailing_list
-    employees.map { |u| u.email }.compact.reject(&:empty?)
-  end
 end

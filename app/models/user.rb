@@ -61,15 +61,27 @@ class User < ActiveRecord::Base
   end
 
   def display_name
-    ""
+    profile.display_name
   end
 
   def primary_phone
-    ""
+    profile.primary_phone
   end
 
-  def mailing_list
+  def primary_address
+    profile.primary_address
+  end
 
+  def city
+    profile.city
+  end
+
+  def state
+    profile.state
+  end
+
+  def zipcode
+    profile.zipcode
   end
 
   def is_real?
