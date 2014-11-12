@@ -22,16 +22,22 @@ FactoryGirl.define do
   factory :user do
     factory :person_user, class: PersonUser do
       email { generate(:email) }
-
+      after(:build) do |object, evaluator|
+        object.people << FactoryGirl.build(:person)
+      end
       factory :real_person_user do
         encrypted_password { generate(:string) }
-        after(:build) do |object, evaluator|
-          object.people << FactoryGirl.build(:person)
-        end
       end
 
       factory :contact_person_user do
         encrypted_password ""
+      end
+
+      factory :company_contact_person_user do
+        after(:build) do |object, evaluator|
+          existing = FactoryGirl.create :real_company_user
+          object.relationships << FactoryGirl.build(:relationship, contact: existing, association_type: Constants::EMPLOYEE)
+        end
       end
     end
 

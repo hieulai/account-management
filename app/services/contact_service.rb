@@ -44,7 +44,7 @@ class ContactService
     end
 
     def check_valid(contact, owner)
-      contact.valid?
+      contact.errors[:base] << "This email is already registered" if contact.is_a?(PersonUser) && contact.email.present? && owner.contacts.has_email(contact.email).any?
     end
 
     def check_for_relationships(contact, owner)

@@ -20,8 +20,19 @@ RSpec.describe ContactService do
       end
 
       context "if has no relationships with owner" do
-        it "should not be created" do
-          expect(ContactService.create contact, owner).to be_new_record
+        context "as a normal contact" do
+          it "should not be created" do
+            expect(ContactService.create contact, owner).to be_new_record
+          end
+        end
+
+        context "as a company contact" do
+          before do
+            @contact = FactoryGirl.create :company_contact_person_user
+          end
+          it "should be created" do
+            expect(ContactService.create @contact, owner).not_to be_new_record
+          end
         end
       end
 
@@ -89,16 +100,35 @@ RSpec.describe ContactService do
       end
 
       context "if has no relationships with owner" do
-        before do
-          contact_params = {relationships_attributes: []}
-          contact.relationships.each do |r|
-            contact_params[:relationships_attributes] << {id: r.id, :"_destroy" => true}
+        context "as a normal contact" do
+          before do
+            @contact.reload
+            contact_params = {relationships_attributes: []}
+            @contact.relationships.contact_by(owner).each do |r|
+              contact_params[:relationships_attributes] << {id: r.id, :"_destroy" => true}
+            end
+            @contact = ContactService.update @contact, contact_params, owner
           end
-          @contact = ContactService.update @contact, contact_params, owner
+          it "should not be saved" do
+            expect(@contact.errors).not_to be_empty
+          end
         end
-        it "should not be saved" do
-          expect(@contact.errors).not_to be_empty
+
+        context "as a company contact" do
+          before do
+            @contact = FactoryGirl.create :company_contact_person_user
+            contact_params = {relationships_attributes: []}
+            @contact.relationships.contact_by(owner).each do |r|
+              contact_params[:relationships_attributes] << {id: r.id, :"_destroy" => true}
+            end
+            @contact = ContactService.update @contact, contact_params, owner
+          end
+
+          it "should be created" do
+            expect(@contact.errors).to be_empty
+          end
         end
+
       end
 
       context "if same email with existing contact" do
