@@ -31,7 +31,6 @@ class ContactsController < ApplicationController
     @profile = @user.send(:"#{@user.type_name.underscore.pluralize}").build
     if params[:association_type] && params[:contact_id]
        @user.relationships.build(association_type: params[:association_type], contact_id: params[:contact_id])
-       @user.relationships.build(association_type: Constants::BELONG, contact_id: root_user.id)
     end
   end
 
@@ -90,7 +89,7 @@ class ContactsController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
-    ContactService.destroy(@user, root_user)
+    @user = ContactService.destroy(@user, root_user)
     respond_to do |format|
       format.html { redirect_to contacts_url, notice: 'User was successfully destroyed.' }
       format.json { head :no_content }
