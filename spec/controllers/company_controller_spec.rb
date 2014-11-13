@@ -19,5 +19,59 @@ require 'rails_helper'
 # that an instance is receiving a specific message.
 
 RSpec.describe CompanyController, :type => :controller do
+  include_context "shared loggedin"
 
+  describe "GET #current" do
+    it 'renders the current template' do
+      get :current
+      expect(response).to render_template(:current)
+    end
+
+    it 'assigns @user' do
+      get :current
+      expect(assigns(:user)).to eq(controller.root_user)
+    end
+  end
+
+  describe "GET #edit" do
+    it 'renders the edit template' do
+      get :edit, id: controller.root_user.id
+      expect(response).to render_template(:edit)
+    end
+
+    it 'assigns @user' do
+      get :edit, id: controller.root_user.id
+      expect(assigns(:user)).to eq(controller.root_user)
+    end
+  end
+
+  describe "PUT #update" do
+
+    let(:params) { {id: controller.root_user.id, user: {companies_attributes: [{id: controller.root_user.profile.id, company_name: "ACME"}]}} }
+    let(:invalid_params) { {id: controller.root_user.id, user: {companies_attributes: [{id: controller.root_user.profile.id, company_name: ""}]}} }
+
+    context "with valid params" do
+      it 'saves the company' do
+        patch :update, params
+        expect(assigns(:user).profile.company_name).to eq("ACME")
+      end
+
+      it "redirect to show url" do
+        patch :update, params
+        expect(response).to redirect_to(current_company_index_url)
+      end
+    end
+
+    context "with invalid params" do
+      it 'not save the company' do
+        patch :update, invalid_params
+        expect(assigns(:user).errors).not_to be_empty
+      end
+
+      it "renders edit template" do
+        patch :update, invalid_params
+        expect(response).to render_template(:edit)
+      end
+    end
+  end
 end

@@ -213,7 +213,7 @@ RSpec.describe ContactsController, :type => :controller do
       end
     end
 
-    describe '#destroy' do
+    describe 'DELETE #destroy' do
       it 'destroys the contact' do
         expect { delete :destroy, id: @contact.id }.to change(controller.root_user.contacts, :count).by(-1)
       end

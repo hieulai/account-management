@@ -10,7 +10,7 @@
 #  created_at             :datetime
 #  updated_at             :datetime
 #  email                  :string(255)
-#  encrypted_password     :string(255)      default(""), not null
+#  password     :string(255)      default(""), not null
 #  reset_password_token   :string(255)
 #  reset_password_sent_at :datetime
 #  deleted_at             :time
@@ -26,11 +26,11 @@ FactoryGirl.define do
         object.people << FactoryGirl.build(:person)
       end
       factory :real_person_user do
-        encrypted_password { generate(:string) }
+        password { generate(:string) }
       end
 
       factory :contact_person_user do
-        encrypted_password ""
+        password ""
       end
 
       factory :company_contact_person_user do

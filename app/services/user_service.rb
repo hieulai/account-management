@@ -30,7 +30,11 @@ class UserService
 
 
     def check_valid(user)
-      user.errors[:base] << "This email is already registered" if user.is_a?(PersonUser) && user.email.present? && PersonUser.reals.has_email(user.email).any?
+      if user.is_a?(PersonUser) && user.email.present?
+        existing = PersonUser.reals.has_email(user.email)
+        existing = existing.ignores([user.id]) unless user.new_record?
+        user.errors[:base] << "This email is already registered" if existing.any?
+      end
     end
 
     def check_for_existing(user)
