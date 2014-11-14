@@ -4,6 +4,7 @@ RSpec.describe UserService do
 
   context "as a Person User" do
     let (:existing) { FactoryGirl.create :real_person_user }
+    let (:contact) { FactoryGirl.create :contact_person_user }
     describe ".create" do
       context "happy flow" do
         subject { FactoryGirl.build :real_person_user }
@@ -20,14 +21,15 @@ RSpec.describe UserService do
         end
         it "should not be created" do
           expect(@user.errors).not_to be_empty
+          expect(@user.errors[:existing]).to be_empty
         end
       end
 
       context "if user with same info exists" do
         before do
           @user = FactoryGirl.build :real_person_user
-          @user.profile.first_name = existing.profile.first_name
-          @user.profile.last_name = existing.profile.last_name
+          @user.profile.first_name = contact.profile.first_name
+          @user.profile.last_name = contact.profile.last_name
           @user = UserService.create(@user)
         end
         it "should not be created" do
@@ -67,7 +69,7 @@ RSpec.describe UserService do
       context "if user with same info exists" do
         before do
           @user = FactoryGirl.create :real_person_user
-          user_params = {people_attributes: {id: @user.profile.id, first_name: existing.profile.first_name, last_name: existing.profile.last_name}}
+          user_params = {people_attributes: {id: @user.profile.id, first_name: contact.profile.first_name, last_name: contact.profile.last_name}}
           @user = UserService.update(@user, user_params)
         end
         it "should return existing errors" do
@@ -83,8 +85,8 @@ RSpec.describe UserService do
 
       context "with same name" do
         before do
-          @user.profile.first_name = existing.profile.first_name
-          @user.profile.last_name = existing.profile.last_name
+          @user.profile.first_name = contact.profile.first_name
+          @user.profile.last_name = contact.profile.last_name
         end
         it "should be found" do
           expect(UserService.search_for_existings @user).not_to be_empty
@@ -93,8 +95,8 @@ RSpec.describe UserService do
 
       context "with same phone" do
         before do
-          @user.profile.phone_1 = existing.profile.phone_1
-          @user.profile.phone_tag_1 = existing.profile.phone_tag_1
+          @user.profile.phone_1 = contact.profile.phone_1
+          @user.profile.phone_tag_1 = contact.profile.phone_tag_1
         end
         it "should be found" do
           expect(UserService.search_for_existings @user).not_to be_empty
@@ -103,7 +105,7 @@ RSpec.describe UserService do
 
       context "with same website" do
         before do
-          @user.profile.website = existing.profile.website
+          @user.profile.website = contact.profile.website
         end
         it "should be found" do
           expect(UserService.search_for_existings @user).not_to be_empty
@@ -112,7 +114,7 @@ RSpec.describe UserService do
 
       context "with same email" do
         before do
-          @user.email = existing.email
+          @user.email = contact.email
         end
         it "should be found" do
           expect(UserService.search_for_existings @user).not_to be_empty

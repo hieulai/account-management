@@ -23,7 +23,8 @@ class PersonUser < User
   scope :has_name, lambda { |first_name, last_name| joins(:people).where('people.first_name = ? AND people.last_name = ?', first_name, last_name) }
   scope :has_phone, lambda { |phone| joins(:people).where('people.phone_1 = ? OR people.phone_2 = ? ', phone, phone) }
   scope :has_website, lambda { |website| joins(:people).where('people.website = ?', website) }
-  scope :reals, -> { where('encrypted_password IS NOT NULL') }
+  scope :reals, -> { where('encrypted_password IS NOT NULL AND encrypted_password != ?', "") }
+  scope :unreals, -> { where('encrypted_password IS NULL OR encrypted_password = ?', "") }
 
   attr_accessor :job_type
 

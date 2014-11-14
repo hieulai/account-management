@@ -5,7 +5,7 @@ class UserService
       check_valid user
 
       if user.errors.empty? && user.skip_existing_checking.blank?
-        check_for_existing(user)
+        check_for_existing(user, true)
       end
 
       if user.errors.empty? && user.save
@@ -19,7 +19,7 @@ class UserService
       before_save user
       check_valid user
       if user.errors.empty? && user.skip_existing_checking.blank?
-        check_for_existing(user)
+        check_for_existing(user, true)
       end
 
       if user.errors.empty? && user.save
@@ -37,12 +37,12 @@ class UserService
       end
     end
 
-    def check_for_existing(user)
-      existing = search_for_existings(user)
+    def check_for_existing(user, real = false)
+      existing = search_for_existings(user, real)
       user.errors[:existing] << "This #{user.type_name} is already existing in system." if existing.any?
     end
 
-    def search_for_existings(user)
+    def search_for_existings(user, real = false)
       existings = []
       profile = user.profile
       if user.is_a? CompanyUser
@@ -58,11 +58,12 @@ class UserService
         end
         existings = same_name_contacts + same_phone_1_contacts + same_phone_2_contacts + same_website_contacts
       else
-        same_name_contacts = profile.first_name.present? || profile.last_name.present? ? PersonUser.has_name(profile.first_name, profile.last_name) : PersonUser.none
-        same_phone_1_contacts = profile.phone_1.present? ? PersonUser.has_phone(profile.phone_1) : PersonUser.none
-        same_phone_2_contacts = profile.phone_2.present? ? PersonUser.has_phone(profile.phone_2) : PersonUser.none
-        same_website_contacts = profile.website.present? ? PersonUser.has_website(profile.website) : PersonUser.none
-        same_email_contacts = user.email.present? ? PersonUser.has_email(user.email) : PersonUser.none
+        scope = real ? PersonUser.unreals : PersonUser
+        same_name_contacts = profile.first_name.present? || profile.last_name.present? ? scope.has_name(profile.first_name, profile.last_name) : PersonUser.none
+        same_phone_1_contacts = profile.phone_1.present? ? scope.has_phone(profile.phone_1) : scope.none
+        same_phone_2_contacts = profile.phone_2.present? ? scope.has_phone(profile.phone_2) : scope.none
+        same_website_contacts = profile.website.present? ? scope.has_website(profile.website) : scope.none
+        same_email_contacts = user.email.present? ? scope.has_email(user.email) : scope.none
         unless user.new_record?
           same_name_contacts = same_name_contacts.where.not(id: user.id)
           same_phone_1_contacts = same_phone_1_contacts.where.not(id: user.id)
