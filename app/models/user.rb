@@ -45,6 +45,8 @@ class User < ActiveRecord::Base
 
   scope :companies, -> { where type: "CompanyUser" }
   scope :people, -> { where type: "PersonUser" }
+  scope :employee_people, -> { people.joins(:relationships).where("relationships.association_type = ?", Constants::EMPLOYEE) }
+  scope :non_employee_people, -> { people.where('users.id NOT IN (?)', employee_people.map(&:id)) }
   scope :has_email, lambda { |email| where('email = ?', email) }
   scope :ignores, lambda { |ids| where('users.id NOT IN (?)', ids) }
 
@@ -86,6 +88,10 @@ class User < ActiveRecord::Base
 
   def is_real?
     (is_a?(PersonUser) && encrypted_password != "")|| (founders.select { |c| c.is_real? }.any?)
+  end
+
+  def is_a_employee?
+    is_a?(PersonUser) && relationships.select {|r| r.is_a_employee? }.any?
   end
 
   def is_created_by?(user)

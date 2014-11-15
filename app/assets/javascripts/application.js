@@ -26,6 +26,12 @@ var Application = (function ($) {
             else
                 window.location = $link.attr("href");
         })
+
+        $(document).on('click', 'tr.clickable input', function (e) {
+            e.preventDefault();
+            e.cancelBubble = true;
+            return false;
+        });
     };
 
     return {

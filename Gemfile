@@ -10,6 +10,8 @@ group :test, :development do
   gem 'shoulda-matchers'
   gem 'factory_girl_rails'
   gem 'database_cleaner'
+  gem 'launchy'
+  gem 'capybara-webkit'
 end
 
 group :development do

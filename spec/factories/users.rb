@@ -42,9 +42,12 @@ FactoryGirl.define do
     end
 
     factory :company_user, class: CompanyUser do
+      after(:build) do |object, evaluator|
+        object.companies << FactoryGirl.build(:company)
+      end
+
       factory :real_company_user do
         after(:build) do |object, evaluator|
-          object.companies << FactoryGirl.build(:company)
           object.relationships << FactoryGirl.build(:founder_relationship)
         end
       end
