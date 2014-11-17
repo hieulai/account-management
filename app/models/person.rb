@@ -26,8 +26,7 @@ class Person < ActiveRecord::Base
   belongs_to :user
 
   attr_accessor :status
-  validates :first_name, presence: true, :uniqueness => {:scope => [:last_name, :phone_1, :phone_2]}
-  validates :first_name, presence: true, :uniqueness => {:scope => [:last_name, :website]}
+  validates :first_name, presence: true, :uniqueness => {:scope => [:last_name, :phone_1, :phone_2, :website]}
   validates :last_name, presence: true, :unless => Proc.new { |p| p.status == Constants::CONTACT }
 
   def display_name

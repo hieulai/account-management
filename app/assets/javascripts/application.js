@@ -14,23 +14,21 @@
 //= require jquery_ujs
 //= require_tree .
 var Application = (function ($) {
-    var init = function(){
+    var init = function () {
         setupTrClickable();
     };
 
     var setupTrClickable = function () {
         $(document).on('click', 'tr[data-name="clickable"]', function (e) {
+            if (e.target.nodeName == 'INPUT') {
+                return
+            }
             var $link = $(this).find('a[data-name="clickable-link"]');
             if (typeof $link.attr("target") != "undefined")
                 window.open($link.attr("href"), $link.attr("target"));
+
             else
                 window.location = $link.attr("href");
-        })
-
-        $(document).on('click', 'tr.clickable input', function (e) {
-            e.preventDefault();
-            e.cancelBubble = true;
-            return false;
         });
     };
 

@@ -19,6 +19,7 @@ class ContactService
     end
 
     def update(contact, contact_params, owner)
+      contact_params = contact_params.permit(:relationships_attributes => [:contact_id, :association_type, :role]) if contact.is_real?
       contact.attributes = contact_params
 
       before_save(contact, owner)
@@ -36,10 +37,31 @@ class ContactService
       contact
     end
 
+    def merge(contact, updated_contact, owner)
+      attributes = {}
+      attributes[:relationships_attributes] = []
+      merged_relationships = contact.relationships
+      merged_relationships = merged_relationships.contact_by(owner).reject { |r| r.association_type == Constants::BELONG } unless contact.new_record?
+      merged_relationships.each do |r|
+        attributes[:relationships_attributes] << {association_type: r.association_type, contact_id: r.contact_id}
+      end
+
+      unless updated_contact.is_real?
+        profile_attributes = contact.profile.attributes.delete_if { |k, v| v.blank? || %w(deleted_at created_at updated_at user_id).include?(k) }
+        profile_attributes['id'] = updated_contact.profile.id
+        attributes[:"#{updated_contact.type_name.underscore.pluralize}_attributes"] = profile_attributes
+      end
+
+      if updated_contact.update_attributes(attributes)
+        contact.destroy unless contact.new_record?
+      end
+      updated_contact
+    end
+
     def destroy(contact, owner)
-      contact.destroy unless contact.is_real?
       contact.relationships.contact_by(owner).destroy_all
       owner.relationships.contact_by(contact).destroy_all
+      contact.destroy unless contact.is_real? || contact.relationships.any?
       contact
     end
 
@@ -74,6 +96,13 @@ class ContactService
 
     def company_contact?(contact, owner)
       contact.is_a?(PersonUser) && !contact.is_real? && contact.relationships.select { |r| r.association_type == Constants::EMPLOYEE && r.contact_id != owner.id }.any?
+    end
+
+    def relationship_types_for(contact, owner)
+      array = [Constants::VENDOR, Constants::CLIENT]
+      array << Constants::EMPLOYEE if contact.is_a?(PersonUser) && owner.is_a?(CompanyUser)
+      array << Constants::EMPLOYER if contact.is_a?(CompanyUser) && !owner.is_a?(CompanyUser)
+      array
     end
 
     private

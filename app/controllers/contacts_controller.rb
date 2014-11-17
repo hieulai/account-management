@@ -36,7 +36,6 @@ class ContactsController < ApplicationController
 
   # GET /users/1/edit
   def edit
-    @user.skip_existing_checking = !@user.is_real?
   end
 
   # POST /users
@@ -107,6 +106,28 @@ class ContactsController < ApplicationController
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+
+  def merge
+    respond_to do |format|
+      @updated_contact = User.find(params[:updated_contact])
+      if params[:user][:id].present?
+        @user = User.find(params[:user][:id])
+        @user.attributes = user_params
+      else
+        @user = User.new(user_params)
+      end
+
+      @user = ContactService.merge(@user, @updated_contact, root_user)
+      if @user.errors.empty?
+        format.html { redirect_to contacts_url, notice: 'User was successfully updated.' }
+        format.json { render :show, status: :ok, location: @user }
+      else
+        format.html { render :add_existing_contact }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end

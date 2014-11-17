@@ -29,6 +29,7 @@ Rails.application.routes.draw do
       patch :assign_to_company
     end
     collection do
+      post :merge
       get :clients
       get :vendors
       get :employees

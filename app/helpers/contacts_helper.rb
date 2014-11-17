@@ -1,10 +1,7 @@
 module ContactsHelper
   def relationships_for(contact)
     relationships = []
-    array = [Constants::VENDOR, Constants::CLIENT]
-    array << Constants::EMPLOYEE if contact.is_a?(PersonUser) && root_user.is_a?(CompanyUser)
-    array << Constants::EMPLOYER if contact.is_a?(CompanyUser) && !root_user.is_a?(CompanyUser)
-    array.each do |a|
+    ContactService.relationship_types_for(contact, root_user).each do |a|
       relationships << Relationship.new(association_type: a)
     end
     relationships

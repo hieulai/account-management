@@ -28,52 +28,50 @@
             <div style="display: none ">
                 <%= render :partial => 'contacts/input_form' %>
             </div>
-            <% contacts = existings_for @user %>
+            <div>
+                <% contacts = existings_for @user %>
 
-            Is this the <%= @user.type_name %> you want to add?
+                Is this the <%= @user.type_name %> you wanted ?
 
-            <table class="grid-view margin-bottom responsive" summary="Contacts List">
-                <thead>
-                <tr>
-                    <th></th>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Primary Phone</th>
-                    <th>Mailing address</th>
-                    <th>Associated Projects</th>
-                </tr>
-                </thead>
-                <tbody>
-                <% contacts.each_with_index do |c, index| %>
-                  <tr class="clickable" data-name="clickable">
-                      <td>
-                          <%= radio_button_tag(:contact_selector, c.id, index == 0) %>
-                          <%= link_to 'Show', contact_path(c), target: '_blank', data: {name: 'clickable-link'}, style: "display: none" %>
-                      </td>
-                      <td><%= c.type_name %></td>
-                      <td><%= c.display_name %></td>
-                      <td><%= c.primary_phone %></td>
-                      <td>
-                          <%= render :partial => 'shared/mailing_address', locals: {user: c} %>
-                      </td>
-                      <td></td>
-                  </tr>
+                <table class="grid-view margin-bottom responsive" summary="Contacts List">
+                    <thead>
+                    <tr>
+                        <th></th>
+                        <th>Type</th>
+                        <th>Name</th>
+                        <th>Primary Phone</th>
+                        <th>Mailing address</th>
+                        <th>Associated Projects</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <% contacts.each_with_index do |c, index| %>
+                      <tr class="clickable" data-name="clickable">
+                          <td>
+                              <%= radio_button_tag(:contact_selector, c.id, index == 0, data: {profile: c.profile.id}) %>
+                              <%= link_to 'Show', contact_path(c), target: '_blank', data: {name: 'clickable-link'}, style: "display: none" %>
+                          </td>
+                          <td><%= c.type_name %></td>
+                          <td><%= c.display_name %></td>
+                          <td><%= c.primary_phone %></td>
+                          <td>
+                              <%= render :partial => 'shared/mailing_address', locals: {user: c} %>
+                          </td>
+                          <td></td>
+                      </tr>
+                    <% end %>
+                    </tbody>
+                </table>
+
+                <%= form_for @user, :as => :user, url: merge_contacts_path, method: :post, :html => {:class => 'form-horizontal', :style => 'display: none', data: {name: 'suggestion_form'}} do |f| %>
+                  <%= render :partial => 'input_fields', locals: {f: f, user: @user, profile: @profile} %>
+                  <%= f.hidden_field :id %>
+                  <%= hidden_field_tag :updated_contact, contacts.first.id, data: {name: "relationship_contact"} %>
                 <% end %>
-                </tbody>
-            </table>
-
-            <%= form_for root_user, :as => :user, url: add_existing_contact_user_path(root_user), :html => {:class => 'form-horizontal', :style => 'display: none', data: {name: 'suggestion_form'}} do |f| %>
-              <%= f.fields_for :relationships, @user.relationships do |p| %>
-                <div>
-                    <%= p.hidden_field :association_type, value: Relationship.reflex_association_type(p.object.association_type) %>
-                    <%= p.hidden_field :role, value: p.object.role %>
-                    <%= p.hidden_field :contact_id, value: contacts.first.id, data: {name: 'relationship_contact'} %>
-                </div>
-              <% end %>
-            <% end %>
+            </div>
 
             <%= link_to "Yes", "javascript:void(0)", class: 'btn', data: {name: 'submit', target: 'suggestion_form'} %>
-            <%= link_to "No, I want to create a different #{@user.type_name}", "javascript:void(0)", class: 'btn', data: {name: 'submit', target: 'input_form'} %>
+            <%= link_to "No, I want to save a different #{@user.type_name}", "javascript:void(0)", class: 'btn', data: {name: 'submit', target: 'input_form'} %>
 
         </div>
     </div>

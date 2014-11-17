@@ -1,0 +1,56 @@
+<% is_company_contact = is_a_company_contact? user
+   company_contact_display = is_company_contact ? "" : "none"
+   self_employed_display = is_company_contact ? "none" : ""
+%>
+<% if user.is_a?(PersonUser) && is_editable?(user) %>
+  <div class="control-group">
+      <%= label_tag :type_name, "Employment Status", class: 'col-lg-2 control-label' %>
+      <div class="controls">
+          <%= f.radio_button(:job_type, Constants::SELF_EMPLOYED, checked: !is_company_contact) %>
+          <%= f.label(:job_type_self_employed, "Self-Employed") %>
+          <br/>
+          <%= f.radio_button(:job_type, Constants::COMPANY_CONTACT, checked: is_company_contact) %>
+          <%= f.label(:job_type_company_contact, "Employed by Company") %>
+      </div>
+  </div>
+
+  <div class="control-group" data-name="company_contact" data-class="job_type" style="display: <%= company_contact_display %>">
+      <%= label_tag :company_name, "Company", class: 'col-lg-2 control-label' %>
+      <div class="controls">
+          <%= f.fields_for :relationships, user.source_employee_relationships.first_or_initialize do |p| %>
+            <%= p.hidden_field :id %>
+            <%= p.hidden_field :association_type, value: Constants::EMPLOYEE %>
+            <%= p.select :contact_id, root_user.company_contacts.collect { |s| [s.display_name, s.id] } %>
+            <%= p.hidden_field :"_destroy", value: !is_company_contact %>
+          <% end %>
+      </div>
+  </div>
+<% end %>
+
+<div class="control-group" data-name="self_employed" data-class="job_type" style="display: <%= self_employed_display %>">
+    <%= f.label :type, 'Relationships', class: 'col-lg-2 control-label' %>
+    <div class="controls">
+        <%= f.fields_for :relationships, relationships_for(user) do |p| %>
+          <%= render :partial => 'shared/relationship_input', locals: {p: p, u: user} %>
+        <% end %>
+    </div>
+</div>
+
+<% if is_editable?(user) %>
+  <%= f.hidden_field :type %>
+  <%= f.hidden_field :skip_existing_checking %>
+
+  <%= f.fields_for :"#{profile.class.name.underscore.pluralize}", profile do |p| %>
+    <%= render :partial => "shared/#{profile.class.name.underscore}/#{user.class.name.underscore}_form", :locals => {:p => p} %>
+  <% end %>
+
+  <% if user.is_a? PersonUser %>
+    <div class="control-group">
+        <%= f.label :email, "Email", :class => 'col-lg-2 control-label' %>
+        <div class="controls">
+            <%= f.text_field(:email) %>
+        </div>
+    </div>
+  <% end %>
+
+<% end %>
