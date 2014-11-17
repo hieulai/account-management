@@ -19,7 +19,6 @@ class ContactService
     end
 
     def update(contact, contact_params, owner)
-      contact_params = contact_params.permit(:relationships_attributes => [:contact_id, :association_type, :role]) if contact.is_real?
       contact.attributes = contact_params
 
       before_save(contact, owner)
