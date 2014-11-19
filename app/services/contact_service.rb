@@ -60,6 +60,13 @@ class ContactService
     def destroy(contact, owner)
       contact.relationships.contact_by(owner).destroy_all
       owner.relationships.contact_by(contact).destroy_all
+      if contact.is_a? CompanyUser
+        contact.employees.each do |c|
+          c.relationships.contact_by(contact).destroy_all
+          contact.relationships.contact_by(c).destroy_all
+          destroy(c, owner)
+        end
+      end
       contact.destroy unless contact.is_real? || contact.relationships.any?
       contact
     end
@@ -94,7 +101,7 @@ class ContactService
     end
 
     def company_contact?(contact, owner)
-      contact.is_a?(PersonUser) && !contact.is_real? && contact.relationships.select { |r| r.association_type == Constants::EMPLOYEE && r.contact_id != owner.id }.any?
+      contact.is_a?(PersonUser) && contact.relationships.select { |r| r.association_type == Constants::EMPLOYEE && r.contact_id != owner.id }.any?
     end
 
     def relationship_types_for(contact, owner)

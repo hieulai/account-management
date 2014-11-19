@@ -15,8 +15,12 @@ module ContactsHelper
     contact.new_record? || (!contact.is_real? && contact.contact_by?(root_user))
   end
 
-  def get_relationship(contact, association_type)
-    contact.relationships.select { |r| r.association_type == association_type && r.contact_id == root_user.id }.reject(&:marked_for_destruction?).first
+  def get_relationship(contact, association_type, user)
+    contact.relationships.select { |r| r.association_type == association_type && r.contact_id == user.id }.reject(&:marked_for_destruction?).first
+  end
+
+  def get_relationship_of_root(contact, association_type)
+    get_relationship(contact, association_type, root_user)
   end
 
   def existings_for(contact)

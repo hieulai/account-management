@@ -32,9 +32,12 @@
             <%= link_to("Preferences", current_users_path, :class => 'menu item') %>
             <div class="arrow"></div>
         </li>
-        <li>
-            <%= link_to("Company", current_company_index_path, :class => 'menu item') %>
-            <div class="arrow"></div>
-        </li>
+        <% if root_user.is_a? CompanyUser %>
+          <li>
+              <%= link_to("Company", current_company_index_path, :class => 'menu item') %>
+              <div class="arrow"></div>
+          </li>
+        <% end %>
+
     </ul>
 </div>

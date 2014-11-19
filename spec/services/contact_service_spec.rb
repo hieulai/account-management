@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe ContactService do
   let (:owner) { FactoryGirl.create :real_company_user }
   context "as a Person User Contact" do
-    let (:contact) { FactoryGirl.build :real_person_user }
+    let (:contact) { FactoryGirl.build :contact_person_user }
     describe ".create" do
       context "happy flow" do
         before do
@@ -168,6 +168,56 @@ RSpec.describe ContactService do
 
     end
 
+    describe ".merge" do
+      before do
+        contact.relationships << FactoryGirl.build(:relationship, contact: owner, association_type: Constants::CLIENT)
+      end
+
+      context "into a real user" do
+        before do
+          @existing = FactoryGirl.create :real_person_user
+          @contact = ContactService.merge contact, @existing, owner
+        end
+
+        it "should merge successfully" do
+          expect(@contact).not_to be_nil
+          expect(@contact.errors).to be_empty
+          expect(@contact.id).to eq(@existing.id)
+        end
+
+        it "should merge relationships" do
+          expect(@contact.relationships.contact_by(owner)).not_to be_empty
+        end
+
+        it "should not merge profile" do
+          expect(@contact.profile.first_name).not_to eq(contact.profile.first_name)
+          expect(@contact.profile.last_name).not_to eq(contact.profile.last_name)
+        end
+      end
+
+      context "to a contact user" do
+        before do
+          @existing = FactoryGirl.create :contact_person_user
+          @contact = ContactService.merge contact, @existing, owner
+        end
+
+        it "should merge successfully" do
+          expect(@contact).not_to be_nil
+          expect(@contact.errors).to be_empty
+          expect(@contact.id).to eq(@existing.id)
+        end
+
+        it "should merge relationships" do
+          expect(@contact.relationships.contact_by(owner)).not_to be_empty
+        end
+
+        it "should merge profile" do
+          expect(@contact.profile.first_name).to eq(contact.profile.first_name)
+          expect(@contact.profile.last_name).to eq(contact.profile.last_name)
+        end
+      end
+    end
+
     describe ".destroy" do
       before do
         contact.relationships << FactoryGirl.build(:relationship, contact: owner, association_type: Constants::CLIENT)
@@ -201,6 +251,32 @@ RSpec.describe ContactService do
 
         it "should not destroy user" do
           expect(PersonUser.exists?(contact.id)).to be_truthy
+        end
+      end
+
+      context "as a company contact" do
+        before do
+          contact_user = FactoryGirl.create :company_user
+          contact_user.relationships << FactoryGirl.build(:relationship, contact: owner, association_type: Constants::CLIENT)
+          @contact = ContactService.create contact_user, owner
+
+          employee_contact = FactoryGirl.create :contact_person_user
+          employee_contact.relationships << FactoryGirl.build(:relationship, contact: @contact, association_type: Constants::EMPLOYEE)
+          @employee_contact = ContactService.create employee_contact, owner
+
+          ContactService.destroy @contact, owner
+        end
+
+        it "should destroy all relationships" do
+          expect(owner.relationships.contact_by(@contact)).to be_empty
+        end
+
+        it "should destroy user" do
+          expect(PersonUser.exists?(@contact.id)).to be_falsey
+        end
+
+        it "should destroy employees of company contact" do
+          expect(PersonUser.exists?(@employee_contact.id)).to be_falsey
         end
       end
     end

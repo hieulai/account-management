@@ -41,7 +41,7 @@
 
               <div class="control-group" style="display: none">
                   <%= f.fields_for :relationships, relationships_for(@user) do |p| %>
-                    <%= p.hidden_field :id, value: get_relationship(@user, p.object.association_type).try(:id) %>
+                    <%= p.hidden_field :id, value: get_relationship_of_root(@user, p.object.association_type).try(:id) %>
                     <%= p.hidden_field :"_destroy", value: true %>
                   <% end %>
               </div>

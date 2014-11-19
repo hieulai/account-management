@@ -1,4 +1,4 @@
-<% r_object = get_relationship(u, p.object.association_type) %>
+<% r_object = get_relationship_of_root(u, p.object.association_type) %>
 <div>
     <%= check_box_tag :"association_type_#{p.object.association_type}", nil, r_object.present?, {data: {name: 'association_type'}} %>
     <%= label_tag :"association_type_#{p.object.association_type}", p.object.association_type %>
