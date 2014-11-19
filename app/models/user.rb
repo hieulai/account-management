@@ -4,8 +4,6 @@
 #
 #  id                     :integer          not null, primary key
 #  active                 :boolean
-#  profile_id             :integer
-#  profile_type           :string(255)
 #  type                   :string(255)
 #  created_at             :datetime
 #  updated_at             :datetime
@@ -19,6 +17,7 @@
 class User < ActiveRecord::Base
   acts_as_paranoid
 
+  has_many :notes, dependent: :destroy
   has_many :relationships, :dependent => :destroy
   has_many :belong_relationships, -> { type_belong }, class_name: 'Relationship', :dependent => :destroy
   has_many :source_employee_relationships, -> { employees }, class_name: 'Relationship', :dependent => :destroy
@@ -51,6 +50,7 @@ class User < ActiveRecord::Base
   scope :ignores, lambda { |ids| where('users.id NOT IN (?)', ids) }
 
   accepts_nested_attributes_for :relationships, :reject_if => :all_blank, :allow_destroy => true
+  accepts_nested_attributes_for :notes, :reject_if => :all_blank, :allow_destroy => true
   attr_accessor :skip_existing_checking, :status
 
   devise :database_authenticatable, :registerable, :recoverable

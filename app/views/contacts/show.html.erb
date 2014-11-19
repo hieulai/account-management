@@ -21,6 +21,10 @@
               <%= link_to "Assign to a Company", show_assign_to_company_contact_path(@user), class: 'btn' %>
             <% end %>
             <%= render :partial => "shared/#{@profile.class.name.underscore}/#{@user.class.name.underscore}_info", :locals => {:profile => @profile} %>
+            <p>
+                <b>Notes</b>
+                <%= @user.notes.first.try(:content) %>
+            </p>
         </div>
     </div>
     <%= render :partial => 'contacts/company/company_contacts', :locals => {:user => @user} %>

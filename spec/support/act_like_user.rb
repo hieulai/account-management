@@ -66,6 +66,7 @@ RSpec.shared_examples "a user" do
     end
 
     describe "Associations" do
+      it { expect(subject).to have_many :notes }
       it { expect(subject).to have_many :relationships }
       it { expect(subject).to have_many :belong_relationships }
       it { expect(subject).to have_many :source_employee_relationships }

@@ -1,3 +1,19 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id                     :integer          not null, primary key
+#  active                 :boolean
+#  type                   :string(255)
+#  created_at             :datetime
+#  updated_at             :datetime
+#  email                  :string(255)
+#  encrypted_password     :string(255)      default(""), not null
+#  reset_password_token   :string(255)
+#  reset_password_sent_at :datetime
+#  deleted_at             :time
+#
+
 require 'rails_helper'
 
 RSpec.describe CompanyUser, :type => :model do
