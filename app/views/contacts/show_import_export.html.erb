@@ -1,0 +1,38 @@
+<% content_for :sub_navigation do %>
+  <%= render(:partial => "layouts/sub_navigation/people") %>
+<% end %>
+<div>
+    <div class="zurb-row main-action-bar">
+        <div class="large-3 medium-4 columns">
+            &nbsp;
+        </div>
+        <div class="large-6 medium-6 columns">
+            <h1 class="center">
+                Import/Export Contacts
+            </h1>
+        </div>
+        <div class="large-3 medium-2 columns">
+        </div>
+    </div>
+    <div class="zurb-row">
+        <div class="columns margin-bottom">
+            <div>
+                <h3> Import Contacts </h3>
+                <%= form_tag import_contacts_path, method: :post, :class => 'form-horizontal', :multipart => true do |f| %>
+                  <%= file_field_tag :data %>
+                  <br/>
+                  <%= submit_tag("Import", :class => 'btn') %>
+                <% end %>
+            </div>
+
+            <div>
+                <h3> Export Contacts </h3>
+
+                <div class="btn-group">
+                    <%= link_to "Export Companies", export_contacts_path(type: Constants::COMPANY, format: 'xls'), class: 'btn' %>
+                    <%= link_to "Export People", export_contacts_path(type: Constants::PERSON, :format => 'xls'), class: 'btn' %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -61,8 +61,7 @@ gem 'turbolinks'
 #gem 'unf'
 #gem 'wkhtmltopdf-binary'
 #gem 'wicked_pdf'
-#gem 'roo'
-#gem 'to_xls', '~> 1.0.0'
+gem 'roo'
 
 # Indexing
 #gem 'sunspot_rails'

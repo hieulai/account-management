@@ -86,6 +86,10 @@ class User < ActiveRecord::Base
     profile.zipcode
   end
 
+  def primary_note
+    notes.first.try(:content)
+  end
+
   def is_real?
     (is_a?(PersonUser) && encrypted_password != "")|| (founders.select { |c| c.is_real? }.any?)
   end
@@ -101,4 +105,7 @@ class User < ActiveRecord::Base
   def contact_by?(user)
     relationships.contact_by(user).any?
   end
+
+
+
 end

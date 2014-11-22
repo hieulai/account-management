@@ -425,4 +425,73 @@ RSpec.describe ContactService do
       end
     end
   end
+
+  describe ".import" do
+    context "for company contacts" do
+      before do
+        file = File.open(File.expand_path("../../factories/Sample Companies.xlsx", __FILE__), "r")
+        uploaded_file = ActionDispatch::Http::UploadedFile.new(tempfile: file, filename: File.basename(file))
+        @results = ContactService.import(uploaded_file, owner)
+      end
+      it "should be no errors" do
+        expect(@results[:errors]).to be_empty
+      end
+
+      it "should saved contacts" do
+        expect(@results[:objects]).not_to be_empty
+      end
+    end
+
+    context "for person contacts" do
+      before do
+        file = File.open(File.expand_path("../../factories/Sample People.xlsx", __FILE__), "r")
+        uploaded_file = ActionDispatch::Http::UploadedFile.new(tempfile: file, filename: File.basename(file))
+        @results = ContactService.import(uploaded_file, owner)
+      end
+      it "should be no errors" do
+        expect(@results[:errors]).to be_empty
+      end
+
+      it "should saved contacts" do
+        expect(@results[:objects]).not_to be_empty
+      end
+    end
+  end
+
+  describe ".export" do
+    context "for company contacts" do
+      before do
+        contact = FactoryGirl.build :company_user
+        contact.relationships << FactoryGirl.build(:relationship, contact: owner, association_type: Constants::CLIENT)
+        @contact = ContactService.create contact, owner
+        @file = ContactService.export(owner.company_contacts, Constants::COMPANY, owner)
+      end
+
+      it "should be successful" do
+        expect(@file).not_to be_nil
+      end
+
+      it "should include companies" do
+        expect(@file.include?(@contact.company_name)).to be_truthy
+      end
+
+    end
+
+    context "for person contacts" do
+      before do
+        contact = FactoryGirl.build :contact_person_user
+        contact.relationships << FactoryGirl.build(:relationship, contact: owner, association_type: Constants::CLIENT)
+        @contact = ContactService.create contact, owner
+        @file = ContactService.export(owner.person_contacts, Constants::PERSON, owner)
+      end
+
+      it "should be successful" do
+        expect(@file).not_to be_nil
+      end
+
+      it "should include companies" do
+        expect(@file.include?(@contact.first_name)).to be_truthy
+      end
+    end
+  end
 end

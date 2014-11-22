@@ -15,15 +15,19 @@
     <%= profile.last_name %>
 </p>
 
-<p>
-    <b><%= profile.phone_tag_1 + ":" %></b>
-    <%= number_to_phone(profile.phone_1, :area_code => true) %>
-</p>
+<% if profile.phone_tag_1 %>
+  <p>
+      <b><%= profile.phone_tag_1 %>:</b>
+      <%= number_to_phone(profile.phone_1, :area_code => true) %>
+  </p>
+<% end %>
 
-<p>
-    <b><%= profile.phone_tag_2 + ":" %></b>
-    <%= number_to_phone(profile.phone_2, :area_code => true) %>
-</p>
+<% if profile.phone_tag_2 %>
+  <p>
+      <b><%= profile.phone_tag_2 %>:</b>
+      <%= number_to_phone(profile.phone_2, :area_code => true) %>
+  </p>
+<% end %>
 
 <p>
     <b><%= "Email:" %></b>
@@ -32,7 +36,9 @@
 
 <p>
     <b><%= "Website:" %></b>
-    <%= link_to profile.website, "http://" + profile.website %>
+    <% if profile.website %>
+      <%= link_to profile.website, "http://#{profile.website}" %>
+    <% end %>
 </p>
 
 <p>

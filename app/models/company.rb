@@ -26,7 +26,7 @@ class Company < ActiveRecord::Base
 
   attr_accessor :status
 
-  validates :company_name, presence: true, :uniqueness => {:scope => [:phone_1, :phone_2, :website]}
+  validates :company_name, presence: true, :uniqueness_without_deleted => {:scope => [:phone_1, :phone_2, :website]}
 
   def display_name
     company_name

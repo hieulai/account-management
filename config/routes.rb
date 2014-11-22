@@ -30,9 +30,12 @@ Rails.application.routes.draw do
     end
     collection do
       post :merge
+      post :import
+      get :export
       get :clients
       get :vendors
       get :employees
+      get :show_import_export
     end
   end
 end

@@ -107,4 +107,20 @@ RSpec.describe "Contacts", type: :feature, js: true do
     end
 
   end
+
+  context "Import Company Contacts" do
+
+  end
+
+  context "Import Person Contacts" do
+    scenario "Happy flow" do
+      visit show_import_export_contacts_path
+
+      file_path = File.expand_path("../../factories/Sample Companies.xlsx", __FILE__)
+      attach_file('data', file_path)
+      click_button "Import"
+
+      expect(page).to have_text("All Contacts")
+    end
+  end
 end

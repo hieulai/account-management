@@ -24,10 +24,14 @@ class CompanyUser < User
   accepts_nested_attributes_for :companies, :reject_if => :all_blank, :allow_destroy => true
 
   def type_name
-    "Company"
+    Constants::COMPANY
   end
 
   def profile
      companies.first
+  end
+
+  def company_name
+    profile.company_name
   end
 end

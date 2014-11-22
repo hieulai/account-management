@@ -252,4 +252,12 @@ RSpec.describe ContactsController, :type => :controller do
     end
   end
 
+  describe 'POST #import' do
+
+  end
+
+  describe 'GET #export' do
+
+  end
+
 end

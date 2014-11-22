@@ -30,7 +30,7 @@ class ContactsController < ApplicationController
     @user = User.new(type: params[:type])
     @profile = @user.send(:"#{@user.type_name.underscore.pluralize}").build
     if params[:association_type] && params[:contact_id]
-       @user.relationships.build(association_type: params[:association_type], contact_id: params[:contact_id])
+      @user.relationships.build(association_type: params[:association_type], contact_id: params[:contact_id])
     end
   end
 
@@ -130,6 +130,34 @@ class ContactsController < ApplicationController
         format.html { render :add_existing_contact }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+  def show_import_export
+  end
+
+  def import
+    if params[:data].nil?
+      redirect_to show_import_export_contacts_path, notice: "No file to import."
+    else
+      result = ContactService.import(params[:data], root_user)
+      if result[:errors].empty?
+        redirect_to contacts_url
+      else
+        redirect_to show_import_export_contacts_path, notice: result[:errors].join(",")
+      end
+    end
+  end
+
+  def export
+    respond_to do |format|
+      if params[:type] == Constants::COMPANY
+        @contacts = root_user.company_contacts
+      else
+        @contacts = root_user.person_contacts.ignores([current_user.id])
+      end
+      format.csv { send_data ContactService.export(@contacts, params[:type], root_user), :type => 'text/csv; charset=utf-8; header=present', :disposition => "attachment; filename= #{params[:type]} Contacts.csv" }
+      format.xls { send_data ContactService.export(@contacts, params[:type], root_user, col_sep: "\t"), :type => 'application/xls; charset=utf-8; header=present', :disposition => "attachment; filename= #{params[:type]} Contacts.xls" }
     end
   end
 

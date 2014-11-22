@@ -27,13 +27,21 @@ class PersonUser < User
   attr_accessor :job_type
 
   validates :email, presence: true, :unless => Proc.new { |u| u.status == Constants::CONTACT }
-  validates :email, uniqueness: :true, :allow_blank => true
+  validates :email, uniqueness_without_deleted: :true, :allow_blank => true
 
   def type_name
-    "Person"
+    Constants::PERSON
   end
 
   def profile
     people.first
+  end
+
+  def first_name
+    profile.first_name
+  end
+
+  def last_name
+    profile.last_name
   end
 end

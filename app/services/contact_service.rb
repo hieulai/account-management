@@ -57,6 +57,55 @@ class ContactService
       updated_contact
     end
 
+    def import(file, owner)
+      errors = []
+      objects = []
+      spreadsheet = open_spreadsheet(file)
+
+      if spreadsheet.nil? || spreadsheet.first_row.nil?
+        objects << "There is no data in file"
+        return {errors: errors, objects: objects}
+      end
+
+      header = spreadsheet.row(1).map! { |c| c.downcase.strip.tr(" ","_") }
+      if header[0] == Constants::COMPANY_NAME
+        type = Constants::COMPANY
+      elsif  header[0] == Constants::FIRST_NAME
+        type = Constants::PERSON
+      else
+        objects << "Invalid file format"
+        return {errors: errors, objects: objects}
+      end
+
+      (2..spreadsheet.last_row).each do |i|
+        row = Hash[[header, spreadsheet.row(i)].transpose]
+        contact = process_import(row, type, owner)
+        if contact.new_record?
+          errors << "Importing Error at line #{i}: #{contact.errors.full_messages}"
+        else
+          after_save(contact, owner)
+          objects << contact
+        end
+      end
+      {errors: errors, objects: objects}
+    end
+
+    def export(contacts, type, owner, options = {})
+      CSV.generate(options) do |csv|
+        if type == Constants::COMPANY
+          csv << Constants::COMPANY_CONTACT_HEADERS.map { |h| h.tr("_", " ").capitalize }
+          contacts.each do |contact|
+            csv << [contact.profile.company_name, contact.profile.address_line_1, contact.profile.address_line_2, contact.profile.phone_1, contact.profile.phone_tag_1, contact.primary_note, relationship_names_for(contact, owner)]
+          end
+        else
+          csv << Constants::PERSON_CONTACT_HEADERS.map { |h| h.tr("_", " ").capitalize }
+          contacts.each do |contact|
+            csv << [contact.profile.first_name, contact.profile.last_name, contact.email, contact.profile.address_line_1, contact.profile.address_line_2, contact.profile.phone_1, contact.profile.phone_tag_1, employment_status_for(contact, owner), contact.primary_note, relationship_names_for(contact, owner)]
+          end
+        end
+      end
+    end
+
     def destroy(contact, owner)
       contact.relationships.contact_by(owner).destroy_all
       owner.relationships.contact_by(contact).destroy_all
@@ -86,18 +135,8 @@ class ContactService
     end
 
     def check_for_duplication(contact, owner)
-      duplication = []
-      profile = contact.profile
-      if contact.is_a? CompanyUser
-        same_name_contacts = profile.company_name.present? ? owner.company_contacts.has_company_name(profile.company_name) : CompanyUser.none
-        same_name_contacts = same_name_contacts.where.not(id: contact.id) unless contact.new_record?
-        duplication = same_name_contacts
-      else
-        same_name_contacts = profile.first_name.present? || profile.last_name.present? ? owner.person_contacts.has_name(profile.first_name, profile.last_name) : PersonUser.none
-        same_name_contacts = same_name_contacts.where.not(id: contact.id) unless contact.new_record?
-        duplication = same_name_contacts
-      end
-      contact.errors[:base] << "This #{contact.type_name} is already one of your contacts." if duplication.any?
+      duplications = search_for_duplications(contact, owner)
+      contact.errors[:base] << "This #{contact.type_name} is already one of your contacts." if duplications.any?
     end
 
     def company_contact?(contact, owner)
@@ -111,7 +150,81 @@ class ContactService
       array
     end
 
+    def search_for_duplications(contact, owner)
+      duplication = []
+      profile = contact.profile
+      if contact.is_a? CompanyUser
+        same_name_contacts = profile.company_name.present? ? owner.company_contacts.has_company_name(profile.company_name) : CompanyUser.none
+        same_name_contacts = same_name_contacts.where.not(id: contact.id) unless contact.new_record?
+        duplication = same_name_contacts
+      else
+        same_name_contacts = profile.first_name.present? || profile.last_name.present? ? owner.person_contacts.has_name(profile.first_name, profile.last_name) : PersonUser.none
+        same_name_contacts = same_name_contacts.where.not(id: contact.id) unless contact.new_record?
+        duplication = same_name_contacts
+      end
+      duplication
+    end
+
     private
+    def employment_status_for(contact, owner)
+      contact.employers.first.try(:display_name) || Constants::SELF_EMPLOYED_STATUS
+    end
+
+    def relationship_names_for(contact, owner)
+       names = []
+       contact.relationships.contact_by(owner).reject { |r| r.is_a_belong? }.each do |r|
+         names << r.association_type
+       end
+      names.join(", ")
+    end
+
+    def open_spreadsheet(file)
+      case File.extname(file.original_filename)
+        when ".csv" then Roo::Csv.new(file.path,nil)
+        when ".xls" then Roo::Excel.new(file.path, nil, :ignore)
+        when ".xlsx" then Roo::Excelx.new(file.path, nil, :ignore)
+        else nil
+      end
+    end
+
+    def process_import(row, type, owner)
+      contact_params = initiate_contact_params(row, type, owner)
+      contact = User.new(contact_params)
+      check_for_relationships(contact, owner)
+      return contact if contact.errors.any?
+
+      duplications = search_for_duplications(contact, owner)
+      return merge(contact, duplications.first, owner) if duplications.any?
+
+      existings = UserService.search_for_existings(contact)
+      return merge(contact, existings.first, owner) if existings.any?
+
+      contact.save
+      contact
+    end
+
+    def initiate_contact_params(row, type, owner)
+      contact_params = {relationships_attributes: []}
+      if row[Constants::RELATIONSHIPS].present?
+        row[Constants::RELATIONSHIPS].split(",").map(&:strip).each do |r|
+          contact_params[:relationships_attributes] << {association_type: r, contact_id: owner.id}
+        end
+      end
+
+      if type == Constants::PERSON
+        contact_params.merge!(type: "PersonUser", email: row[Constants::EMAIL], people_attributes: [{first_name: row[Constants::FIRST_NAME], last_name: row[Constants::LAST_NAME], address_line_1: row[Constants::ADDRESS_LINE_1], address_line_2: row[Constants::ADDRESS_LINE_2], phone_1: row[Constants::PHONE], phone_tag_1: row[Constants::PHONE_TAG]}], notes_attributes: [{content: row[Constants::NOTES]}])
+        if row[Constants::EMPLOYMENT_STATUS].present? && row[Constants::EMPLOYMENT_STATUS] != Constants::SELF_EMPLOYED_STATUS
+          duplications = search_for_duplications(CompanyUser.new({companies_attributes: [{company_name: row[Constants::EMPLOYMENT_STATUS]}]}), owner)
+          if duplications.any?
+            contact_params[:relationships_attributes] = [{association_type: Constants::EMPLOYEE, contact_id: duplications.first.id}]
+          end
+        end
+      else
+        contact_params.merge!(type: "CompanyUser", companies_attributes: [{company_name: row[Constants::COMPANY_NAME], address_line_1: row[Constants::ADDRESS_LINE_1], address_line_2: row[Constants::ADDRESS_LINE_2], phone_1: row[Constants::PHONE], phone_tag_1: row[Constants::PHONE_TAG]}], notes_attributes: [{content: row[Constants::NOTES]}])
+      end
+      contact_params
+    end
+
     def before_save(contact, owner)
       contact.status = Constants::CONTACT
       contact.send(:"#{contact.type_name.underscore.pluralize}").each do |p|
