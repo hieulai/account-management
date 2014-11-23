@@ -22,18 +22,19 @@
 
 class Company < ActiveRecord::Base
   acts_as_paranoid
+  include Normalizable
+
   belongs_to :user
 
   attr_accessor :status
+  trimmed_fields :company_name, :phone_1, :phone_2, :phone_tag_1, :phone_tag_2, :address_line_1, :address_line_2, :city, :state, :zipcode, :website
+  phony_fields :phone_1, :phone_2
+  url_fields :website
 
-  validates :company_name, presence: true, :uniqueness_without_deleted => {:scope => [:phone_1, :phone_2, :website]}
+  validates :company_name, presence: true, :uniqueness_without_deleted => {:scope => [:phone_1, :phone_2, :address_line_1, :address_line_2, :city, :state, :zipcode, :website]}
 
   def display_name
     company_name
-  end
-
-  def primary_phone
-    "#{phone_1} #{phone_tag_1}" if phone_1.present?
   end
 
   def primary_address

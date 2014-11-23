@@ -30,7 +30,7 @@ RSpec.describe "Registrations", type: :feature do
 
         fill_in "First Name", :with => @contact.profile.first_name
         fill_in "Last Name", :with => @contact.profile.last_name
-        fill_in "Primary Phone", :with => "123"
+        fill_in "Primary Phone", :with => FactoryGirl.generate(:phone)
       end
 
       click_button 'Create'
@@ -89,7 +89,7 @@ RSpec.describe "Registrations", type: :feature do
       before do
         expect(page).to have_text("What company do you work for?")
         fill_in "Company Name", :with => @company_contact.profile.company_name
-        fill_in "Primary Phone", :with => "123"
+        fill_in "Primary Phone", :with => FactoryGirl.generate(:phone)
 
         click_button 'Save'
         expect(page).to have_text("Link Company User")

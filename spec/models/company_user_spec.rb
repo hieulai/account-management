@@ -36,9 +36,10 @@ RSpec.describe CompanyUser, :type => :model do
     describe "has_phone" do
       before do
         @subject = FactoryGirl.create :company_user
-        @subject.companies << FactoryGirl.build(:company, phone_1: "01")
+        @subject.companies << FactoryGirl.build(:company, phone_1: "512.555.4321")
       end
-      it { expect(CompanyUser.has_phone("01")).to include(@subject) }
+      it { expect(CompanyUser.has_phone("512.555.4321")).to include(@subject) }
+      it { expect(CompanyUser.has_phone("(512) 555-4321")).to include(@subject) }
     end
 
     describe "has_website" do

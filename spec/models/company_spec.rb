@@ -40,7 +40,6 @@ RSpec.describe Company, :type => :model do
     it { should respond_to(:website) }
     it { should respond_to(:status) }
     it { should respond_to(:display_name) }
-    it { should respond_to(:primary_phone) }
   end
 
   describe "Validations" do

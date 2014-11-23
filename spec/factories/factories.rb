@@ -19,4 +19,8 @@ FactoryGirl.define do
   sequence :email do |n|
     "object#{n}@example.com"
   end
+
+  sequence :phone do |n|
+    (9000000000 + n).to_s
+  end
 end

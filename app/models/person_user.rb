@@ -19,7 +19,14 @@ class PersonUser < User
   accepts_nested_attributes_for :people, :reject_if => :all_blank, :allow_destroy => true
 
   scope :has_name, lambda { |first_name, last_name| joins(:people).where('people.first_name = ? AND people.last_name = ?', first_name, last_name) }
-  scope :has_phone, lambda { |phone| joins(:people).where('people.phone_1 = ? OR people.phone_2 = ? ', phone, phone) }
+  scope :has_phone, lambda { |phone|
+    if phone.present? && GlobalPhone.validate(phone)
+      formatted_phone = GlobalPhone.parse(phone).national_string
+      joins(:people).where('people.phone_1 = ? OR people.phone_2 = ? ', formatted_phone, formatted_phone)
+    else
+      none
+    end }
+
   scope :has_website, lambda { |website| joins(:people).where('people.website = ?', website) }
   scope :reals, -> { where('encrypted_password IS NOT NULL AND encrypted_password != ?', "") }
   scope :unreals, -> { where('encrypted_password IS NULL OR encrypted_password = ?', "") }

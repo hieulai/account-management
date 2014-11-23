@@ -25,9 +25,9 @@
 FactoryGirl.define do
   factory :company do
     company_name { generate(:string) }
-    phone_1 { generate(:number) }
+    phone_1 { generate(:phone) }
     phone_tag_1 { Constants::PRIMARY_PHONE_TAGS.sample }
-    phone_2 { generate(:number) }
+    phone_2 { generate(:phone) }
     phone_tag_2 { Constants::SECONDARY_PHONE_TAGS.sample }
 
     address_line_1 { generate(:string) }

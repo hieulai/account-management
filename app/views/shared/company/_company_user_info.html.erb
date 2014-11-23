@@ -18,9 +18,7 @@
 
 <p>
     <b><%= "Website:" %></b>
-    <% if profile.website %>
-      <%= link_to profile.website, "http://#{profile.website}" %>
-    <% end %>
+    <%= website_for(profile.user) %>
 </p>
 
 <p>

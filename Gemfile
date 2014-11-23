@@ -77,5 +77,6 @@ gem "bugsnag"
 
 # Misc
 gem "paranoia"
+gem "global_phone"
 #gem 'delayed_job_active_record'
 #gem "bitbucket_rest_api"

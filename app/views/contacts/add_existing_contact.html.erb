@@ -41,6 +41,9 @@
                         <th>Name</th>
                         <th>Primary Phone</th>
                         <th>Mailing address</th>
+                        <% if @user.is_a? CompanyUser %>
+                          <th>Website</th>
+                        <% end %>
                         <th>Associated Projects</th>
                     </tr>
                     </thead>
@@ -53,10 +56,13 @@
                           </td>
                           <td><%= c.type_name %></td>
                           <td><%= c.display_name %></td>
-                          <td><%= c.primary_phone %></td>
+                          <td><%= phone_for(c) %></td>
                           <td>
                               <%= render :partial => 'shared/mailing_address', locals: {user: c} %>
                           </td>
+                          <% if @user.is_a? CompanyUser %>
+                            <td><%= website_for(c) %></td>
+                          <% end %>
                           <td></td>
                       </tr>
                     <% end %>

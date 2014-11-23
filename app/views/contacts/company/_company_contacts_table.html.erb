@@ -14,7 +14,7 @@
               <%= user.display_name %>
               <%= link_to 'Show', contact_path(user), target: '_blank', data: {name: 'clickable-link'}, :style => 'display: none' %>
           </td>
-          <td><%= user.primary_phone %></td>
+          <td><%= phone_for(user) %></td>
           <td><%= user.email  %></td>
       </tr>
     <% end %>

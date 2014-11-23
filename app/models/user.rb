@@ -66,10 +66,6 @@ class User < ActiveRecord::Base
     profile.display_name
   end
 
-  def primary_phone
-    profile.primary_phone
-  end
-
   def primary_address
     profile.primary_address
   end
@@ -105,7 +101,4 @@ class User < ActiveRecord::Base
   def contact_by?(user)
     relationships.contact_by(user).any?
   end
-
-
-
 end
