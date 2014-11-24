@@ -31,7 +31,8 @@ class Person < ActiveRecord::Base
   phony_fields :phone_1, :phone_2
   url_fields :website
 
-  validates :first_name, presence: true, :uniqueness_without_deleted => {:scope => [:last_name, :phone_1, :phone_2, :address_line_1, :address_line_2, :city, :state, :zipcode, :website]}
+  validates :first_name, presence: true, :uniqueness_without_deleted => {:scope => [:last_name, :phone_1, :phone_2, :address_line_1, :address_line_2, :city, :state, :zipcode, :website],
+                                                                         message: Constants::PERSON_UNIQUENESS}
   validates :last_name, presence: true, :unless => Proc.new { |p| p.status == Constants::CONTACT }
 
   def display_name

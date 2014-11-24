@@ -31,7 +31,9 @@ class Company < ActiveRecord::Base
   phony_fields :phone_1, :phone_2
   url_fields :website
 
-  validates :company_name, presence: true, :uniqueness_without_deleted => {:scope => [:phone_1, :phone_2, :address_line_1, :address_line_2, :city, :state, :zipcode, :website]}
+  validates :company_name, presence: true
+  validates :company_name, :uniqueness_without_deleted => {scope: [:phone_1, :phone_2, :address_line_1, :address_line_2, :city, :state, :zipcode, :website],
+                                                           message: Constants::COMPANY_UNIQUENESS}
 
   def display_name
     company_name

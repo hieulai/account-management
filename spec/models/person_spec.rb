@@ -46,7 +46,7 @@ RSpec.describe Person, :type => :model do
   end
 
   describe "Validations" do
-    it { expect(subject).to validate_uniqueness_of(:first_name).scoped_to(:last_name, :phone_1, :phone_2, :website) }
+    it { expect(subject).to validate_uniqueness_of(:first_name).scoped_to(:last_name, :phone_1, :phone_2, :address_line_1, :address_line_2, :city, :state, :zipcode, :website).with_message(Constants::PERSON_UNIQUENESS) }
     it { expect(subject).to validate_presence_of(:first_name) }
     it { expect(subject).to validate_presence_of(:last_name) }
   end

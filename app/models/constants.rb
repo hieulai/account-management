@@ -46,4 +46,7 @@ module Constants
   COMPANY_CONTACT_HEADERS = [COMPANY_NAME, ADDRESS_LINE_1, ADDRESS_LINE_2, PHONE, PHONE_TAG, NOTES, RELATIONSHIPS]
   PERSON_CONTACT_HEADERS = [FIRST_NAME, LAST_NAME, EMAIL, ADDRESS_LINE_1, ADDRESS_LINE_2, PHONE, PHONE_TAG, EMPLOYMENT_STATUS, NOTES, RELATIONSHIPS]
 
+  # Messages
+  COMPANY_UNIQUENESS = "A company with this same name, phone number and address already exists. Duplicate companies are not allowed."
+  PERSON_UNIQUENESS = "A person with this same name, phone number and address already exists. Duplicate people are not allowed."
 end

@@ -20,4 +20,9 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  activerecord:
+    attributes:
+      user/companies:
+        phone_1: "Primary Phone"
+        phone_2: "Secondary Phone"
+        company_name: ""

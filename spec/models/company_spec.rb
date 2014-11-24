@@ -43,7 +43,7 @@ RSpec.describe Company, :type => :model do
   end
 
   describe "Validations" do
-    it { expect(subject).to validate_uniqueness_of(:company_name).scoped_to(:phone_1, :phone_2, :website) }
+    it { expect(subject).to validate_uniqueness_of(:company_name).scoped_to(:phone_1, :phone_2, :address_line_1, :address_line_2, :city, :state, :zipcode, :website).with_message(Constants::COMPANY_UNIQUENESS) }
     it { expect(subject).to validate_presence_of(:company_name) }
   end
 

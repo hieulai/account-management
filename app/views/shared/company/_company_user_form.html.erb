@@ -9,14 +9,14 @@
 <div class="control-group">
     <%= p.label :phone_1, "Primary Phone", :class => 'col-lg-2 control-label' %>
     <div class="controls">
-        <%= p.text_field(:phone_1) %>
+        <%= p.text_field(:phone_1, value: number_to_phone(p.object.phone_1, :area_code => true)) %>
         <%= p.select(:phone_tag_1, Constants::PRIMARY_PHONE_TAGS) %>
     </div>
 </div>
 <div class="control-group">
     <%= p.label :phone_2, "Secondary Phone", :class => 'col-lg-2 control-label' %>
     <div class="controls">
-        <%= p.text_field(:phone_2) %>
+        <%= p.text_field(:phone_2, value: number_to_phone(p.object.phone_2, :area_code => true)) %>
         <%= p.select(:phone_tag_2, Constants::SECONDARY_PHONE_TAGS) %>
     </div>
 </div>

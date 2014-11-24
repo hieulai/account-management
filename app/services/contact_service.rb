@@ -45,7 +45,8 @@ class ContactService
         attributes[:relationships_attributes] << {association_type: r.association_type, contact_id: r.contact_id}
       end
 
-      unless updated_contact.is_real?
+      updated_time = contact.new_record? ? Time.now : contact.profile.updated_at
+      if !updated_contact.is_real? && (updated_time > updated_contact.profile.updated_at)
         profile_attributes = contact.profile.attributes.delete_if { |k, v| v.blank? || %w(deleted_at created_at updated_at user_id).include?(k) }
         profile_attributes['id'] = updated_contact.profile.id
         attributes[:"#{updated_contact.type_name.underscore.pluralize}_attributes"] = profile_attributes
