@@ -42,7 +42,7 @@ class ContactService
       attributes[:relationships_attributes] = []
       merged_relationships = contact.relationships
       merged_relationships = merged_relationships.contact_by(owner).reject { |r| r.association_type == Constants::BELONG } unless contact.new_record?
-      merged_relationships = merged_relationships.reject { |r| updated_contact.relationships.contact_by(r.contact).types(r.association_type) }
+      merged_relationships = merged_relationships.reject { |r| updated_contact.relationships.contact_by(r.contact).types(r.association_type).any? }
       merged_relationships.each do |r|
         attributes[:relationships_attributes] << {association_type: r.association_type, contact_id: r.contact_id}
       end
