@@ -56,8 +56,9 @@
   <div class="control-group" data-name="self_employed" data-class="job_type" style="display: <%= self_employed_display %>">
       <%= f.label :type, 'Notes', class: 'col-lg-2 control-label' %>
       <div class="controls">
-          <%= f.fields_for :notes, user.notes.first_or_initialize do |n| %>
+          <%= f.fields_for :notes, note_of_root_for(user) do |n| %>
             <%= n.text_area(:content) %>
+            <%= n.hidden_field(:owner_id, value: root_user.id) %>
           <% end %>
       </div>
   </div>

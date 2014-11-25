@@ -15,5 +15,6 @@
 FactoryGirl.define do
   factory :note do
     content { generate(:string) }
+    owner :factory => :user
   end
 end

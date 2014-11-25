@@ -6,6 +6,7 @@
         <th>Primary Phone</th>
         <th>Mailing address</th>
         <th>Associated Projects</th>
+        <th>Notes</th>
     </tr>
     </thead>
 
@@ -22,6 +23,7 @@
               <%= render :partial => 'shared/mailing_address', locals: {user: c} %>
           </td>
           <td></td>
+          <td><%= note_of_root_for(c).try(:content) %></td>
       </tr>
     <% end %>
     </tbody>

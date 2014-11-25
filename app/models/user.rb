@@ -18,6 +18,7 @@ class User < ActiveRecord::Base
   acts_as_paranoid
 
   has_many :notes, dependent: :destroy
+  has_many :created_notes, class_name: 'Note', :foreign_key => 'owner_id', :dependent => :destroy
   has_many :relationships, :dependent => :destroy
   has_many :belong_relationships, -> { type_belong }, class_name: 'Relationship', :dependent => :destroy
   has_many :source_employee_relationships, -> { employees }, class_name: 'Relationship', :dependent => :destroy

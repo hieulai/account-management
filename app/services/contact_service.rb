@@ -1,6 +1,7 @@
 class ContactService
 
   class << self
+    include ActionView::Helpers::NumberHelper
 
     def create(new_contact, owner)
       before_save(new_contact, owner)
@@ -41,6 +42,7 @@ class ContactService
       attributes[:relationships_attributes] = []
       merged_relationships = contact.relationships
       merged_relationships = merged_relationships.contact_by(owner).reject { |r| r.association_type == Constants::BELONG } unless contact.new_record?
+      merged_relationships = merged_relationships.reject { |r| updated_contact.relationships.contact_by(r.contact).types(r.association_type) }
       merged_relationships.each do |r|
         attributes[:relationships_attributes] << {association_type: r.association_type, contact_id: r.contact_id}
       end
@@ -96,12 +98,12 @@ class ContactService
         if type == Constants::COMPANY
           csv << Constants::COMPANY_CONTACT_HEADERS.map { |h| h.tr("_", " ").capitalize }
           contacts.each do |contact|
-            csv << [contact.profile.company_name, contact.profile.address_line_1, contact.profile.address_line_2, contact.profile.phone_1, contact.profile.phone_tag_1, contact.primary_note, relationship_names_for(contact, owner)]
+            csv << [contact.profile.company_name, contact.profile.address_line_1, contact.profile.address_line_2, number_to_phone(contact.profile.phone_1, :area_code => true), contact.profile.phone_tag_1, note_for(contact, owner).try(:content), relationship_names_for(contact, owner)]
           end
         else
           csv << Constants::PERSON_CONTACT_HEADERS.map { |h| h.tr("_", " ").capitalize }
           contacts.each do |contact|
-            csv << [contact.profile.first_name, contact.profile.last_name, contact.email, contact.profile.address_line_1, contact.profile.address_line_2, contact.profile.phone_1, contact.profile.phone_tag_1, employment_status_for(contact, owner), contact.primary_note, relationship_names_for(contact, owner)]
+            csv << [contact.profile.first_name, contact.profile.last_name, contact.email, contact.profile.address_line_1, contact.profile.address_line_2, number_to_phone(contact.profile.phone_1, :area_code => true), contact.profile.phone_tag_1, employment_status_for(contact, owner), note_for(contact, owner).try(:content), relationship_names_for(contact, owner)]
           end
         end
       end
@@ -164,6 +166,10 @@ class ContactService
         duplication = same_name_contacts
       end
       duplication
+    end
+
+    def note_for(user, owner)
+      user.notes.created_by(owner).first_or_initialize
     end
 
     private

@@ -23,7 +23,7 @@
             <%= render :partial => "shared/#{@profile.class.name.underscore}/#{@user.class.name.underscore}_info", :locals => {:profile => @profile} %>
             <p>
                 <b>Notes</b>
-                <%= @user.notes.first.try(:content) %>
+                <%= note_of_root_for(@user).try(:content) %>
             </p>
         </div>
     </div>
