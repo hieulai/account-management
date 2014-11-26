@@ -45,6 +45,9 @@ RSpec.describe Company, :type => :model do
   describe "Validations" do
     it { expect(subject).to validate_uniqueness_of(:company_name).scoped_to(:phone_1, :phone_2, :address_line_1, :address_line_2, :city, :state, :zipcode, :website).with_message(Constants::COMPANY_UNIQUENESS) }
     it { expect(subject).to validate_presence_of(:company_name) }
+    it "fails validation with invalid phone number" do
+      expect(FactoryGirl.build :invalid_phone_company).not_to be_valid
+    end
   end
 
   describe "Associations" do

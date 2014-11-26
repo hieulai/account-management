@@ -41,6 +41,12 @@ FactoryGirl.define do
     zipcode { generate(:number) }
     website { generate(:website) }
 
+    factory :invalid_website_person do
+      website "fake"
+    end
+    factory :invalid_phone_person do
+      phone_1 "222"
+    end
     factory :contact_person do
       last_name nil
     end

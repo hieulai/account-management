@@ -49,6 +49,9 @@ RSpec.describe Person, :type => :model do
     it { expect(subject).to validate_uniqueness_of(:first_name).scoped_to(:last_name, :phone_1, :phone_2, :address_line_1, :address_line_2, :city, :state, :zipcode, :website).with_message(Constants::PERSON_UNIQUENESS) }
     it { expect(subject).to validate_presence_of(:first_name) }
     it { expect(subject).to validate_presence_of(:last_name) }
+    it "fails validation with invalid phone number" do
+      expect(FactoryGirl.build :invalid_phone_person).not_to be_valid
+    end
   end
 
   describe "Associations" do

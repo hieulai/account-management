@@ -37,5 +37,12 @@ FactoryGirl.define do
     state { generate(:string) }
     zipcode { generate(:number) }
     website { generate(:website) }
+
+    factory :invalid_website_company do
+      website "fake"
+    end
+    factory :invalid_phone_company do
+      phone_1 "222"
+    end
   end
 end
