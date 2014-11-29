@@ -23,8 +23,16 @@ module ContactsHelper
     get_relationship(contact, association_type, root_user)
   end
 
-  def note_of_root_for(user)
-    ContactService.note_for(user, root_user)
+  def relationship_names_for(contact)
+    ContactService.relationship_names_for(contact, root_user)
+  end
+
+  def note_of_root_for(contact)
+    ContactService.note_for(contact, root_user)
+  end
+
+  def employment_status_for(contact)
+    ContactService.employment_status_for(contact, root_user)
   end
 
   def existings_for(contact)

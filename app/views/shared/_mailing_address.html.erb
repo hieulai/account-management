@@ -2,6 +2,7 @@
   <%= user.email %>
 <% else %>
   <%= user.primary_address %>
-  <br/>
-  <%= user.city %> <%= ", #{user.state}" if user.state.present? %> <%= ", #{user.zipcode}" if user.zipcode.present? %>
+  <%= raw("<br/>") + "#{user.city}" if user.city.present? %>
+  <%= raw("<br/>") + "#{user.state}" if user.state.present? %>
+  <%= raw("<br/>") + "#{user.zipcode}" if user.zipcode.present? %>
 <% end %>

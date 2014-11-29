@@ -26,3 +26,6 @@ en:
         phone_1: "Primary Phone"
         phone_2: "Secondary Phone"
         company_name: ""
+      user/people:
+        phone_1: "Primary Phone"
+        phone_2: "Secondary Phone"

@@ -62,6 +62,8 @@ gem 'turbolinks'
 #gem 'wkhtmltopdf-binary'
 #gem 'wicked_pdf'
 gem 'roo'
+gem 'axlsx', '~> 2.0'
+gem 'axlsx_rails'
 
 # Indexing
 #gem 'sunspot_rails'

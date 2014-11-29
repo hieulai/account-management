@@ -58,7 +58,7 @@ class UserService
         end
         existings = same_name_contacts + same_phone_1_contacts + same_phone_2_contacts + same_website_contacts
       else
-        scope = real ? PersonUser.unreals : user.is_a_employee? ? (PersonUser.non_employee_people) : PersonUser.all
+        scope = real ? PersonUser.unreals : PersonUser.all
         same_name_contacts = profile.first_name.present? || profile.last_name.present? ? scope.has_name(profile.first_name, profile.last_name) : scope.none
         same_phone_1_contacts = profile.phone_1.present? ? scope.has_phone(profile.phone_1) : scope.none
         same_phone_2_contacts = profile.phone_2.present? ? scope.has_phone(profile.phone_2) : scope.none

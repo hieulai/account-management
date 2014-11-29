@@ -1,0 +1,35 @@
+wb = xlsx_package.workbook
+wb.add_worksheet(name: "Contacts") do |sheet|
+  if @type == Constants::COMPANY
+    sheet.add_row Constants::COMPANY_CONTACT_HEADERS.map { |h| h.tr("_", " ").capitalize }
+    @contacts.each do |contact|
+      sheet.add_row [contact.profile.company_name,
+                     contact.profile.address_line_1,
+                     contact.profile.address_line_2,
+                     contact.profile.city,
+                     contact.profile.state,
+                     contact.profile.zipcode,
+                     number_to_phone(contact.profile.phone_1, :area_code => true),
+                     contact.profile.phone_tag_1,
+                     note_of_root_for(contact).try(:content),
+                     relationship_names_for(contact)]
+    end
+  else
+    sheet.add_row Constants::PERSON_CONTACT_HEADERS.map { |h| h.tr("_", " ").capitalize }
+    @contacts.each do |contact|
+      sheet.add_row [contact.profile.first_name,
+                     contact.profile.last_name,
+                     contact.email,
+                     contact.profile.address_line_1,
+                     contact.profile.address_line_2,
+                     contact.profile.city,
+                     contact.profile.state,
+                     contact.profile.zipcode,
+                     number_to_phone(contact.profile.phone_1, :area_code => true),
+                     contact.profile.phone_tag_1,
+                     employment_status_for(contact),
+                     note_of_root_for(contact).try(:content),
+                     relationship_names_for(contact)]
+    end
+  end
+end

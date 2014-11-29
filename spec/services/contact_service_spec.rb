@@ -457,41 +457,4 @@ RSpec.describe ContactService do
       end
     end
   end
-
-  describe ".export" do
-    context "for company contacts" do
-      before do
-        contact = FactoryGirl.build :company_user
-        contact.relationships << FactoryGirl.build(:relationship, contact: owner, association_type: Constants::CLIENT)
-        @contact = ContactService.create contact, owner
-        @file = ContactService.export(owner.company_contacts, Constants::COMPANY, owner)
-      end
-
-      it "should be successful" do
-        expect(@file).not_to be_nil
-      end
-
-      it "should include companies" do
-        expect(@file.include?(@contact.company_name)).to be_truthy
-      end
-
-    end
-
-    context "for person contacts" do
-      before do
-        contact = FactoryGirl.build :contact_person_user
-        contact.relationships << FactoryGirl.build(:relationship, contact: owner, association_type: Constants::CLIENT)
-        @contact = ContactService.create contact, owner
-        @file = ContactService.export(owner.person_contacts, Constants::PERSON, owner)
-      end
-
-      it "should be successful" do
-        expect(@file).not_to be_nil
-      end
-
-      it "should include companies" do
-        expect(@file.include?(@contact.first_name)).to be_truthy
-      end
-    end
-  end
 end

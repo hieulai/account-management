@@ -151,13 +151,13 @@ class ContactsController < ApplicationController
 
   def export
     respond_to do |format|
+      @type = params[:type]
       if params[:type] == Constants::COMPANY
         @contacts = root_user.company_contacts
       else
         @contacts = root_user.person_contacts.ignores([current_user.id])
       end
-      format.csv { send_data ContactService.export(@contacts, params[:type], root_user), :type => 'text/csv; charset=utf-8; header=present', :disposition => "attachment; filename= #{params[:type]} Contacts.csv" }
-      format.xls { send_data ContactService.export(@contacts, params[:type], root_user, col_sep: "\t"), :type => 'application/xls; charset=utf-8; header=present', :disposition => "attachment; filename= #{params[:type]} Contacts.xls" }
+      format.xlsx { response.headers['Content-Disposition'] = "attachment; filename=\"#{@type} Contacts.xlsx\"" }
     end
   end
 

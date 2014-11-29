@@ -16,6 +16,15 @@
     </div>
     <div class="zurb-row">
         <div class="columns margin-bottom">
+            <% if flash[:notice] %>
+              <div>
+                  <ul>
+                      <% flash[:notice].split(",").each do |e| %>
+                        <li><%= e %></li>
+                      <% end %>
+                  </ul>
+              </div>
+            <% end %>
             <div>
                 <h3> Import Contacts </h3>
                 <%= form_tag import_contacts_path, method: :post, :class => 'form-horizontal', :multipart => true do |f| %>
@@ -29,8 +38,8 @@
                 <h3> Export Contacts </h3>
 
                 <div class="btn-group">
-                    <%= link_to "Export Companies", export_contacts_path(type: Constants::COMPANY, format: 'xls'), class: 'btn' %>
-                    <%= link_to "Export People", export_contacts_path(type: Constants::PERSON, :format => 'xls'), class: 'btn' %>
+                    <%= link_to "Export Companies", export_contacts_path(type: Constants::COMPANY, format: 'xlsx'), class: 'btn' %>
+                    <%= link_to "Export People", export_contacts_path(type: Constants::PERSON, :format => 'xlsx'), class: 'btn' %>
                 </div>
             </div>
         </div>

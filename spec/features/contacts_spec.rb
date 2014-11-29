@@ -122,5 +122,16 @@ RSpec.describe "Contacts", type: :feature, js: true do
 
       expect(page).to have_text("All Contacts")
     end
+
+    scenario "Incorrect data" do
+      visit show_import_export_contacts_path
+
+      file_path = File.expand_path("../../factories/Wrong Person Contacts.xlsx", __FILE__)
+      attach_file('data', file_path)
+      click_button "Import"
+
+      expect(page).to have_text("Import/Export Contacts")
+      expect(page).to have_text("Importing Error at")
+    end
   end
 end
