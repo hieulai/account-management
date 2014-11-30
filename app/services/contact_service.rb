@@ -37,13 +37,19 @@ class ContactService
     end
 
     def merge(contact, updated_contact, owner)
-      attributes = {}
-      attributes[:relationships_attributes] = []
+      attributes = {relationships_attributes: [], notes_attributes: [] }
+
       merged_relationships = contact.relationships
       merged_relationships = merged_relationships.contact_by(owner).reject { |r| r.association_type == Constants::BELONG } unless contact.new_record?
       merged_relationships = merged_relationships.reject { |r| updated_contact.relationships.contact_by(r.contact).types(r.association_type).any? }
       merged_relationships.each do |r|
         attributes[:relationships_attributes] << {association_type: r.association_type, contact_id: r.contact_id}
+      end
+
+      notes_attributes = contact.notes
+      notes_attributes = notes_attributes.created_by(owner) unless contact.new_record?
+      notes_attributes.each do |n|
+        attributes[:notes_attributes] << {content: n.content, owner_id: n.owner_id, id: updated_contact.notes.created_by(owner).first.try(:id)}
       end
 
       updated_time = contact.new_record? ? Time.now : contact.profile.updated_at
@@ -212,7 +218,7 @@ class ContactService
                                                    zipcode: row[Constants::ZIPCODE].to_s,
                                                    phone_1: row[Constants::PHONE].to_s,
                                                    phone_tag_1: row[Constants::PHONE_TAG].to_s}],
-                              notes_attributes: [{content: row[Constants::NOTES].to_s}])
+                              notes_attributes: [{owner_id: owner.id, content: row[Constants::NOTES].to_s}])
         if row[Constants::EMPLOYMENT_STATUS].present? && row[Constants::EMPLOYMENT_STATUS].to_s != Constants::SELF_EMPLOYED_STATUS
           duplications = search_for_duplications(CompanyUser.new({companies_attributes: [{company_name: row[Constants::EMPLOYMENT_STATUS].to_s}]}), owner)
           if duplications.any?
@@ -229,7 +235,7 @@ class ContactService
                                                       zipcode: row[Constants::ZIPCODE].to_s,
                                                       phone_1: row[Constants::PHONE].to_s,
                                                       phone_tag_1: row[Constants::PHONE_TAG].to_s}],
-                              notes_attributes: [{content: row[Constants::NOTES].to_s}])
+                              notes_attributes: [{owner_id: owner.id, content: row[Constants::NOTES].to_s}])
       end
       contact_params
     end

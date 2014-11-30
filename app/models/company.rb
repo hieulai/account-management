@@ -30,6 +30,7 @@ class Company < ActiveRecord::Base
   trimmed_fields :company_name, :phone_1, :phone_2, :phone_tag_1, :phone_tag_2, :address_line_1, :address_line_2, :city, :state, :zipcode, :website
   phony_fields :phone_1, :phone_2
   url_fields :website
+  int_fields :zipcode
 
   validates :company_name, presence: true
   validates :company_name, :uniqueness_without_deleted => {scope: [:phone_1, :phone_2, :address_line_1, :address_line_2, :city, :state, :zipcode, :website],

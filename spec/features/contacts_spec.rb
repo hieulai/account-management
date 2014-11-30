@@ -109,10 +109,6 @@ RSpec.describe "Contacts", type: :feature, js: true do
   end
 
   context "Import Company Contacts" do
-
-  end
-
-  context "Import Person Contacts" do
     scenario "Happy flow" do
       visit show_import_export_contacts_path
 
@@ -121,6 +117,31 @@ RSpec.describe "Contacts", type: :feature, js: true do
       click_button "Import"
 
       expect(page).to have_text("All Contacts")
+      expect(page).to have_text("Chaparros Foundation")
+      expect(page).to have_text("1234 Make Belive")
+      expect(page).to have_text("Austin")
+      expect(page).to have_text("TX")
+      expect(page).to have_text("78701")
+      expect(page).to have_text("(512) 555-1234")
+      expect(page).to have_text("Main")
+      expect(page).to have_text("Huge Organization")
+    end
+  end
+
+  context "Import Person Contacts" do
+    scenario "Happy flow" do
+      visit show_import_export_contacts_path
+
+      file_path = File.expand_path("../../factories/Sample People.xlsx", __FILE__)
+      attach_file('data', file_path)
+      click_button "Import"
+
+      expect(page).to have_text("All Contacts")
+      expect(page).to have_text("Bill	Clinton")
+      expect(page).to have_text("test4@test.com")
+      expect(page).to have_text("(512) 555-3333")
+      expect(page).to have_text("Office")
+      expect(page).to have_text("Mr President")
     end
 
     scenario "Incorrect data" do

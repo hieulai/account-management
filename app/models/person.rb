@@ -30,6 +30,7 @@ class Person < ActiveRecord::Base
   trimmed_fields :first_name, :last_name, :phone_1, :phone_2, :phone_tag_1, :phone_tag_2, :address_line_1, :address_line_2, :city, :state, :zipcode, :website
   phony_fields :phone_1, :phone_2
   url_fields :website
+  int_fields :zipcode
 
   validates :first_name, presence: true, :uniqueness_without_deleted => {:scope => [:last_name, :phone_1, :phone_2, :address_line_1, :address_line_2, :city, :state, :zipcode, :website],
                                                                          message: Constants::PERSON_UNIQUENESS}

@@ -31,5 +31,13 @@ module Normalizable
         end
       end
     end
+
+    def int_fields *field_list
+      before_save do |model|
+        field_list.each do |n|
+          model[n] = model[n].to_i.to_s if !!Float(model[n]) rescue false
+        end
+      end
+    end
   end
 end
