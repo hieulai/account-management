@@ -9,7 +9,7 @@ RSpec.describe ContactsController, :type => :controller do
   describe "GET #index" do
     before do
       contact.relationships << FactoryGirl.build(:relationship, contact: controller.root_user, association_type: Constants::CLIENT)
-      @contact = ContactService.create contact, controller.root_user
+      @contact = ContactService.create contact, controller.current_user , controller.root_user
     end
     it 'renders the index template' do
       get :index
@@ -25,7 +25,7 @@ RSpec.describe ContactsController, :type => :controller do
   describe 'GET #vendors' do
     before do
       contact.relationships << FactoryGirl.build(:relationship, contact: controller.root_user, association_type: Constants::VENDOR)
-      @contact = ContactService.create contact, controller.root_user
+      @contact = ContactService.create contact, controller.current_user, controller.root_user
     end
     it 'renders the index template' do
       get :vendors
@@ -42,7 +42,7 @@ RSpec.describe ContactsController, :type => :controller do
   describe 'GET #clients' do
     before do
       contact.relationships << FactoryGirl.build(:relationship, contact: controller.root_user, association_type: Constants::CLIENT)
-      @contact = ContactService.create contact, controller.root_user
+      @contact = ContactService.create contact, controller.current_user, controller.root_user
     end
     it 'renders the index template' do
       get :clients
@@ -59,8 +59,8 @@ RSpec.describe ContactsController, :type => :controller do
 
   describe 'GET #employees' do
     before do
-      contact.relationships << FactoryGirl.build(:relationship, contact: controller.root_user, association_type: Constants::EMPLOYEE)
-      @contact = ContactService.create contact, controller.root_user
+      contact.relationships << FactoryGirl.build(:relationship, contact: controller.root_user, association_type: Constants::EMPLOYEE, role: Constants::STAFF_ROLES.sample)
+      @contact = ContactService.create contact, controller.current_user, controller.root_user
     end
     it 'renders the index template' do
       get :employees
@@ -88,11 +88,11 @@ RSpec.describe ContactsController, :type => :controller do
     context "as a Company Contact" do
       before do
         contact.relationships << FactoryGirl.build(:relationship, contact: controller.root_user, association_type: Constants::CLIENT)
-        @contact = ContactService.create contact, controller.root_user
+        @contact = ContactService.create contact, controller.current_user, controller.root_user
       end
 
       it 'initiates with EMPLOYEE relationships' do
-        get :new, type: "PersonUser", association_type: Constants::EMPLOYEE, contact_id: @contact.id
+        get :new, type: "PersonUser", association_type: Constants::EMPLOYEE, contact_id: @contact.id, role: Constants::STAFF_ROLES.sample
         expect(assigns(:user).relationships).not_to be_empty
       end
     end
@@ -158,7 +158,7 @@ RSpec.describe ContactsController, :type => :controller do
   context "contact exists" do
     before do
       contact.relationships << FactoryGirl.build(:relationship, contact: controller.root_user, association_type: Constants::CLIENT)
-      @contact = ContactService.create contact, controller.root_user
+      @contact = ContactService.create contact, controller.current_user, controller.root_user
     end
 
     describe 'GET #show' do
@@ -238,7 +238,7 @@ RSpec.describe ContactsController, :type => :controller do
 
     describe 'PUT #assign_to_company' do
       let(:params) { {id: @contact.id, user: {relationships_attributes: [{id: @contact.relationships.first.id, :"_destroy" => true},
-                                                                         {association_type: Constants::EMPLOYEE, contact_id: existing.id}]}} }
+                                                                         {association_type: Constants::EMPLOYEE, role: Constants::STAFF_ROLES.sample, contact_id: existing.id}]}} }
 
       it 'save the contact' do
         patch :assign_to_company, params

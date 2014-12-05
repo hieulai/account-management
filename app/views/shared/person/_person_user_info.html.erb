@@ -1,8 +1,14 @@
-<% if profile.user.employers.any? %>
+<% if profile.user.is?(:employee) %>
   <p>
       <b><%= "Company:" %></b>
-      <%= profile.user.employers.first.display_name %>
+      <%= profile.user.company.display_name %>
   </p>
+  <% if is_a_employee_of_root? profile.user %>
+    <p>
+        <b><%= "Role:" %></b>
+        <%= profile.user.role_in_company %>
+    </p>
+  <% end %>
 <% end %>
 
 <p>

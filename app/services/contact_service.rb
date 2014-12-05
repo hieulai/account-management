@@ -2,8 +2,9 @@ class ContactService
 
   class << self
 
-    def create(new_contact, owner)
-      before_save(new_contact, owner)
+    def create(new_contact, current_user, owner)
+      authorize(new_contact, current_user)
+
       check_valid(new_contact, owner)
       check_for_relationships(new_contact, owner)
       check_for_duplication(new_contact, owner)
@@ -12,16 +13,18 @@ class ContactService
         UserService.check_for_existing(new_contact)
       end
 
+      before_save(new_contact, owner)
       if new_contact.errors.empty? && new_contact.save
         after_save(new_contact, owner)
+        new_contact.reload
       end
       new_contact
     end
 
-    def update(contact, contact_params, owner)
-      contact.attributes = contact_params
+    def update(contact, contact_params, current_user, owner)
+      authorize(contact, current_user)
 
-      before_save(contact, owner)
+      contact.attributes = contact_params
       check_valid(contact, owner)
       check_for_relationships(contact, owner)
       check_for_duplication(contact, owner)
@@ -30,20 +33,24 @@ class ContactService
         UserService.check_for_existing(contact)
       end
 
+      before_save(contact, owner)
       if contact.errors.empty? && contact.save
         after_save(contact, owner)
+        contact.reload
       end
       contact
     end
 
-    def merge(contact, updated_contact, owner)
+    def merge(contact, updated_contact, current_user, owner)
+      authorize(contact, current_user)
+      return contact if contact.errors.any?
+
       attributes = {relationships_attributes: [], notes_attributes: [] }
 
       merged_relationships = contact.relationships
       merged_relationships = merged_relationships.contact_by(owner).reject { |r| r.association_type == Constants::BELONG } unless contact.new_record?
-      merged_relationships = merged_relationships.reject { |r| updated_contact.relationships.contact_by(r.contact).types(r.association_type).any? }
       merged_relationships.each do |r|
-        attributes[:relationships_attributes] << {association_type: r.association_type, contact_id: r.contact_id}
+        attributes[:relationships_attributes] << {association_type: r.association_type, contact_id: r.contact_id, role: r.role, id: updated_contact.relationships.contact_by(r.contact).types(r.association_type).first.try(:id)}
       end
 
       notes_attributes = contact.notes
@@ -61,11 +68,12 @@ class ContactService
 
       if updated_contact.update_attributes(attributes)
         contact.destroy unless contact.new_record?
+        updated_contact.reload
       end
       updated_contact
     end
 
-    def import(file, owner)
+    def import(file, current_user, owner)
       errors = []
       objects = []
       spreadsheet = open_spreadsheet(file)
@@ -87,7 +95,7 @@ class ContactService
 
       (2..spreadsheet.last_row).each do |i|
         row = Hash[[header, spreadsheet.row(i)].transpose]
-        contact = process_import(row, type, owner)
+        contact = process_import(row, type, current_user, owner)
         if contact.errors.any?
           errors << "Importing Error at line #{i}: #{contact.errors.full_messages.join(". ")}"
         else
@@ -98,17 +106,23 @@ class ContactService
       {errors: errors, objects: objects}
     end
 
-    def destroy(contact, owner)
+    def destroy(contact, current_user, owner)
+      authorize(contact, current_user)
+      return contact if contact.errors.any?
+
       contact.relationships.contact_by(owner).destroy_all
       owner.relationships.contact_by(contact).destroy_all
-      if contact.is_a? CompanyUser
-        contact.employees.each do |c|
-          c.relationships.contact_by(contact).destroy_all
-          contact.relationships.contact_by(c).destroy_all
-          destroy(c, owner)
+      unless contact.is_real?
+        if contact.is_a? CompanyUser
+          contact.employees.each do |c|
+            c.relationships.contact_by(contact).destroy_all
+            contact.relationships.contact_by(c).destroy_all
+            destroy(c, current_user, owner)
+          end
         end
+        contact.reload
+        contact.destroy unless contact.relationships.any?
       end
-      contact.destroy unless contact.is_real? || contact.relationships.any?
       contact
     end
 
@@ -163,7 +177,7 @@ class ContactService
 
     def relationship_names_for(contact, owner)
        names = []
-       contact.relationships.contact_by(owner).reject { |r| r.is_a_belong? }.each do |r|
+       contact.relationships.contact_by(owner).reject { |r| r.is? :belong }.each do |r|
          names << r.association_type
        end
       names.join(", ")
@@ -174,6 +188,23 @@ class ContactService
     end
 
     private
+
+    def authorize(contact, user)
+      employee_relationship = contact.relationships.select { |r| r.is?(:employee) && (r.contact == user.employers.first) }.first
+      if employee_relationship.present? && !authorize_roles(user, employee_relationship.role)
+        contact.errors[:base] << Constants::PERMISSION_VIOLATION
+      end
+    end
+
+    def authorize_roles(user, for_role)
+      case for_role
+        when Constants::OWNER, Constants::ADMIN
+          user.act_as_owner?
+        else
+          user.act_as_admin?
+      end
+    end
+
     def open_spreadsheet(file)
       case File.extname(file.original_filename)
         when ".csv" then Roo::Csv.new(file.path,nil)
@@ -183,17 +214,19 @@ class ContactService
       end
     end
 
-    def process_import(row, type, owner)
+    def process_import(row, type, current_user, owner)
       contact_params = initiate_contact_params(row, type, owner)
       contact = User.new(contact_params)
       check_for_relationships(contact, owner)
+      authorize(contact, current_user)
+
       return contact if contact.errors.any?
 
       duplications = search_for_duplications(contact, owner)
-      return merge(contact, duplications.first, owner) if duplications.any?
+      return merge(contact, duplications.first, current_user, owner) if duplications.any?
 
       existings = UserService.search_for_existings(contact)
-      return merge(contact, existings.first, owner) if existings.any?
+      return merge(contact, existings.first, current_user, owner) if existings.any?
 
       contact.save
       contact

@@ -91,8 +91,20 @@ class User < ActiveRecord::Base
     (is_a?(PersonUser) && encrypted_password != "")|| (founders.select { |c| c.is_real? }.any?)
   end
 
-  def is_a_employee?
-    is_a?(PersonUser) && relationships.select {|r| r.is_a_employee? }.any?
+  def is?(association_type)
+    relationships.select { |r| r.is? association_type }.any?
+  end
+
+  def act_as?(*roles)
+    relationships.select { |r| r.is?(:employee) && roles.include?(r.role) }.any?
+  end
+
+  def act_as_owner?
+    act_as?(Constants::OWNER)
+  end
+
+  def act_as_admin?
+    act_as?(Constants::OWNER, Constants::ADMIN)
   end
 
   def is_created_by?(user)
@@ -101,5 +113,13 @@ class User < ActiveRecord::Base
 
   def contact_by?(user)
     relationships.contact_by(user).any?
+  end
+
+  def company
+    employers.first
+  end
+
+  def role_in_company
+    relationships.select { |r| r.is? :employee }.first.role rescue Constants::OWNER
   end
 end

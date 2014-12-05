@@ -32,6 +32,14 @@ var Contact = (function ($) {
             $selector.show();
         });
 
+        $(document).on('change', 'select[name="role"]', function () {
+            $('div[data-name="association_type_Employee"] input[data-name="hidden_role"]').val($(this).val());
+        });
+
+        $(document).on('click', 'input[name="association_type_Employee"]', function () {
+            $('div[data-name="role"]').toggle();
+            $('select[name="role"]').change();
+        });
     };
 
     return {

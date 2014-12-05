@@ -1,0 +1,32 @@
+<table class="grid-view margin-bottom responsive" summary="Contacts List">
+    <thead>
+    <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Primary Phone</th>
+        <th>Mailing address</th>
+        <th>Associated Projects</th>
+        <th>Role</th>
+        <th>Notes</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% contacts.each do |c| %>
+      <tr class="clickable" data-name="clickable">
+          <td>
+              <%= c.type_name  %>
+              <%= link_to 'Show', contact_path(c), data: {name: 'clickable-link'}, :style => 'display: none' %>
+          </td>
+          <td><%= c.display_name %></td>
+          <td><%= phone_for(c) %></td>
+          <td>
+              <%= render :partial => 'shared/mailing_address', locals: {user: c} %>
+          </td>
+          <td></td>
+          <td><%= get_relationship_of_root(c, Constants::EMPLOYEE).role %></td>
+          <td><%= note_of_root_for(c).try(:content) %></td>
+      </tr>
+    <% end %>
+    </tbody>
+</table>

@@ -1,6 +1,6 @@
 class ContactsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_contact, only: [:show, :edit, :update, :destroy, :show_assign_to_company, :assign_to_company]
+  before_action :set_contact, only: [:show, :edit, :update, :delete, :destroy, :show_assign_to_company, :assign_to_company]
 
   # GET /users
   # GET /users.json
@@ -30,7 +30,7 @@ class ContactsController < ApplicationController
     @user = User.new(type: params[:type])
     @profile = @user.send(:"#{@user.type_name.underscore.pluralize}").build
     if params[:association_type] && params[:contact_id]
-      @user.relationships.build(association_type: params[:association_type], contact_id: params[:contact_id])
+      @user.relationships.build(association_type: params[:association_type], contact_id: params[:contact_id], role: params[:role])
     end
   end
 
@@ -43,7 +43,7 @@ class ContactsController < ApplicationController
   def create
     @user = User.new(user_params)
     respond_to do |format|
-      @user = ContactService.create(@user, root_user)
+      @user = ContactService.create(@user, current_user, root_user)
       @profile = @user.profile
       if @user.errors.empty?
         format.html { redirect_to contacts_url, notice: 'User was successfully created.' }
@@ -66,7 +66,7 @@ class ContactsController < ApplicationController
   # PATCH/PUT /users/1.json
   def update
     respond_to do |format|
-      @user = ContactService.update(@user, user_params, root_user)
+      @user = ContactService.update(@user, user_params, current_user, root_user)
       @profile = @user.profile
       if @user.errors.empty?
         format.html { redirect_to contacts_url, notice: 'User was successfully updated.' }
@@ -85,12 +85,21 @@ class ContactsController < ApplicationController
     end
   end
 
+  def delete
+  end
+
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
-    @user = ContactService.destroy(@user, root_user)
+    @user = ContactService.destroy(@user, current_user, root_user)
     respond_to do |format|
-      format.html { redirect_to contacts_url, notice: 'User was successfully destroyed.' }
+      format.html do
+        if @user.errors.any?
+          render :delete
+        else
+          redirect_to contacts_url, notice: 'User was successfully destroyed.'
+        end
+      end
       format.json { head :no_content }
     end
   end
@@ -100,7 +109,7 @@ class ContactsController < ApplicationController
 
   def assign_to_company
     respond_to do |format|
-      @user = ContactService.update(@user, user_params, root_user)
+      @user = ContactService.update(@user, user_params, current_user, root_user)
       if @user.errors.empty?
         format.html { redirect_to contacts_url, notice: 'User was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
@@ -122,7 +131,7 @@ class ContactsController < ApplicationController
         @user = User.new(user_params)
       end
 
-      @user = ContactService.merge(@user, @updated_contact, root_user)
+      @user = ContactService.merge(@user, @updated_contact, current_user, root_user)
       if @user.errors.empty?
         format.html { redirect_to contacts_url, notice: 'User was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
@@ -140,7 +149,7 @@ class ContactsController < ApplicationController
     if params[:data].nil?
       redirect_to show_import_export_contacts_path, notice: "No file to import."
     else
-      result = ContactService.import(params[:data], root_user)
+      result = ContactService.import(params[:data], current_user, root_user)
       if result[:errors].empty?
         redirect_to contacts_url
       else

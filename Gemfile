@@ -70,7 +70,7 @@ gem 'axlsx_rails'
 #gem 'sunspot_solr'
 #gem 'progress_bar'
 
-# Authentication
+# Authentication & Authorization
 gem 'devise'
 
 #Monitoring

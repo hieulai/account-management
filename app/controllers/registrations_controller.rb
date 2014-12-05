@@ -49,7 +49,7 @@ class RegistrationsController < Devise::RegistrationsController
   def create_company
     @user = User.new(user_params)
     respond_to do |format|
-      @user = ContactService.create(@user, root_user)
+      @user = ContactService.create(@user, current_user, root_user)
       @profile = @user.profile
       if @user.errors.empty?
         format.html { redirect_to contacts_url, notice: 'User was successfully created.' }

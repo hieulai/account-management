@@ -1,5 +1,6 @@
 class CompanyController < ApplicationController
   before_action :authenticate_user!
+  before_action :authorize_admin_role
   before_action :set_user
 
   def current

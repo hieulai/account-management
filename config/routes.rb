@@ -25,6 +25,7 @@ Rails.application.routes.draw do
 
   resources :contacts do
     member do
+      get :delete
       get :show_assign_to_company
       patch :assign_to_company
     end

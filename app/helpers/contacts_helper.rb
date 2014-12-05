@@ -15,6 +15,10 @@ module ContactsHelper
     contact.new_record? || (!contact.is_real? && contact.contact_by?(root_user))
   end
 
+  def is_a_employee_of_root?(contact)
+    contact.is_a?(PersonUser) && contact.relationships.select { |r| r.is?(:employee) && r.contact_id == root_user.id }.any?
+  end
+
   def get_relationship(contact, association_type, user)
     contact.relationships.select { |r| r.association_type == association_type && r.contact_id == user.id }.reject(&:marked_for_destruction?).first
   end

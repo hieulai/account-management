@@ -31,10 +31,24 @@ FactoryGirl.define do
         password ""
       end
 
-      factory :company_contact_person_user do
+      factory :company_owner_person_user do
         after(:build) do |object, evaluator|
           existing = FactoryGirl.create :real_company_user
-          object.relationships << FactoryGirl.build(:relationship, contact: existing, association_type: Constants::EMPLOYEE)
+          object.relationships << FactoryGirl.build(:relationship, contact: existing, association_type: Constants::EMPLOYEE, role: Constants::OWNER)
+        end
+      end
+
+      factory :company_admin_person_user do
+        after(:build) do |object, evaluator|
+          existing = FactoryGirl.create :real_company_user
+          object.relationships << FactoryGirl.build(:relationship, contact: existing, association_type: Constants::EMPLOYEE, role: Constants::ADMIN)
+        end
+      end
+
+      factory :company_staff_person_user do
+        after(:build) do |object, evaluator|
+          existing = FactoryGirl.create :real_company_user
+          object.relationships << FactoryGirl.build(:relationship, contact: existing, association_type: Constants::EMPLOYEE, role: Constants::STAFF_ROLES.sample)
         end
       end
     end

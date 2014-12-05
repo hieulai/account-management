@@ -5,11 +5,12 @@ RSpec.describe "Notes", type: :feature, js: true do
   Warden.test_mode!
 
   before do
-    @user = UserService.create FactoryGirl.build :real_person_user, email: "test@gmail.com", password: "123456"
+    @user = UserService.create FactoryGirl.build :company_owner_person_user, email: "test@gmail.com", password: "123456"
+    owner = @user.employers.first
     company_contact = UserService.create FactoryGirl.build :company_user
-    company_contact.relationships << FactoryGirl.build(:relationship, contact: @user, association_type: Constants::CLIENT)
-    company_contact.notes << FactoryGirl.build(:note, owner: @user, content: "This is test note")
-    @contact = ContactService.create company_contact, @user
+    company_contact.relationships << FactoryGirl.build(:relationship, contact: owner, association_type: Constants::CLIENT)
+    company_contact.notes << FactoryGirl.build(:note, owner: owner, content: "This is test note")
+    @contact = ContactService.create company_contact, @user, owner
   end
 
   context "Notes belongs to user" do
@@ -36,7 +37,7 @@ RSpec.describe "Notes", type: :feature, js: true do
     before do
       @user2 = UserService.create FactoryGirl.build :real_person_user, email: "test2@gmail.com", password: "123456"
       contact_params = {relationships_attributes: [{association_type: Constants::CLIENT, contact_id: @user2.id}]}
-      ContactService.update(@contact, contact_params, @user2)
+      ContactService.update(@contact, contact_params, @user2, @user2)
       login_as(@user2, :scope => :user, :run_callbacks => false)
     end
 

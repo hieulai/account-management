@@ -19,7 +19,7 @@ FactoryGirl.define do
   factory :relationship do
     user
     contact :factory => :user
-    association_type { Constants::ASSOCIATION_TYPES.sample }
+    association_type { Constants::CLIENT }
 
     factory :founder_relationship do
       contact :factory => :real_person_user

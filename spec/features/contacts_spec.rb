@@ -5,12 +5,13 @@ RSpec.describe "Contacts", type: :feature, js: true do
   Warden.test_mode!
 
   before do
-    user = UserService.create FactoryGirl.build :real_person_user, email: "test@gmail.com", password: "123456"
+    user = UserService.create FactoryGirl.build :company_owner_person_user, email: "test@gmail.com", password: "123456"
+    owner = user.employers.first
     login_as(user, :scope => :user, :run_callbacks => false)
 
     company_contact = UserService.create FactoryGirl.build :company_user
-    company_contact.relationships << FactoryGirl.build(:relationship, contact: user, association_type: Constants::CLIENT)
-    @contact = ContactService.create company_contact, user
+    company_contact.relationships << FactoryGirl.build(:relationship, contact: owner, association_type: Constants::CLIENT)
+    @contact = ContactService.create(company_contact, user, owner)
     @person_user = UserService.create FactoryGirl.build :real_person_user
     @company_user = UserService.create FactoryGirl.build :real_company_user
 

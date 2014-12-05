@@ -19,6 +19,7 @@ class Relationship < ActiveRecord::Base
   belongs_to :contact, :class_name => 'User', :foreign_key => :contact_id
 
   scope :contact_by, lambda { |user| where(contact_id: user.id) }
+  scope :ignores, lambda { |ids| where('contact_id NOT IN (?)', ids) }
 
   scope :types, lambda { |type| where(association_type: type) }
   scope :vendors, -> { types Constants::VENDOR }
@@ -54,10 +55,8 @@ class Relationship < ActiveRecord::Base
     end
   end
 
-  [Constants::VENDOR, Constants::CLIENT, Constants::EMPLOYEE, Constants::HAS, Constants::BELONG].each do |name|
-    define_method("is_a_#{name.underscore}?") do
-      association_type == name
-    end
+  def is?(association_type)
+    self.association_type.try(:downcase) == association_type.to_s.downcase
   end
 
   def reflection

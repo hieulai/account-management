@@ -17,10 +17,11 @@
   <div class="control-group" data-name="company_contact" data-class="job_type" style="display: <%= company_contact_display %>">
       <%= label_tag :company_name, "Company", class: 'col-lg-2 control-label' %>
       <div class="controls">
-          <%= f.fields_for :relationships, user.source_employee_relationships.first_or_initialize do |p| %>
+          <%= f.fields_for :relationships, user.source_employee_relationships.ignores([root_user.id]).first_or_initialize do |p| %>
             <%= p.hidden_field :id %>
             <%= p.hidden_field :association_type, value: Constants::EMPLOYEE %>
             <%= p.select :contact_id, root_user.company_contacts.collect { |s| [s.display_name, s.id] } %>
+            <%= p.hidden_field :role %>
             <%= p.hidden_field :"_destroy", value: !is_company_contact %>
           <% end %>
       </div>
@@ -33,6 +34,13 @@
         <%= f.fields_for :relationships, relationships_for(user) do |p| %>
           <%= render :partial => 'shared/relationship_input', locals: {p: p, u: user} %>
         <% end %>
+    </div>
+
+    <div data-name="role" style="display: <%= is_a_employee_of_root?(user) ? "" : "none" %>">
+        <%= label_tag :role, 'Role', class: 'col-lg-2 control-label' %>
+        <div class="controls">
+            <%= select_tag :role, options_for_select(Constants::ROLES, user.role_in_company), include_blank: true, disabled: false %>
+        </div>
     </div>
 </div>
 

@@ -1,10 +1,12 @@
-<% r_object = get_relationship_of_root(u, p.object.association_type) %>
-<div>
-    <%= check_box_tag :"association_type_#{p.object.association_type}", nil, r_object.present?, {data: {name: 'association_type'}} %>
+<% r_object = get_relationship_of_root(u, p.object.association_type)
+   can_edit_employee = (p.object.association_type == Constants::EMPLOYEE) && !current_user.act_as_admin?
+%>
+<div data-name="association_type_<%= p.object.association_type %>">
+    <%= check_box_tag :"association_type_#{p.object.association_type}", nil, r_object.present?, disabled: false , data: {name: 'association_type'} %>
     <%= label_tag :"association_type_#{p.object.association_type}", p.object.association_type %>
     <%= p.hidden_field :id, value: r_object.try(:id) %>
     <%= p.hidden_field :association_type, value: p.object.association_type %>
-    <%= p.hidden_field :role, value: r_object.try(:role) %>
+    <%= p.hidden_field :role, value: r_object.try(:role), data: {name: 'hidden_role'} %>
     <%= p.hidden_field :contact_id, value: root_user.id %>
     <%= p.hidden_field :"_destroy", value: r_object.nil? %>
 </div>

@@ -52,7 +52,7 @@ RSpec.describe Relationship, :type => :model do
     end
 
     describe "employees" do
-      subject { FactoryGirl.create :relationship, association_type: Constants::EMPLOYEE }
+      subject { FactoryGirl.create :relationship, association_type: Constants::EMPLOYEE, role: Constants::OWNER }
       it { expect(Relationship.employees).to include(subject) }
     end
     describe "employers" do

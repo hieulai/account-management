@@ -17,15 +17,17 @@ module Constants
   # Roles
   COMPANY = "Company"
   PERSON = "Person"
-  OWNER = "owner"
-  ADMIN = "admin"
-  ACCOUNTANT = "accountant"
-  PAYROLL_MGR = "payroll_mgr"
-  RECEIVABLES_MGR = "receivables_mgr"
-  PAYABLES_MGR = "payables_mgr"
-  PROJECT_MGR = "project_mgr"
-  ESTIMATOR = "estimator"
-  ACCOUNT_MGR = "account_mgr"
+  OWNER = "Owner"
+  ADMIN = "Admin"
+  ACCOUNTANT = "Accountant"
+  PAYROLL_MGR = "Payroll Mgr"
+  RECEIVABLES_MGR = "Receivables Mgr"
+  PAYABLES_MGR = "Payables Mgr"
+  PROJECT_MGR = "Project Mgr"
+  ESTIMATOR = "Estimator"
+  ACCOUNT_MGR = "Account Mgr"
+  STAFF_ROLES = [ACCOUNTANT, PAYROLL_MGR, RECEIVABLES_MGR, PAYABLES_MGR, PROJECT_MGR, ESTIMATOR, ACCOUNT_MGR]
+  ROLES = [OWNER, ADMIN] + STAFF_ROLES
 
   PRIMARY_PHONE_TAGS = ["Main Phone", "Cell Phone", "Office Phone", "Home Phone", "Fax", "Pager"]
   SECONDARY_PHONE_TAGS = ["Secondary Phone", "Cell Phone ", "Office Phone", "Home Phone", "Fax", "Pager"]
@@ -52,4 +54,5 @@ module Constants
   # Messages
   COMPANY_UNIQUENESS = "A company with this same name, phone number and address already exists. Duplicate companies are not allowed."
   PERSON_UNIQUENESS = "A person with this same name, phone number and address already exists. Duplicate people are not allowed."
+  PERMISSION_VIOLATION = "You do not have valid permissions"
 end
