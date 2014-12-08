@@ -1,3 +1,12 @@
+<% content_for :javascript do %>
+  <script src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
+  <script type='text/javascript'>
+    $(function () {
+      Map.init();
+    });
+  </script>
+<% end %>
+
 <%= p.hidden_field(:id, data: { profile: "" }) %>
 <div class="control-group">
     <%= p.label :company_name, "Company Name", :class => 'col-lg-2 control-label' %>
@@ -31,14 +40,14 @@
 <div class="control-group">
     <%= p.label :address_line_1, "Address Line 1", :class => 'col-lg-2 control-label' %>
     <div class="controls">
-        <%= p.text_field(:address_line_1) %>
+        <%= p.text_field(:address_line_1, class: 'input-xlarge', data: {name: 'address'}) %>
     </div>
 </div>
 
 <div class="control-group">
     <%= p.label :address_line_2, "Address Line 2", :class => 'col-lg-2 control-label' %>
     <div class="controls">
-        <%= p.text_field(:address_line_2) %>
+        <%= p.text_field(:address_line_1, class: 'input-xlarge', data: {name: 'address'}) %>
     </div>
 </div>
 
