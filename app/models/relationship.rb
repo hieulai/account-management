@@ -71,19 +71,37 @@ class Relationship < ActiveRecord::Base
     text :type_name do
       user.type_name
     end
+    text :type_name_ngram, :as => 'type_name_text_ngram' do
+      user.type_name
+    end
     text :display_name do
+      user.display_name
+    end
+    text :display_name_ngram, :as => 'display_name_text_ngram' do
       user.display_name
     end
     text :city do
       user.city
     end
+    text :city_ngram, :as => 'city_text_ngram' do
+      user.city
+    end
     text :state do
+      user.state
+    end
+    text :state_ngram, :as => 'state_text_ngram' do
       user.state
     end
     text :zipcode do
       user.zipcode
     end
+    text :zipcode_ngram, :as => 'zipcode_text_ngram' do
+      user.zipcode
+    end
     text :phones do
+      phones
+    end
+    text :phones_ngram, :as => 'phones_text_ngram' do
       phones
     end
     text :addresses do
@@ -93,6 +111,9 @@ class Relationship < ActiveRecord::Base
       addresses
     end
     text :notes do
+      notes
+    end
+    text :notes_ngram, :as => 'notes_text_ngram' do
       notes
     end
   end
