@@ -81,21 +81,21 @@ a.uneditable, a.uneditable:hover{
 }
 
 .loader{
-    background: url('/assets/ajax-loader.gif') no-repeat;
+    background: url(image_path('ajax-loader.gif')) no-repeat;
     width: 32px;
     height: 32px;
 }
 
 .sorting {
-    background: url('/assets/sort_both.gif') no-repeat center right;
+    background: url(image_path('sort_both.gif')) no-repeat center right;
 }
 
 .sorting_asc {
-    background: url('/assets/sort_asc.gif') no-repeat center right;
+    background: url(image_path('sort_asc.gif')) no-repeat center right;
 }
 
 .sorting_desc {
-    background: url('/assets/sort_desc.gif') no-repeat center right;
+    background: url(image_path('sort_desc.gif')) no-repeat center right;
 }
 
 .dataTables_wrapper label input{
@@ -158,14 +158,14 @@ td.calculate {
     padding-left: 20px;
     background-position: left center;
     background-repeat: no-repeat;
-    background-image: url(/assets/minus.png);
+    background-image: url(image_path('minus.png'));
 }
 
 .collapsed.expander {
     padding-left: 20px;
     background-position: left center;
     background-repeat: no-repeat;
-    background-image: url(/assets/plus.png);
+    background-image: url(image_path('plus.png'));
 }
 
 .clearboth{
