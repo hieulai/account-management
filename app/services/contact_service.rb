@@ -70,6 +70,7 @@ class ContactService
       if updated_contact.update_attributes(attributes)
         contact.destroy unless contact.new_record?
         updated_contact.reload
+        after_save(updated_contact, owner)
       end
       updated_contact
     end
@@ -296,6 +297,7 @@ class ContactService
 
     def after_save(contact, owner)
       create_default_relationships(contact, owner)
+      Sunspot.index contact.reload.relationships
     end
 
     def create_default_relationships(contact, owner)

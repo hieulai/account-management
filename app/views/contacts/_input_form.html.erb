@@ -9,6 +9,7 @@
         </ul>
     </div>
   <% end %>
+  <%= hidden_field_tag :original_url, params[:original_url] || @original_url %>
   <%= render :partial => 'input_fields', locals: {f: f, user: @user, profile: @profile} %>
   <div class="control-group">
       <div class="controls">

@@ -64,6 +64,9 @@ class Relationship < ActiveRecord::Base
     string :addresses do
       addresses
     end
+    string :role do
+      role
+    end
     string :notes do
       notes
     end
@@ -115,6 +118,12 @@ class Relationship < ActiveRecord::Base
     end
     text :notes_ngram, :as => 'notes_text_ngram' do
       notes
+    end
+    text :role do
+      role
+    end
+    text :role_ngram, :as => 'role_text_ngram' do
+      role
     end
   end
 

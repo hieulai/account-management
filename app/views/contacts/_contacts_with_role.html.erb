@@ -1,32 +1,36 @@
+<%= form_tag(url, :method => 'get', :class => 'form-inline') do %>
+  <p>
+      <%= label_tag :query, "Search" %>
+      <%= text_field_tag(:query, @query) %>
+  </p>
+<% end %>
 <table class="grid-view margin-bottom responsive" summary="Contacts List">
     <thead>
     <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Primary Phone</th>
-        <th>Mailing address</th>
-        <th>Associated Projects</th>
-        <th>Role</th>
-        <th>Notes</th>
+        <%= sorted_th ["Name", "display_name"] %>
+        <%= sorted_th ["Primary Phone", "phones", "medium"] %>
+        <%= sorted_th ["Mailing address", "addresses", "medium"] %>
+        <%= sorted_th ["Role", "role", "medium"] %>
+        <%= sorted_th ["Notes", "notes"] %>
     </tr>
     </thead>
 
     <tbody>
-    <% contacts.each do |c| %>
+    <% grouped_relationships.each do |gr| %>
+      <% r = gr.results.first %>
       <tr class="clickable" data-name="clickable">
           <td>
-              <%= c.type_name  %>
-              <%= link_to 'Show', contact_path(c), data: {name: 'clickable-link'}, :style => 'display: none' %>
+              <%= r.user.display_name %>
+              <%= link_to 'Show', contact_path(r.user), data: {name: 'clickable-link'}, :style => 'display: none' %>
           </td>
-          <td><%= c.display_name %></td>
-          <td><%= phone_for(c) %></td>
+          <td><%= phone_for(r.user) %></td>
           <td>
-              <%= render :partial => 'shared/mailing_address', locals: {user: c} %>
+              <%= render :partial => 'shared/mailing_address', locals: {user: r.user} %>
           </td>
-          <td></td>
-          <td><%= get_relationship_of_root(c, Constants::EMPLOYEE).role %></td>
-          <td><%= note_of_root_for(c).try(:content) %></td>
+          <td><%= get_relationship(r.user, Constants::EMPLOYEE, owner).role %></td>
+          <td><%= note_of_root_for(r.user).try(:content) %></td>
       </tr>
     <% end %>
     </tbody>
 </table>
+<%= paginate @grouped_relationships %>

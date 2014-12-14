@@ -27,5 +27,9 @@
             </p>
         </div>
     </div>
-    <%= render :partial => 'contacts/company/company_contacts', :locals => {:user => @user} %>
+    <% if @user.is_a?(CompanyUser) %>
+      <%= render :partial => 'contacts/company/company_contacts', :locals => {user: @user,
+                                                                              grouped_relationships: @grouped_relationships,
+                                                                              url: contact_path(@user)} %>
+    <% end %>
 </div>

@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   include ApplicationHelper
+  after_filter :put_params
 
   def after_sign_in_path_for(resource)
     url_for contacts_path
@@ -17,6 +18,10 @@ class ApplicationController < ActionController::Base
       flash[:error] = Constants::PERMISSION_VIOLATION
       redirect_to root_url
     end
+  end
+
+  def put_params
+    @original_url = params[:original_url]
   end
 
   def user_params

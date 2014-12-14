@@ -8,6 +8,7 @@
 #  deleted_at :time
 #  created_at :datetime
 #  updated_at :datetime
+#  owner_id   :integer
 #
 
 require 'rails_helper'

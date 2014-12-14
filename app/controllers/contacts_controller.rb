@@ -31,6 +31,11 @@ class ContactsController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    if @user.is_a?(CompanyUser)
+      @query = params[:query]
+      @grouped_relationships = ContactService.search(@query, {page: params[:page], association_type: Constants::EMPLOYEE, sort_field: params[:sort_field], sort_dir: params[:sort_dir]},
+                                                     current_user, @user)
+    end
   end
 
   # GET /users/new
@@ -44,6 +49,11 @@ class ContactsController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    if @user.is_a?(CompanyUser)
+      @query = params[:query]
+      @grouped_relationships = ContactService.search(@query, {page: params[:page], association_type: Constants::EMPLOYEE, sort_field: params[:sort_field], sort_dir: params[:sort_dir]},
+                                                     current_user, @user)
+    end
   end
 
   # POST /users
@@ -54,7 +64,7 @@ class ContactsController < ApplicationController
       @user = ContactService.create(@user, current_user, root_user)
       @profile = @user.profile
       if @user.errors.empty?
-        format.html { redirect_to contacts_url, notice: 'User was successfully created.' }
+        format.html { redirect_to params[:original_url].presence || contacts_url, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
         format.html do
@@ -77,7 +87,7 @@ class ContactsController < ApplicationController
       @user = ContactService.update(@user, user_params, current_user, root_user)
       @profile = @user.profile
       if @user.errors.empty?
-        format.html { redirect_to contacts_url, notice: 'User was successfully updated.' }
+        format.html { redirect_to params[:original_url].presence || contacts_url, notice: 'User was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
       else
         format.html do
@@ -105,7 +115,7 @@ class ContactsController < ApplicationController
         if @user.errors.any?
           render :delete
         else
-          redirect_to contacts_url, notice: 'User was successfully destroyed.'
+          redirect_to params[:original_url].presence || contacts_url, notice: 'User was successfully destroyed.'
         end
       end
       format.json { head :no_content }

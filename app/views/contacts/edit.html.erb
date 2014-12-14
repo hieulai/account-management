@@ -18,7 +18,11 @@
     <div class="zurb-row">
         <div class="columns margin-bottom">
             <%= render 'form' %>
-            <%= render :partial => 'contacts/company/company_contacts', :locals => {:user => @user} %>
+            <% if @user.is_a?(CompanyUser) %>
+              <%= render :partial => 'contacts/company/company_contacts', :locals => {user: @user,
+                                                                                      grouped_relationships: @grouped_relationships,
+                                                                                      url: edit_contact_path(@user)} %>
+            <% end %>
         </div>
     </div>
 </div>

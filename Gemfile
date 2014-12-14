@@ -13,6 +13,7 @@ group :test, :development do
   gem 'launchy'
   gem 'capybara-webkit'
   gem "sunspot_test"
+  gem 'daemons'
 end
 
 group :development do
@@ -80,5 +81,5 @@ gem "bugsnag"
 # Misc
 gem "paranoia"
 gem "global_phone"
-#gem 'delayed_job_active_record'
+gem 'delayed_job_active_record'
 #gem "bitbucket_rest_api"

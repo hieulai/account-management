@@ -1,11 +1,13 @@
 <table class="grid-view margin-bottom responsive" summary="Contacts List">
     <thead>
-    <%= sorted_th ["Type", "type_name"] %>
-    <%= sorted_th ["Name", "display_name"] %>
-    <%= sorted_th ["Primary Phone", "phones", "medium"] %>
-    <%= sorted_th ["Mailing address", "addresses", "medium"] %>
-    <th>Associated Projects</th>
-    <%= sorted_th ["Notes", "notes"] %>
+      <tr>
+          <%= sorted_th ["Type", "type_name"] %>
+          <%= sorted_th ["Name", "display_name"] %>
+          <%= sorted_th ["Primary Phone", "phones", "medium"] %>
+          <%= sorted_th ["Mailing address", "addresses", "medium"] %>
+          <th>Associated Projects</th>
+          <%= sorted_th ["Notes", "notes"] %>
+      </tr>
     </thead>
 
     <tbody>
