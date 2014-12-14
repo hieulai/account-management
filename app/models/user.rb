@@ -64,27 +64,19 @@ class User < ActiveRecord::Base
   end
 
   def display_name
-    profile.display_name
-  end
-
-  def primary_address
-    profile.primary_address
+    profile.try(:display_name)
   end
 
   def city
-    profile.city
+    profile.try(:city)
   end
 
   def state
-    profile.state
+    profile.try(:state)
   end
 
   def zipcode
-    profile.zipcode
-  end
-
-  def primary_note
-    notes.first.try(:content)
+    profile.try(:zipcode)
   end
 
   def is_real?

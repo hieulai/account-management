@@ -1,10 +1,11 @@
 require 'rails_helper'
 
-RSpec.describe "Registrations", type: :feature do
+RSpec.describe "Registrations", type: :feature, :search => true do
   before do
     @existing = UserService.create FactoryGirl.build :real_person_user, email: "test@gmail.com", password: "123456"
     @contact = FactoryGirl.create :contact_person_user
     @company_contact = FactoryGirl.create :company_user
+    Sunspot.commit
   end
 
   scenario "Register with an existing email" do

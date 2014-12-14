@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Notes", type: :feature, js: true do
+RSpec.describe "Notes", type: :feature, js: true, :search => true do
   include Warden::Test::Helpers
   Warden.test_mode!
 
@@ -11,6 +11,7 @@ RSpec.describe "Notes", type: :feature, js: true do
     company_contact.relationships << FactoryGirl.build(:relationship, contact: owner, association_type: Constants::CLIENT)
     company_contact.notes << FactoryGirl.build(:note, owner: owner, content: "This is test note")
     @contact = ContactService.create company_contact, @user, owner
+    Sunspot.commit
   end
 
   context "Notes belongs to user" do
@@ -38,12 +39,12 @@ RSpec.describe "Notes", type: :feature, js: true do
       @user2 = UserService.create FactoryGirl.build :real_person_user, email: "test2@gmail.com", password: "123456"
       contact_params = {relationships_attributes: [{association_type: Constants::CLIENT, contact_id: @user2.id}]}
       ContactService.update(@contact, contact_params, @user2, @user2)
+      Sunspot.commit
       login_as(@user2, :scope => :user, :run_callbacks => false)
     end
 
     scenario "Should not see content in show screen" do
       visit "/contacts"
-
       expect(page).to have_text(@contact.display_name)
       expect(page).not_to have_text("This is test note")
     end

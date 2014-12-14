@@ -40,7 +40,4 @@ class Person < ActiveRecord::Base
     "#{first_name} #{last_name}"
   end
 
-  def primary_address
-    address_line_1.present? ? address_line_1 : address_line_2
-  end
 end

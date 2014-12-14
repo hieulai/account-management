@@ -5,19 +5,27 @@ class ContactsController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @contacts = root_user.contacts.ignores([current_user.id])
+    @query = params[:query]
+    @grouped_relationships = ContactService.search(@query, {page: params[:page], sort_field: params[:sort_field], sort_dir: params[:sort_dir]},
+                                                   current_user, root_user)
   end
 
   def vendors
-    @contacts = root_user.vendors
+    @query = params[:query]
+    @grouped_relationships = ContactService.search(@query, {page: params[:page], association_type: Constants::VENDOR, sort_field: params[:sort_field], sort_dir: params[:sort_dir]},
+                                                   current_user, root_user)
   end
 
   def clients
-    @contacts = root_user.clients
+    @query = params[:query]
+    @grouped_relationships = ContactService.search(@query, {page: params[:page], association_type: Constants::CLIENT, sort_field: params[:sort_field], sort_dir: params[:sort_dir]},
+                                                   current_user, root_user)
   end
 
   def employees
-    @contacts = root_user.employees.ignores([current_user.id])
+    @query = params[:query]
+    @grouped_relationships = ContactService.search(@query, {page: params[:page], association_type: Constants::EMPLOYEE, sort_field: params[:sort_field], sort_dir: params[:sort_dir]},
+                                                   current_user, root_user)
   end
 
   # GET /users/1
@@ -171,7 +179,6 @@ class ContactsController < ApplicationController
   end
 
   private
-  # Use callbacks to share common setup or constraints between actions.
   def set_contact
     @user = User.find params[:id]
     @profile = @user.profile

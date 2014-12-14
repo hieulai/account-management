@@ -15,9 +15,8 @@
         </div>
     </div>
     <div class="zurb-row">
-        <div class="columns">
-            <%= render :partial => 'contacts', :locals => {:contacts => @contacts} %>
-        </div>
+        <%= render :partial => 'contacts_with_search', :locals => {url: contacts_path, grouped_relationships: @grouped_relationships} %>
     </div>
+
 </div>
 

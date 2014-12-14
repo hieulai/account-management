@@ -43,14 +43,6 @@ RSpec.configure do |config|
     DatabaseCleaner.clean_with :truncation
   end
 
-  # config.before(:each) do
-  #   ::Sunspot.session = ::Sunspot::Rails::StubSessionProxy.new(::Sunspot.session)
-  # end
-  #
-  # config.after(:each) do
-  #   ::Sunspot.session = ::Sunspot.session.original_session
-  # end
-
 # The settings below are suggested to provide a good initial experience
 # with RSpec, but feel free to customize to your heart's content.
   begin

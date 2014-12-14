@@ -1,8 +1,9 @@
 require 'rails_helper'
 
-RSpec.describe "Sessions", type: :feature do
+RSpec.describe "Sessions", type: :feature, :search => true do
   before do
     UserService.create FactoryGirl.build :real_person_user, email: "test@gmail.com", password: "123456"
+    Sunspot.commit
   end
 
   scenario "User login with correct credentials" do

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Contacts", type: :feature, js: true do
+RSpec.describe "Contacts", type: :feature, js: true, :search => true do
   include Warden::Test::Helpers
   Warden.test_mode!
 
@@ -14,6 +14,7 @@ RSpec.describe "Contacts", type: :feature, js: true do
     @contact = ContactService.create(company_contact, user, owner)
     @person_user = UserService.create FactoryGirl.build :real_person_user
     @company_user = UserService.create FactoryGirl.build :real_company_user
+    Sunspot.commit
 
     visit '/contacts'
     expect(page).to have_text("Contacts")

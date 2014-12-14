@@ -36,6 +36,67 @@ class Relationship < ActiveRecord::Base
   after_create :create_reflection, :unless => Proc.new { |r| r.reflex? }
   after_destroy :destroy_reflection
 
+  searchable do
+    integer :contact_id
+    integer :user_id
+    string :user_id_str do
+      user_id.to_s
+    end
+    string :association_type
+    string :type_name do
+      user.type_name
+    end
+    string :display_name do
+      user.display_name
+    end
+    string :city do
+      user.city
+    end
+    string :state do
+      user.state
+    end
+    string :zipcode do
+      user.zipcode
+    end
+    string :phones do
+      phones
+    end
+    string :addresses do
+      addresses
+    end
+    string :notes do
+      notes
+    end
+
+    text :type_name do
+      user.type_name
+    end
+    text :display_name do
+      user.display_name
+    end
+    text :city do
+      user.city
+    end
+    text :state do
+      user.state
+    end
+    text :zipcode do
+      user.zipcode
+    end
+    text :phones do
+      phones
+    end
+    text :addresses do
+      addresses
+    end
+    text :addresses_ngram, :as => 'addresses_text_ngram' do
+      addresses
+    end
+    text :notes do
+      notes
+    end
+  end
+
   class << self
     def reflex_association_type(type)
       case type
@@ -74,5 +135,27 @@ class Relationship < ActiveRecord::Base
   private
   def reflection_attributes
     {user_id: contact_id, contact_id: user_id, role: role, association_type: Relationship.reflex_association_type(association_type)}
+  end
+
+  def phones
+    phone = ""
+    phone += " #{user.profile.try(:phone_1)} #{user.profile.try(:phone_tag_1)}" if user.profile.try(:phone_1)
+    phone += " #{user.profile.try(:phone_2)} #{user.profile.try(:phone_tag_2)}" if user.profile.try(:phone_2)
+    phone
+  end
+
+  def addresses
+    if user.is_a? PersonUser
+      address = user.email
+    else
+      address = ""
+      address += " #{user.profile.try(:address_line_1)}" if user.profile.try(:address_line_1)
+      address += " #{user.profile.try(:address_line_2)}" if user.profile.try(:address_line_2)
+    end
+    address
+  end
+
+  def notes
+    user.notes.created_by(contact).map(&:content).join(" ")
   end
 end

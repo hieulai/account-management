@@ -12,13 +12,13 @@ group :test, :development do
   gem 'database_cleaner'
   gem 'launchy'
   gem 'capybara-webkit'
+  gem "sunspot_test"
 end
 
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'quiet_assets'
-  gem 'rack-mini-profiler'
   gem 'brakeman', :require => false
   gem "rails-erd"
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
@@ -53,7 +53,7 @@ gem 'turbolinks'
 #gem 'cocoon'
 #gem 'rails3-jquery-autocomplete'
 #gem 'select2-rails'
-#gem 'kaminari'
+gem 'kaminari'
 
 # Uploads
 #gem 'carrierwave'
@@ -66,9 +66,9 @@ gem 'axlsx', '~> 2.0'
 gem 'axlsx_rails'
 
 # Indexing
-#gem 'sunspot_rails'
-#gem 'sunspot_solr'
-#gem 'progress_bar'
+gem 'sunspot_rails'
+gem 'sunspot_solr'
+gem 'progress_bar'
 
 # Authentication & Authorization
 gem 'devise'

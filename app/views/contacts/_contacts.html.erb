@@ -1,29 +1,28 @@
 <table class="grid-view margin-bottom responsive" summary="Contacts List">
     <thead>
-    <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Primary Phone</th>
-        <th>Mailing address</th>
-        <th>Associated Projects</th>
-        <th>Notes</th>
-    </tr>
+    <%= sorted_th ["Type", "type_name"] %>
+    <%= sorted_th ["Name", "display_name"] %>
+    <%= sorted_th ["Primary Phone", "phones", "medium"] %>
+    <th>Mailing address</th>
+    <th>Associated Projects</th>
+    <%= sorted_th ["Notes", "notes"] %>
     </thead>
 
     <tbody>
-    <% contacts.each do |c| %>
+    <% grouped_relationships.each do |gr| %>
+      <% r = gr.results.first %>
       <tr class="clickable" data-name="clickable">
           <td>
-              <%= c.type_name  %>
-              <%= link_to 'Show', contact_path(c), data: {name: 'clickable-link'}, :style => 'display: none' %>
+              <%= r.user.type_name %>
+              <%= link_to 'Show', contact_path(r.user), data: {name: 'clickable-link'}, :style => 'display: none' %>
           </td>
-          <td><%= c.display_name %></td>
-          <td><%= phone_for(c) %></td>
+          <td><%= r.user.display_name %></td>
+          <td><%= phone_for(r.user) %></td>
           <td>
-              <%= render :partial => 'shared/mailing_address', locals: {user: c} %>
+              <%= render :partial => 'shared/mailing_address', locals: {user: r.user} %>
           </td>
           <td></td>
-          <td><%= note_of_root_for(c).try(:content) %></td>
+          <td><%= note_of_root_for(r.user).try(:content) %></td>
       </tr>
     <% end %>
     </tbody>

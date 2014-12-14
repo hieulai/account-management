@@ -6,6 +6,7 @@ require 'rspec/rails'
 require 'devise'
 require 'capybara/rspec'
 require 'capybara_helper'
+require 'sunspot_test/rspec'
 
 # Add additional requires below this line. Rails is not loaded until this point!
 

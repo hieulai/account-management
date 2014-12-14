@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe ContactsController, :type => :controller do
+RSpec.describe ContactsController, :type => :controller, :search => true do
   include_context "shared loggedin"
 
   let (:contact) { FactoryGirl.build :contact_person_user }
@@ -10,6 +10,7 @@ RSpec.describe ContactsController, :type => :controller do
     before do
       contact.relationships << FactoryGirl.build(:relationship, contact: controller.root_user, association_type: Constants::CLIENT)
       @contact = ContactService.create contact, controller.current_user , controller.root_user
+      Sunspot.commit
     end
     it 'renders the index template' do
       get :index
@@ -18,7 +19,7 @@ RSpec.describe ContactsController, :type => :controller do
 
     it 'assigns @contacts' do
       get :index
-      expect(assigns(:contacts)).to include(@contact)
+      expect(assigns(:grouped_relationships)).not_to be_empty
     end
   end
 
@@ -26,6 +27,7 @@ RSpec.describe ContactsController, :type => :controller do
     before do
       contact.relationships << FactoryGirl.build(:relationship, contact: controller.root_user, association_type: Constants::VENDOR)
       @contact = ContactService.create contact, controller.current_user, controller.root_user
+      Sunspot.commit
     end
     it 'renders the index template' do
       get :vendors
@@ -35,7 +37,7 @@ RSpec.describe ContactsController, :type => :controller do
 
     it 'assigns @contacts' do
       get :vendors
-      expect(assigns(:contacts)).to include(@contact)
+      expect(assigns(:grouped_relationships)).not_to be_empty
     end
   end
 
@@ -43,6 +45,7 @@ RSpec.describe ContactsController, :type => :controller do
     before do
       contact.relationships << FactoryGirl.build(:relationship, contact: controller.root_user, association_type: Constants::CLIENT)
       @contact = ContactService.create contact, controller.current_user, controller.root_user
+      Sunspot.commit
     end
     it 'renders the index template' do
       get :clients
@@ -52,7 +55,7 @@ RSpec.describe ContactsController, :type => :controller do
 
     it 'assigns @contacts' do
       get :clients
-      expect(assigns(:contacts)).to include(@contact)
+      expect(assigns(:grouped_relationships)).not_to be_empty
     end
 
   end
@@ -61,6 +64,7 @@ RSpec.describe ContactsController, :type => :controller do
     before do
       contact.relationships << FactoryGirl.build(:relationship, contact: controller.root_user, association_type: Constants::EMPLOYEE, role: Constants::STAFF_ROLES.sample)
       @contact = ContactService.create contact, controller.current_user, controller.root_user
+      Sunspot.commit
     end
     it 'renders the index template' do
       get :employees
@@ -69,7 +73,7 @@ RSpec.describe ContactsController, :type => :controller do
 
     it 'assigns @contacts' do
       get :employees
-      expect(assigns(:contacts)).to include(@contact)
+      expect(assigns(:grouped_relationships)).not_to be_empty
     end
   end
 

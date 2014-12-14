@@ -1,0 +1,14 @@
+<div class="zurb-row">
+    <div class="columns">
+        <%= form_tag(url, :method => 'get', :class => 'form-inline') do %>
+          <p>
+              <%= label_tag :query, "Search" %>
+              <%= text_field_tag(:query, @query) %>
+          </p>
+        <% end %>
+    </div>
+    <div class="columns">
+        <%= render :partial => 'contacts', :locals => {:grouped_relationships => grouped_relationships} %>
+        <%= paginate @grouped_relationships %>
+    </div>
+</div>

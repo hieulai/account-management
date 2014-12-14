@@ -45,6 +45,7 @@ class ContactService
       authorize(contact, current_user)
       return contact if contact.errors.any?
 
+      before_save(updated_contact, owner)
       attributes = {relationships_attributes: [], notes_attributes: [] }
 
       merged_relationships = contact.relationships
@@ -124,6 +125,19 @@ class ContactService
         contact.destroy unless contact.relationships.any?
       end
       contact
+    end
+
+    def search (query, options = {}, current_user, owner)
+      search = Relationship.search {
+        fulltext query
+        with(:contact_id, owner.id)
+        without(:user_id, current_user.id)
+        with(:association_type, options[:association_type]) if options[:association_type]
+        group :user_id_str
+        paginate :page => options[:page], :per_page => Kaminari.config.default_per_page
+        order_by options[:sort_field].to_sym, options[:sort_dir].to_sym if options[:sort_field] && options[:sort_dir]
+      }
+      search.group(:user_id_str).groups
     end
 
     def check_valid(contact, owner)
