@@ -20,7 +20,7 @@
           <%= f.fields_for :relationships, user.source_employee_relationships.ignores([root_user.id]).first_or_initialize do |p| %>
             <%= p.hidden_field :id %>
             <%= p.hidden_field :association_type, value: Constants::EMPLOYEE %>
-            <%= p.select :contact_id, root_user.company_contacts.collect { |s| [s.display_name, s.id] } %>
+            <%= p.select :contact_id, root_user.company_contacts.collect { |s| [s.display_name, s.id] }, selected: params[:contact_id]  %>
             <%= p.hidden_field :role %>
             <%= p.hidden_field :"_destroy", value: !is_company_contact %>
           <% end %>
