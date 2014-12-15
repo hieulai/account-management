@@ -40,7 +40,7 @@
 <div class="control-group">
     <%= p.label :address_line_1, "Address Line 1", :class => 'col-lg-2 control-label' %>
     <div class="controls">
-        <%= p.text_field(:address_line_1, class: 'input-xlarge', data: {name: 'address'}) %>
+        <%= p.text_field(:address_line_1, class: 'input-xlarge', data: {name: 'address', id: 'main'}) %>
     </div>
 </div>
 
@@ -54,20 +54,20 @@
 <div class="control-group">
     <%= p.label :city, "City", :class => 'col-lg-2 control-label' %>
     <div class="controls">
-        <%= p.text_field(:city) %>
+        <%= p.text_field(:city, data: {name: 'locality'}) %>
     </div>
 </div>
 <div class="control-group">
     <%= p.label :state, "State", :class => 'col-lg-2 control-label' %>
     <div class="controls">
-        <%= p.text_field(:state) %>
+        <%= p.text_field(:state, data: {name: 'administrative_area_level_1'}) %>
     </div>
 </div>
 
 <div class="control-group">
     <%= p.label :zipcode, "Zipcode", :class => 'col-lg-2 control-label' %>
     <div class="controls">
-        <%= p.text_field(:zipcode) %>
+        <%= p.text_field(:zipcode, data: {name: 'postal_code'}) %>
     </div>
 </div>
 
