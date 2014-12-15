@@ -1,19 +1,22 @@
-<div class="large-3 medium-4 columns">
-    <% if is_editable?(user) %>
-      <%= link_to 'Add Company Contact', new_contact_path(type: PersonUser.name,
-                                                          association_type: Constants::EMPLOYEE,
-                                                          contact_id: user.id,
-                                                          original_url: contact_path(user)
-                                       ), class: 'add action-button' %>
-    <% end %>
+<div class="zurb-row">
+    <div class="large-3 medium-3 columns">
+        <% if is_editable?(user) %>
+          <%= link_to 'Add Company Contact', new_contact_path(type: PersonUser.name,
+                                                              association_type: Constants::EMPLOYEE,
+                                                              contact_id: user.id,
+                                                              original_url: contact_path(user)
+                                           ), class: 'add action-button' %>
+        <% end %>
+    </div>
+    <div class="large-6 medium-6 columns">
+        <h1 class="center">
+            Company Contacts
+        </h1>
+    </div>
+    <div class="large-3 medium-3 columns">
+    </div>
+    <div class="columns">
+        <%= render :partial => 'contacts/contacts_with_role', :locals => {grouped_relationships: @grouped_relationships, owner: @user, url: url} %>
+    </div>
 </div>
-<div class="large-6 medium-6 columns">
-    <h1 class="center">
-        Company Contacts
-    </h1>
-</div>
-<div class="large-3 medium-2 columns">
-</div>
-<div class="columns margin-bottom">
-    <%= render :partial => 'contacts/contacts_with_role', :locals => {grouped_relationships: @grouped_relationships, owner: @user, url: url } %>
-</div>
+
