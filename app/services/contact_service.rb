@@ -297,7 +297,9 @@ class ContactService
 
     def after_save(contact, owner)
       create_default_relationships(contact, owner)
-      Sunspot.index contact.reload.relationships
+      contact.reload
+      Sunspot.index contact.relationships.contact_by(owner)
+      Sunspot.index contact.relationships.employees if company_contact?(contact, owner)
     end
 
     def create_default_relationships(contact, owner)
