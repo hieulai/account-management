@@ -31,11 +31,6 @@ class ContactsController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    if @user.is_a?(CompanyUser)
-      @query = params[:query]
-      @grouped_relationships = ContactService.search(@query, {page: params[:page], association_type: Constants::EMPLOYEE, sort_field: params[:sort_field], sort_dir: params[:sort_dir]},
-                                                     current_user, @user)
-    end
   end
 
   # GET /users/new
@@ -49,11 +44,6 @@ class ContactsController < ApplicationController
 
   # GET /users/1/edit
   def edit
-    if @user.is_a?(CompanyUser)
-      @query = params[:query]
-      @grouped_relationships = ContactService.search(@query, {page: params[:page], association_type: Constants::EMPLOYEE, sort_field: params[:sort_field], sort_dir: params[:sort_dir]},
-                                                     current_user, @user)
-    end
   end
 
   # POST /users
@@ -192,6 +182,11 @@ class ContactsController < ApplicationController
   def set_contact
     @user = User.find params[:id]
     @profile = @user.profile
+    if @user.is_a?(CompanyUser)
+      @query = params[:query]
+      @grouped_relationships = ContactService.search(@query, {page: params[:page], association_type: Constants::EMPLOYEE, sort_field: params[:sort_field], sort_dir: params[:sort_dir]},
+                                                     current_user, @user)
+    end
   end
 
 end
