@@ -166,7 +166,6 @@ class ContactService
 
     def relationship_types_for(contact, owner)
       array = [Constants::VENDOR, Constants::CLIENT]
-      array << Constants::EMPLOYEE if contact.is_a?(PersonUser) && owner.is_a?(CompanyUser)
       array << Constants::EMPLOYER if contact.is_a?(CompanyUser) && !owner.is_a?(CompanyUser)
       array
     end

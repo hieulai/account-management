@@ -13,6 +13,7 @@ module Constants
   CONTACT = "Contact"
   SELF_EMPLOYED = "self_employed"
   COMPANY_CONTACT = "company_contact"
+  COMPANY_EMPLOYEE = "company_employee"
 
   # Roles
   COMPANY = "Company"

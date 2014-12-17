@@ -68,6 +68,19 @@ RSpec.describe "Contacts", type: :feature, js: true, :search => true do
       # end
     end
 
+    context "Employed by My Company" do
+      before do
+        choose "Employed by My Company"
+      end
+
+      scenario "Happy flow" do
+        fill_in "First Name", :with => "A"
+        fill_in "Last Name", :with => "Employee"
+        click_button "Save"
+        visit '/contacts/employees'
+        expect(page).to have_text("A Employee")
+      end
+    end
   end
 
   context "Add new Company Contact" do

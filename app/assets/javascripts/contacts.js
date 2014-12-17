@@ -24,16 +24,12 @@ var Contact = (function ($) {
             $containers.hide();
 
             var $selector = $('div[data-name="' + $(this).val() + '"]');
-            if ($selector.data("name") == "company_contact"){
+            if ($selector.data("name") != "self_employed"){
                 $selector.each(function (index) {
                     $(this).find('input[name$="[_destroy]"]').val("false");
                 });
             }
             $selector.show();
-        });
-
-        $(document).on('change', 'select[name="role"]', function () {
-            $('div[data-name="association_type_Employee"] input[data-name="hidden_role"]').val($(this).val());
         });
 
         $(document).on('click', 'input[name="association_type_Employee"]', function () {

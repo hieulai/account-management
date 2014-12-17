@@ -1,6 +1,4 @@
-<% r_object = get_relationship_of_root(u, p.object.association_type)
-   can_edit_employee = (p.object.association_type == Constants::EMPLOYEE) && !current_user.act_as_admin?
-%>
+<% r_object = get_relationship_of_root(u, p.object.association_type) %>
 <div data-name="association_type_<%= p.object.association_type %>">
     <%= check_box_tag :"association_type_#{p.object.association_type}", nil, r_object.present?, disabled: false , data: {name: 'association_type'} %>
     <%= label_tag :"association_type_#{p.object.association_type}", p.object.association_type %>

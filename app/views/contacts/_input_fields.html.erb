@@ -1,16 +1,29 @@
-<% is_company_contact = is_a_company_contact? user
-   company_contact_display = is_company_contact ? "" : "none"
-   self_employed_display = is_company_contact ? "none" : ""
+<%
+   if is_a_company_contact? user
+     job_type = Constants::COMPANY_CONTACT
+   elsif is_a_employee_of_root? user
+     job_type = Constants::COMPANY_EMPLOYEE
+   else
+     job_type = Constants::SELF_EMPLOYED
+   end
+
+   company_contact_display = job_type == Constants::COMPANY_CONTACT ? "" : "none"
+   company_employee_display = job_type == Constants::COMPANY_EMPLOYEE ? "" : "none"
+   self_employed_display = job_type == Constants::SELF_EMPLOYED ? "" : "none"
 %>
-<% if user.is_a?(PersonUser) && is_editable?(user) %>
+
+<% if user.is_a?(PersonUser) %>
   <div class="control-group">
       <%= label_tag :type_name, "Employment Status", class: 'col-lg-2 control-label' %>
       <div class="controls">
-          <%= f.radio_button(:job_type, Constants::SELF_EMPLOYED, checked: !is_company_contact) %>
+          <%= f.radio_button(:job_type, Constants::SELF_EMPLOYED, checked: job_type == Constants::SELF_EMPLOYED) %>
           <%= f.label(:job_type_self_employed, "Self-Employed") %>
           <br/>
-          <%= f.radio_button(:job_type, Constants::COMPANY_CONTACT, checked: is_company_contact) %>
+          <%= f.radio_button(:job_type, Constants::COMPANY_CONTACT, checked: job_type == Constants::COMPANY_CONTACT) %>
           <%= f.label(:job_type_company_contact, "Employed by Company") %>
+          <br/>
+          <%= f.radio_button(:job_type, Constants::COMPANY_EMPLOYEE, checked: job_type == Constants::COMPANY_EMPLOYEE) %>
+          <%= f.label(:job_type_company_employee, "Employed by My Company") %>
       </div>
   </div>
 
@@ -20,9 +33,9 @@
           <%= f.fields_for :relationships, user.source_employee_relationships.ignores([root_user.id]).first_or_initialize do |p| %>
             <%= p.hidden_field :id %>
             <%= p.hidden_field :association_type, value: Constants::EMPLOYEE %>
-            <%= p.select :contact_id, root_user.company_contacts.collect { |s| [s.display_name, s.id] }, selected: params[:contact_id]  %>
+            <%= p.select :contact_id, root_user.company_contacts.collect { |s| [s.display_name, s.id] }, selected: params[:contact_id] %>
             <%= p.hidden_field :role %>
-            <%= p.hidden_field :"_destroy", value: !is_company_contact %>
+            <%= p.hidden_field :"_destroy", value: job_type != Constants::COMPANY_CONTACT %>
           <% end %>
       </div>
   </div>
@@ -35,14 +48,24 @@
           <%= render :partial => 'shared/relationship_input', locals: {p: p, u: user} %>
         <% end %>
     </div>
-
-    <div data-name="role" style="display: <%= is_a_employee_of_root?(user) ? "" : "none" %>">
-        <%= label_tag :role, 'Role', class: 'col-lg-2 control-label' %>
-        <div class="controls">
-            <%= select_tag :role, options_for_select(Constants::ROLES, user.role_in_company), include_blank: true, disabled: false %>
-        </div>
-    </div>
 </div>
+
+<% if user.is_a?(PersonUser) %>
+  <div class="control-group" data-name="company_employee" data-class="job_type" style="display: <%= company_employee_display %>">
+      <div data-name="role">
+          <%= label_tag :role, 'Role', class: 'col-lg-2 control-label' %>
+          <div class="controls">
+              <%= f.fields_for :relationships, user.source_employee_relationships.contact_by(root_user).first_or_initialize do |p| %>
+                <%= p.hidden_field :id %>
+                <%= p.hidden_field :association_type, value: Constants::EMPLOYEE %>
+                <%= p.hidden_field :contact_id, value: root_user.id %>
+                <%= p.select :role, options_for_select(Constants::ROLES, user.role_in_company), include_blank: true %>
+                <%= p.hidden_field :"_destroy", value: job_type != Constants::COMPANY_EMPLOYEE %>
+              <% end %>
+          </div>
+      </div>
+  </div>
+<% end %>
 
 <% if is_editable?(user) %>
   <%= f.hidden_field :type %>
