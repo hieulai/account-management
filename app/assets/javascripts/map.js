@@ -35,13 +35,22 @@ var Map = (function ($) {
     };
 
     var fillInAddress = function (autocomplete) {
+        var $mainAdrress = $('[data-id="main"][data-name="address"]');
         var place = autocomplete.getPlace();
         for (var key in componentForm) {
             $('[data-name="' + key + '"]').val("");
         }
+
         for (var i = 0; i < place.address_components.length; i++) {
             var addressType = place.address_components[i].types[0];
-            if (componentForm[addressType]) {
+            if (addressType == "street_number") {
+                $mainAdrress.blur().val(place.address_components[i]["long_name"]);
+            }
+            else if (addressType == "route") {
+                var val = $mainAdrress.val();
+                $mainAdrress.blur().val(val == "" ? val : (val + " ") + place.address_components[i]["long_name"]);
+            }
+            else if (componentForm[addressType]) {
                 var val = place.address_components[i][componentForm[addressType]];
                 $('[data-name="' + addressType + '"]').val(val);
             }
